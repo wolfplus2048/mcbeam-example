@@ -1,0 +1,19 @@
+syntax="proto3";
+package proto.gate;
+
+message LoginReq {
+  string username = 1;
+}
+message LoginRes {
+  string code = 1;
+  string uid = 2;
+  string username = 3;
+}
+message GetUserInfoReq {
+  string uid = 1;
+}
+message GetUserInfoRes {
+  string code = 1;
+  string uid = 2;
+  string username = 3;
+}

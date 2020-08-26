@@ -1,0 +1,38 @@
+syntax = "proto3";
+package proto.room;
+message User {
+  string uid = 1;
+  string username = 2;
+}
+message Room {
+  string id = 1;
+  string name = 2;
+  repeated User users = 4;
+}
+message JoinReq {
+  string id = 1;
+}
+message JoinRes {
+  string code = 1;
+    Room room = 2;
+}
+message ChatReq {
+  string content = 1;
+}
+message ChatNot {
+  string uid = 1;
+  string content = 2;
+}
+message UserAction {
+  int32 action =1;
+  string uid = 2;
+}
+message CreateRoomReq {
+  string name = 1;
+}
+message CreateRoomRes {
+  string code = 1;
+  Room room = 2;
+  string serverId = 3;
+
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+package proto.mgr;
+
+message Room {
+  string id = 1;
+  string name = 2;
+  int32 status = 4;
+}
+message GetRoomListReq {
+}
+message GetRoomListRes {
+  repeated Room rooms = 1;
+}
+message CreateRoomReq {
+  string name = 1;
+}
+message CreateRoomRes {
+  string code = 1;
+  string serverId = 3;
+  Room room = 2;
+}
