@@ -7,7 +7,8 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/micro/go-plugins/store/redis/v2 v2.9.1
-	github.com/wolfplus2048/mcbeam-plus v0.0.0-20200825092522-8438bbfa92a5
+	github.com/wolfplus2048/mcbeam-plus v0.0.0-20200828083010-23417ffde605
 	google.golang.org/protobuf v1.25.0
 )
+
 replace google.golang.org/grpc => google.golang.org/grpc v1.26.0
