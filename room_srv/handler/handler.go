@@ -9,12 +9,15 @@ import (
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
 	"github.com/wolfplus2048/mcbeam-plus"
-	"sync"
 )
 
-var (
-	players sync.Map
-)
+type Sub struct{}
+
+func (s *Sub) Process(ctx context.Context, arg *proto_gate.LoginReq) error {
+	logger.Debugf("uid %s closed", arg.Username)
+	room.Manager.LeaveRoom(arg.Username)
+	return nil
+}
 
 type Handler struct {
 	Service micro.Service
@@ -31,21 +34,10 @@ func (h *Handler) BeforeShutdown() {
 
 func (h *Handler) Shutdown() {
 }
-func (h *Handler) onClose(uid string) {
-	logger.Debugf("onClose:%s", uid)
-	s := h.Service.Server()
-	s.Subscribe(s.NewSubscriber("session.onclose", func(ctx context.Context, arg *proto_gate.LoginReq) error {
-		logger.Debugf("uid %s closed", arg.Username)
-		if v, ok := players.Load(arg.Username); ok {
-			r := v.(*room.Room)
-			r.LeaveRoom(arg.Username)
-		}
-		return nil
-	}))
-}
+
 func (h *Handler) CreateRoom(ctx context.Context, req *proto_room.CreateRoomReq) (*proto_room.CreateRoomRes, error) {
 	logger.Debugf("crateRoom %s", req.Name)
-	r, err := room.New(req.Name)
+	r, err := room.Manager.CreateRoom(req.Name)
 	if err != nil {
 		return nil, err
 	}
@@ -69,31 +61,23 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 		})
 		return
 	}
-
-	r := room.GetRoom(req.Id)
-	if r == nil {
-		s.Push("JoinRes", &proto_room.JoinRes{
-			Code: "room not exists",
-		})
-		return
-	}
-	err = r.JoinRoom(&room.User{
+	u := &room.User{
 		Uid:     s.UID(),
 		Name:    string(res[0].Value),
 		Session: s,
-	})
+	}
+	err = room.Manager.JoinRoom(req.Id, u)
 	if err != nil {
 		s.Push("JoinRes", &proto_room.JoinRes{
 			Code: "can not join room",
 		})
 		return
 	}
-	players.Store(s.UID(), r)
 	s.Push("JoinRes", &proto_room.JoinRes{
 		Room: &proto_room.Room{
-			Id:    r.Id,
-			Name:  r.Name,
-			Users: r.GetUsers(),
+			Id:    u.Room.Id,
+			Name:  u.Room.Name,
+			Users: room.Manager.GetUsers(u.Room.Id),
 		},
 	})
 }

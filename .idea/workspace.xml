@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed300a01-86b2-4abc-899a-1488fdc3bf86" name="Default Changelist" comment="" />
+    <list default="true" id="ed300a01-86b2-4abc-899a-1488fdc3bf86" name="Default Changelist" comment="add">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Prefabs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene/lobby.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/lobby.fire.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene/login.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/login.fire.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene/room.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/room.fire.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Texture.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Texture/HelloWorld.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture/HelloWorld.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Texture/singleColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture/singleColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/migration.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/migration.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/settings/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/settings/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/room_srv/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/handler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/room_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/room_srv/room/room.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/room/manager.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1gaKVpnMD3QEA4knXmtddHr2xpf" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -15,16 +64,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mcbeam-plus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
-  <component name="RunManager">
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build room">
+    <configuration name="go build gate" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="mcbeam-example" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
@@ -32,15 +88,45 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build room" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="mcbeam-example" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/room_srv/main.go" />
+      <package value="githbu.com/wolfplus2048/mcbeam-example" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build room" />
+      <item itemvalue="Go Build.go build gate" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go" />
+        <item itemvalue="Go Build.go build gate" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -55,9 +141,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="753" y="354" key="#Go_Modules/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598347368465" />
-    <state x="416" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598420107104">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="399" y="201" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598951411761">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state x="399" y="201" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598951411761" />
     <state x="416" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598420107104" />
     <state width="450" height="466" key="DebuggerActiveHint" timestamp="1598420399127">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -71,49 +158,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="741" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598347305822" />
-    <state width="1878" height="348" key="GridCell.Tab.0.bottom" timestamp="1598442929124">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.0.bottom" timestamp="1598952566377">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566377" />
     <state width="1878" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
-    <state width="1878" height="348" key="GridCell.Tab.0.center" timestamp="1598442929124">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.0.center" timestamp="1598952566376">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566376" />
     <state width="1878" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
-    <state width="1878" height="348" key="GridCell.Tab.0.left" timestamp="1598442929123">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.0.left" timestamp="1598952566376">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566376" />
     <state width="1878" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041185" />
     <state width="1878" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929123" />
-    <state width="1878" height="348" key="GridCell.Tab.0.right" timestamp="1598442929124">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.0.right" timestamp="1598952566377">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566377" />
     <state width="1878" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
-    <state width="1878" height="348" key="GridCell.Tab.1.bottom" timestamp="1598442929124">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.1.bottom" timestamp="1598952566293">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566293" />
     <state width="1878" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
-    <state width="1878" height="348" key="GridCell.Tab.1.center" timestamp="1598442929124">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.1.center" timestamp="1598952566293">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566293" />
     <state width="1878" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
-    <state width="1878" height="348" key="GridCell.Tab.1.left" timestamp="1598442929124">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.1.left" timestamp="1598952566292">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566292" />
     <state width="1878" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
-    <state width="1878" height="348" key="GridCell.Tab.1.right" timestamp="1598442929124">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1798" height="463" key="GridCell.Tab.1.right" timestamp="1598952566293">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="1798" height="463" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598952566293" />
     <state width="1878" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
-    <state x="462" y="165" key="SettingsEditor" timestamp="1598347751151">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="443" y="191" key="SettingsEditor" timestamp="1598851935258">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state x="443" y="191" key="SettingsEditor/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598851935258" />
     <state x="462" y="165" key="SettingsEditor/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598347751151" />
+    <state x="520" y="251" key="Vcs.Push.Dialog.v2" timestamp="1598865910284">
+      <screen x="0" y="23" width="1920" height="977" />
+    </state>
+    <state x="520" y="251" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1920.977@0.23.1920.977" timestamp="1598865910284" />
+    <state x="718" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598865873538">
+      <screen x="0" y="23" width="1920" height="977" />
+    </state>
+    <state x="718" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.23.1920.1057/0.23.1920.977@0.23.1920.977" timestamp="1598865873538" />
   </component>
 </project>

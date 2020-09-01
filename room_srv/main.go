@@ -26,8 +26,9 @@ func main() {
 		logger.Fatal(err)
 	}
 	service.Register(&handler.Handler{Service: service.Options().Service})
+
 	s := service.Options().Service.Server()
-	s.Subscribe(s.NewSubscriber("session.onclose", new(handler.Sub)))
+	s.Subscribe(s.NewSubscriber("session.onclose", &handler.Sub{}))
 	if err := service.Run(); err != nil {
 		logger.Fatal(err)
 	}
