@@ -15,7 +15,19 @@ type Sub struct{}
 
 func (s *Sub) Process(ctx context.Context, arg *proto_gate.LoginReq) error {
 	logger.Debugf("uid %s closed", arg.Username)
-	room.Manager.LeaveRoom(arg.Username)
+
+	room.Manager.Run(func() {
+		p, ok := room.Manager.FindPlayer(arg.Username)
+		if !ok {
+			return
+		}
+		r := p.GetRoom()
+		r.LeaveRoom(p)
+		if r.GetUserNum() == 0 {
+			room.Manager.RemoveRoom(r.Id)
+		}
+		room.Manager.RemovePlayer(p.UID())
+	})
 	return nil
 }
 
@@ -35,21 +47,28 @@ func (h *Handler) BeforeShutdown() {
 func (h *Handler) Shutdown() {
 }
 
-func (h *Handler) CreateRoom(ctx context.Context, req *proto_room.CreateRoomReq) (*proto_room.CreateRoomRes, error) {
-	logger.Debugf("crateRoom %s", req.Name)
-	r, err := room.Manager.CreateRoom(req.Name)
-	if err != nil {
-		return nil, err
-	}
-	res := &proto_room.CreateRoomRes{
-		Code: "",
-		Room: &proto_room.Room{
-			Id:   r.Id,
-			Name: r.Name,
-		},
-		ServerId: h.Service.Options().Server.Options().Name + "-" + h.Service.Options().Server.Options().Id,
-	}
-	return res, nil
+func (h *Handler) CreateRoomRPC(ctx context.Context, req *proto_room.CreateRoomReq) (*proto_room.CreateRoomRes, error) {
+	ret := make(chan error)
+	var res *proto_room.CreateRoomRes
+
+	room.Manager.Run(func() {
+		logger.Debugf("crateRoom %s", req.Name)
+		r, err := room.Manager.CreateRoom(req.Name)
+		if err != nil {
+			ret <- err
+			return
+		}
+		res = &proto_room.CreateRoomRes{
+			Room: &proto_room.Room{
+				Id:    r.Id,
+				Name:  r.Name,
+				Users: r.GetUsers(),
+			},
+			ServerId: h.Service.Options().Server.Options().Name + "-" + h.Service.Options().Server.Options().Id,
+		}
+		ret <- nil
+	})
+	return res, <-ret
 }
 func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 	s := mcbeam.GetSessionFromCtx(ctx)
@@ -61,23 +80,38 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 		})
 		return
 	}
-	u := &room.User{
-		Uid:     s.UID(),
-		Name:    string(res[0].Value),
-		Session: s,
-	}
-	err = room.Manager.JoinRoom(req.Id, u)
-	if err != nil {
+
+	room.Manager.Run(func() {
+		p, ok := room.Manager.FindPlayer(s.UID())
+		if ok {
+			s.Push("JoinRes", &proto_room.JoinRes{
+				Code: "player already exists",
+			})
+			return
+		}
+		p = room.NewPlayer(s, s.UID(), string(res[0].Value))
+		r, ok := room.Manager.GetRoom(req.Id)
+		if !ok {
+			s.Push("JoinRes", &proto_room.JoinRes{
+				Code: "room not exists",
+			})
+			return
+		}
+		err = r.JoinRoom(p)
+		if err != nil {
+			s.Push("JoinRes", &proto_room.JoinRes{
+				Code: err.Error(),
+			})
+			return
+		}
+		room.Manager.AddPlayer(p)
+
 		s.Push("JoinRes", &proto_room.JoinRes{
-			Code: "can not join room",
+			Room: &proto_room.Room{
+				Id:    r.Id,
+				Name:  r.Name,
+				Users: r.GetUsers(),
+			},
 		})
-		return
-	}
-	s.Push("JoinRes", &proto_room.JoinRes{
-		Room: &proto_room.Room{
-			Id:    u.Room.Id,
-			Name:  u.Room.Name,
-			Users: room.Manager.GetUsers(u.Room.Id),
-		},
 	})
 }

@@ -117,7 +117,7 @@ func (x *Room) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Room.ProtoReflect.Descriptor instead.
+// Deprecated: Use room.ProtoReflect.Descriptor instead.
 func (*Room) Descriptor() ([]byte, []int) {
 	return file_protos_room_room_proto_rawDescGZIP(), []int{1}
 }
@@ -568,7 +568,7 @@ func file_protos_room_room_proto_rawDescGZIP() []byte {
 var file_protos_room_room_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_protos_room_room_proto_goTypes = []interface{}{
 	(*User)(nil),          // 0: proto.room.User
-	(*Room)(nil),          // 1: proto.room.Room
+	(*Room)(nil),          // 1: proto.room.room
 	(*JoinReq)(nil),       // 2: proto.room.JoinReq
 	(*JoinRes)(nil),       // 3: proto.room.JoinRes
 	(*ChatReq)(nil),       // 4: proto.room.ChatReq
@@ -578,9 +578,9 @@ var file_protos_room_room_proto_goTypes = []interface{}{
 	(*CreateRoomRes)(nil), // 8: proto.room.CreateRoomRes
 }
 var file_protos_room_room_proto_depIdxs = []int32{
-	0, // 0: proto.room.Room.users:type_name -> proto.room.User
-	1, // 1: proto.room.JoinRes.room:type_name -> proto.room.Room
-	1, // 2: proto.room.CreateRoomRes.room:type_name -> proto.room.Room
+	0, // 0: proto.room.room.users:type_name -> proto.room.User
+	1, // 1: proto.room.JoinRes.room:type_name -> proto.room.room
+	1, // 2: proto.room.CreateRoomRes.room:type_name -> proto.room.room
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

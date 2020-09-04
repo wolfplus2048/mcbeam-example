@@ -2,29 +2,15 @@ package room
 
 import (
 	"errors"
-	"fmt"
-	proto_room "githbu.com/wolfplus2048/mcbeam-example/protos/room"
-	"github.com/google/uuid"
 	"github.com/micro/go-micro/v2/logger"
-	"github.com/wolfplus2048/mcbeam-plus/session"
+	"runtime/debug"
 )
 
-type User struct {
-	Uid     string
-	Name    string
-	Session *session.Session
-	Room    *Room
-}
-type Room struct {
-	Id    string
-	Name  string
-	users map[string]*User
-}
 type LogicFn func()
 
 type manager struct {
 	rooms   map[string]*Room
-	users   map[string]*User
+	players map[string]*Player
 	chLogic chan LogicFn
 	exit    chan struct{}
 }
@@ -32,40 +18,53 @@ type manager struct {
 func newManager() *manager {
 	m := &manager{
 		rooms:   make(map[string]*Room),
-		users:   make(map[string]*User),
+		players: make(map[string]*Player),
 		chLogic: make(chan LogicFn, 10),
 		exit:    make(chan struct{}),
 	}
 	go m.loop()
 	return m
 }
+func (m *manager) Stop() {
+	close(m.exit)
+}
 func (m *manager) CreateRoom(name string) (*Room, error) {
-	ret := make(chan *Room)
-	m.chLogic <- func() {
-		id := uuid.New().String()
-		r := &Room{Id: id,
-			Name:  name,
-			users: make(map[string]*User),
-		}
-		m.rooms[id] = r
-		ret <- r
-	}
+	r := newRoom(name)
+	m.rooms[r.Id] = r
 
-	return <-ret, nil
+	return r, nil
 }
-func (m *manager) GetRoom(id string) *Room {
-	ret := make(chan *Room)
-	m.chLogic <- func() {
-		r, ok := m.rooms[id]
-		if ok {
-			ret <- r
-			return
-		}
-		ret <- nil
+func (m *manager) RemoveRoom(rid string) error {
+	r, ok := m.rooms[rid]
+	if !ok {
+		return errors.New("room not exists")
 	}
-	return <-ret
+	if len(r.players) != 0 {
+		return errors.New("room not empty")
+	}
+	delete(m.rooms, rid)
+	return nil
 }
-
+func (m *manager) GetRoom(rid string) (*Room, bool) {
+	r, ok := m.rooms[rid]
+	return r, ok
+}
+func (m *manager) AddPlayer(p *Player) error {
+	p, ok := m.players[p.uid]
+	if ok {
+		return errors.New("player already exists")
+	}
+	m.players[p.uid] = p
+	return nil
+}
+func (m *manager) FindPlayer(uid string) (*Player, bool) {
+	p, ok := m.players[uid]
+	return p, ok
+}
+func (m *manager) RemovePlayer(uid string) error {
+	delete(m.players, uid)
+	return nil
+}
 func (m *manager) loop() {
 ExitLoop:
 	for {
@@ -74,86 +73,24 @@ ExitLoop:
 			logger.Debugf("<- exit")
 			break ExitLoop
 		case fn := <-m.chLogic:
-			fn()
+			run := func() {
+				defer func() {
+					if rec := recover(); rec != nil {
+						// Try to use logger from context here to help trace error cause
+						logger.Errorf("panic - manager/loop: %v", rec)
+						logger.Debugf("%s", debug.Stack())
+					}
+				}()
+				fn()
+			}
+			run()
 		}
 	}
-	logger.Debugf("exit Room manager loop")
+	logger.Debugf("exit room manager loop")
 }
-func (m *manager) JoinRoom(id string, user *User) error {
-	ret := make(chan error)
-	m.chLogic <- func() {
-		r, ok := m.rooms[id]
-		if !ok {
-			ret <- fmt.Errorf("Room:%s not exists", id)
-			return
 
-		}
-		_, ok = m.users[user.Uid]
-		if ok {
-			ret <- errors.New("user already exists")
-			return
-		}
-		m.users[user.Uid] = user
-		r.users[user.Uid] = user
-		user.Room = r
-		ret <- nil
-		logger.Debugf("JoinRoom %s", user.Uid)
-	}
-	return <-ret
-}
-func (m *manager) LeaveRoom(uid string) error {
-	ret := make(chan error)
-	m.chLogic <- func() {
-		u, ok := m.users[uid]
-		if !ok {
-			ret <- errors.New("user not exists")
-			return
-
-		}
-		r := u.Room
-		delete(r.users, uid)
-		delete(m.users, uid)
-		if len(r.users) == 0 {
-			delete(m.rooms, u.Room.Id)
-			logger.Debugf("remove room:%s", u.Room.Id)
-		}
-		ret <- nil
-		logger.Debugf("LeaveRoom %s", uid)
-
-	}
-	return <-ret
-}
-func (m *manager) Chat(uid string, content string) {
-	m.chLogic <- func() {
-		u, ok := m.users[uid]
-		if !ok {
-			return
-		}
-		r := u.Room
-		for _, u := range r.users {
-			u.Session.Push("chat", content)
-		}
-	}
-}
-func (m *manager) GetUsers(id string) []*proto_room.User {
-	ret := make(chan []*proto_room.User)
-	m.chLogic <- func() {
-		r, ok := m.rooms[id]
-		if !ok {
-			ret <- []*proto_room.User{}
-			return
-
-		}
-		users := make([]*proto_room.User, 0)
-		for _, u := range r.users {
-			users = append(users, &proto_room.User{
-				Uid:      u.Uid,
-				Username: u.Name,
-			})
-		}
-		ret <- users
-	}
-	return <-ret
+func (m *manager) Run(fn func()) {
+	m.chLogic <- fn
 }
 
 var (

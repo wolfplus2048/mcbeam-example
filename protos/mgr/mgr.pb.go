@@ -62,7 +62,7 @@ func (x *Room) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Room.ProtoReflect.Descriptor instead.
+// Deprecated: Use room.ProtoReflect.Descriptor instead.
 func (*Room) Descriptor() ([]byte, []int) {
 	return file_protos_mgr_mgr_proto_rawDescGZIP(), []int{0}
 }
@@ -323,15 +323,15 @@ func file_protos_mgr_mgr_proto_rawDescGZIP() []byte {
 
 var file_protos_mgr_mgr_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_protos_mgr_mgr_proto_goTypes = []interface{}{
-	(*Room)(nil),           // 0: proto.mgr.Room
+	(*Room)(nil),           // 0: proto.mgr.room
 	(*GetRoomListReq)(nil), // 1: proto.mgr.GetRoomListReq
 	(*GetRoomListRes)(nil), // 2: proto.mgr.GetRoomListRes
 	(*CreateRoomReq)(nil),  // 3: proto.mgr.CreateRoomReq
 	(*CreateRoomRes)(nil),  // 4: proto.mgr.CreateRoomRes
 }
 var file_protos_mgr_mgr_proto_depIdxs = []int32{
-	0, // 0: proto.mgr.GetRoomListRes.rooms:type_name -> proto.mgr.Room
-	0, // 1: proto.mgr.CreateRoomRes.room:type_name -> proto.mgr.Room
+	0, // 0: proto.mgr.GetRoomListRes.rooms:type_name -> proto.mgr.room
+	0, // 1: proto.mgr.CreateRoomRes.room:type_name -> proto.mgr.room
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
