@@ -20,21 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed300a01-86b2-4abc-899a-1488fdc3bf86" name="Default Changelist" comment="add">
-      <change afterPath="$PROJECT_DIR$/room_srv/base/base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/room_srv/logic/mjhandler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gate/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/gate/handler/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/gate/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mgr_srv/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/mgr_srv/handler/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mgr_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/mgr_srv/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/handler/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/logic/mjplayer.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/logic/mjplayer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/room_srv/logic/mjroom.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/logic/mjroom.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/room/player.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/room/player.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/room/room.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/room/room.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,10 +215,10 @@
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
     <state x="650" y="290" width="540" height="524" key="StructurePopup/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599122963192" />
-    <state x="498" y="270" key="Vcs.Push.Dialog.v2" timestamp="1599200635118">
+    <state x="498" y="270" key="Vcs.Push.Dialog.v2" timestamp="1599470468937">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state x="498" y="270" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599200635118" />
+    <state x="498" y="270" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599470468937" />
     <state x="520" y="251" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1920.977@0.23.1920.977" timestamp="1598865910284" />
     <state x="688" y="465" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599470446685">
       <screen x="0" y="23" width="1840" height="1057" />

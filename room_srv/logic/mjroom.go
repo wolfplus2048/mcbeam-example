@@ -43,7 +43,7 @@ type MJRoom struct {
 	dealer     *MJPlayer
 	currPlayer *MJPlayer
 	timerId    int64
-	operators  map[*MJPlayer]int
+	operators  map[*MJPlayer][]int
 }
 
 func NewRoom() *MJRoom {
@@ -52,7 +52,7 @@ func NewRoom() *MJRoom {
 		wallCard:  nil,
 		winLogic:  nil,
 		fsm:       nil,
-		operators: make([]*MJPlayer, 0),
+		operators: make(map[*MJPlayer][]int, 0),
 	}
 	mj.fsm = fsm.NewFSM("EInvalid",
 		fsm.Events{
@@ -99,7 +99,7 @@ func (m *MJRoom) onChuPai() {
 
 }
 func (m *MJRoom) onOperate() {
-	m.operators = []*MJPlayer{}
+	m.operators = make(map[*MJPlayer][]int)
 	for _, v := range m.room.GetGamePlayers() {
 		p := v.(*MJPlayer)
 		if p == m.currPlayer {
@@ -108,17 +108,28 @@ func (m *MJRoom) onOperate() {
 		op := p.canOperate(m.currPlayer.lastChuPai)
 		if len(op) > 0 {
 			p.reqOperate(op)
-			m.operators = append(m.operators, p)
+			m.operators[p] = []int{}
 		}
 	}
 }
 func (m *MJRoom) doOperate(p *MJPlayer, op int) {
-	for i, v := range m.operators {
-		if v == p {
-			m.operators = append(m.operators[:i], m.operators[i+1:]...)
+	if m.fsm.Current() != SPlayerOperation {
+		return
+	}
+	ops, ok := m.operators[p]
+	if !ok {
+		return
+	}
+	ops = append(ops, op)
+
+	for _, v := range m.operators {
+		if len(v) == 0 {
+			return
 		}
 	}
-	if len(m.operators) == 0 {
+	//to do
 
-	}
+	m.currPlayer = p
+	m.fsm.Event(EChuPai)
+
 }
