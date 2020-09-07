@@ -2,12 +2,12 @@ package handler
 
 import (
 	"context"
-	proto_gate "githbu.com/wolfplus2048/mcbeam-example/protos/gate"
-	proto_room "githbu.com/wolfplus2048/mcbeam-example/protos/room"
-	"githbu.com/wolfplus2048/mcbeam-example/room_srv/room"
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
+	proto_gate "github.com/wolfplus2048/mcbeam-example/protos/gate"
+	proto_room "github.com/wolfplus2048/mcbeam-example/protos/room"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/room"
 	"github.com/wolfplus2048/mcbeam-plus"
 )
 

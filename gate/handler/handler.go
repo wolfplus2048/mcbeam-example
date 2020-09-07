@@ -2,11 +2,11 @@ package handler
 
 import (
 	"context"
-	proto_gate "githbu.com/wolfplus2048/mcbeam-example/protos/gate"
 	"github.com/google/uuid"
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
+	proto_gate "github.com/wolfplus2048/mcbeam-example/protos/gate"
 	"github.com/wolfplus2048/mcbeam-plus"
 	"github.com/wolfplus2048/mcbeam-plus/scheduler"
 	"github.com/wolfplus2048/mcbeam-plus/session"
@@ -27,8 +27,7 @@ func (h *Handler) AfterInit() {
 		c.Publish(context.Background(), m)
 	})
 
-
-	scheduler.NewTimer(2 * time.Second, func() {
+	scheduler.NewTimer(2*time.Second, func() {
 		logger.Debugf("ticker %d", time.Now().Second())
 	}, scheduler.Counter(4))
 	//time.AfterFunc(5 * time.Second, func() {

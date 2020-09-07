@@ -1,12 +1,12 @@
 package main
 
 import (
-	"githbu.com/wolfplus2048/mcbeam-example/room_srv/handler"
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/broker/nats"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry/etcd"
 	"github.com/micro/go-plugins/store/redis/v2"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/handler"
 	"github.com/wolfplus2048/mcbeam-plus"
 )
 

@@ -1,12 +1,16 @@
 package room
 
-import "github.com/wolfplus2048/mcbeam-plus/session"
+import (
+	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
+	"github.com/wolfplus2048/mcbeam-plus/session"
+)
 
 type Player struct {
-	uid     string
-	name    string
-	session *session.Session
-	room    *Room
+	uid        string
+	name       string
+	session    *session.Session
+	room       *Room
+	gamePlayer *base.GamePlayer
 }
 
 func NewPlayer(s *session.Session, uid, name string) *Player {
@@ -24,4 +28,7 @@ func (p *Player) SetRoom(r *Room) {
 }
 func (p *Player) GetRoom() *Room {
 	return p.room
+}
+func (p *Player) GetGamePlayer() base.GamePlayer {
+	return p.gamePlayer
 }

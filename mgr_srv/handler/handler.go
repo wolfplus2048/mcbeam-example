@@ -2,11 +2,11 @@ package handler
 
 import (
 	"context"
-	proto_mgr "githbu.com/wolfplus2048/mcbeam-example/protos/mgr"
-	proto_room "githbu.com/wolfplus2048/mcbeam-example/protos/room"
 	"github.com/micro/go-micro/v2/client"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/metadata"
+	proto_mgr "github.com/wolfplus2048/mcbeam-example/protos/mgr"
+	proto_room "github.com/wolfplus2048/mcbeam-example/protos/room"
 	"github.com/wolfplus2048/mcbeam-plus"
 
 	"sync"

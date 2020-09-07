@@ -1,7 +1,6 @@
 package main
 
 import (
-	"githbu.com/wolfplus2048/mcbeam-example/gate/handler"
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/broker/nats"
 	"github.com/micro/go-micro/v2/config"
@@ -11,6 +10,7 @@ import (
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry/etcd"
 	"github.com/micro/go-plugins/store/redis/v2"
+	"github.com/wolfplus2048/mcbeam-example/gate/handler"
 	"github.com/wolfplus2048/mcbeam-plus"
 	"github.com/wolfplus2048/mcbeam-plus/component"
 )
@@ -23,7 +23,6 @@ func main() {
 	if err != nil {
 		logger.Fatal(err)
 	}
-
 
 	logger.Debugf("app name: %s, version:%s", config.Get("app.name"), config.Get("app.ver"))
 
@@ -38,7 +37,6 @@ func main() {
 			),
 		),
 	)
-
 
 	if err := service.Init(); err != nil {
 		logger.Fatal(err)

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"githbu.com/wolfplus2048/mcbeam-example/mgr_srv/handler"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry/etcd"
+	"github.com/wolfplus2048/mcbeam-example/mgr_srv/handler"
 	"github.com/wolfplus2048/mcbeam-plus"
 )
 
