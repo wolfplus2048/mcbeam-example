@@ -38,7 +38,7 @@ func (r *Room) JoinRoom(player *Player) error {
 	for i := 0; i < len(r.players); i++ {
 		if r.players[i] == nil {
 			r.players[i] = player
-			player.SetRoom(r)
+			player.SetRoom(r, i)
 			return nil
 		}
 	}
@@ -50,7 +50,7 @@ func (r *Room) LeaveRoom(player *Player) error {
 	for i := 0; i < len(r.players); i++ {
 		if r.players[i] == player {
 			r.players[i] = nil
-			player.SetRoom(nil)
+			player.SetRoom(nil, 0)
 			return nil
 		}
 	}

@@ -7,6 +7,7 @@ type BaseRoom interface {
 type GameRoom interface {
 }
 type BasePlayer interface {
+	GetChairID() int
 }
 type GamePlayer interface {
 }
