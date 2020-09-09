@@ -2,7 +2,7 @@ import * as $protobuf from "protobufjs";
 /** Namespace proto. */
 export namespace proto {
 
-    /** Namespace gateway. */
+    /** Namespace gate. */
     namespace gate {
 
         /** Properties of a LoginReq. */
@@ -1718,6 +1718,472 @@ export namespace proto {
 
             /**
              * Converts this CreateRoomRes to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+    }
+
+    /** Namespace mj. */
+    namespace mj {
+
+        /** Properties of a BeginGameNot. */
+        interface IBeginGameNot {
+        }
+
+        /** Represents a BeginGameNot. */
+        class BeginGameNot implements IBeginGameNot {
+
+            /**
+             * Constructs a new BeginGameNot.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.IBeginGameNot);
+
+            /**
+             * Creates a new BeginGameNot instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns BeginGameNot instance
+             */
+            public static create(properties?: proto.mj.IBeginGameNot): proto.mj.BeginGameNot;
+
+            /**
+             * Encodes the specified BeginGameNot message. Does not implicitly {@link proto.mj.BeginGameNot.verify|verify} messages.
+             * @param message BeginGameNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.IBeginGameNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified BeginGameNot message, length delimited. Does not implicitly {@link proto.mj.BeginGameNot.verify|verify} messages.
+             * @param message BeginGameNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.IBeginGameNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a BeginGameNot message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BeginGameNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.BeginGameNot;
+
+            /**
+             * Decodes a BeginGameNot message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns BeginGameNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.BeginGameNot;
+
+            /**
+             * Verifies a BeginGameNot message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a BeginGameNot message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns BeginGameNot
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.BeginGameNot;
+
+            /**
+             * Creates a plain object from a BeginGameNot message. Also converts values to other types if specified.
+             * @param message BeginGameNot
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.BeginGameNot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this BeginGameNot to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a HandCardsNot. */
+        interface IHandCardsNot {
+
+            /** HandCardsNot handCards */
+            handCards?: (number[]|null);
+        }
+
+        /** Represents a HandCardsNot. */
+        class HandCardsNot implements IHandCardsNot {
+
+            /**
+             * Constructs a new HandCardsNot.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.IHandCardsNot);
+
+            /** HandCardsNot handCards. */
+            public handCards: number[];
+
+            /**
+             * Creates a new HandCardsNot instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns HandCardsNot instance
+             */
+            public static create(properties?: proto.mj.IHandCardsNot): proto.mj.HandCardsNot;
+
+            /**
+             * Encodes the specified HandCardsNot message. Does not implicitly {@link proto.mj.HandCardsNot.verify|verify} messages.
+             * @param message HandCardsNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.IHandCardsNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified HandCardsNot message, length delimited. Does not implicitly {@link proto.mj.HandCardsNot.verify|verify} messages.
+             * @param message HandCardsNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.IHandCardsNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a HandCardsNot message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns HandCardsNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.HandCardsNot;
+
+            /**
+             * Decodes a HandCardsNot message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns HandCardsNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.HandCardsNot;
+
+            /**
+             * Verifies a HandCardsNot message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a HandCardsNot message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns HandCardsNot
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.HandCardsNot;
+
+            /**
+             * Creates a plain object from a HandCardsNot message. Also converts values to other types if specified.
+             * @param message HandCardsNot
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.HandCardsNot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this HandCardsNot to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an OperateReq. */
+        interface IOperateReq {
+
+            /** OperateReq opCodes */
+            opCodes?: (number[]|null);
+        }
+
+        /** Represents an OperateReq. */
+        class OperateReq implements IOperateReq {
+
+            /**
+             * Constructs a new OperateReq.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.IOperateReq);
+
+            /** OperateReq opCodes. */
+            public opCodes: number[];
+
+            /**
+             * Creates a new OperateReq instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns OperateReq instance
+             */
+            public static create(properties?: proto.mj.IOperateReq): proto.mj.OperateReq;
+
+            /**
+             * Encodes the specified OperateReq message. Does not implicitly {@link proto.mj.OperateReq.verify|verify} messages.
+             * @param message OperateReq message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.IOperateReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified OperateReq message, length delimited. Does not implicitly {@link proto.mj.OperateReq.verify|verify} messages.
+             * @param message OperateReq message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.IOperateReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an OperateReq message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns OperateReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.OperateReq;
+
+            /**
+             * Decodes an OperateReq message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns OperateReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.OperateReq;
+
+            /**
+             * Verifies an OperateReq message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an OperateReq message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns OperateReq
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.OperateReq;
+
+            /**
+             * Creates a plain object from an OperateReq message. Also converts values to other types if specified.
+             * @param message OperateReq
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.OperateReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this OperateReq to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an OperateRes. */
+        interface IOperateRes {
+
+            /** OperateRes opCode */
+            opCode?: (number|null);
+
+            /** OperateRes cards */
+            cards?: (number[]|null);
+        }
+
+        /** Represents an OperateRes. */
+        class OperateRes implements IOperateRes {
+
+            /**
+             * Constructs a new OperateRes.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.IOperateRes);
+
+            /** OperateRes opCode. */
+            public opCode: number;
+
+            /** OperateRes cards. */
+            public cards: number[];
+
+            /**
+             * Creates a new OperateRes instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns OperateRes instance
+             */
+            public static create(properties?: proto.mj.IOperateRes): proto.mj.OperateRes;
+
+            /**
+             * Encodes the specified OperateRes message. Does not implicitly {@link proto.mj.OperateRes.verify|verify} messages.
+             * @param message OperateRes message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.IOperateRes, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified OperateRes message, length delimited. Does not implicitly {@link proto.mj.OperateRes.verify|verify} messages.
+             * @param message OperateRes message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.IOperateRes, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an OperateRes message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns OperateRes
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.OperateRes;
+
+            /**
+             * Decodes an OperateRes message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns OperateRes
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.OperateRes;
+
+            /**
+             * Verifies an OperateRes message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an OperateRes message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns OperateRes
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.OperateRes;
+
+            /**
+             * Creates a plain object from an OperateRes message. Also converts values to other types if specified.
+             * @param message OperateRes
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.OperateRes, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this OperateRes to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of an OperateNot. */
+        interface IOperateNot {
+
+            /** OperateNot chairId */
+            chairId?: (number|null);
+
+            /** OperateNot opCode */
+            opCode?: (number|null);
+
+            /** OperateNot cards */
+            cards?: (number[]|null);
+        }
+
+        /** Represents an OperateNot. */
+        class OperateNot implements IOperateNot {
+
+            /**
+             * Constructs a new OperateNot.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.IOperateNot);
+
+            /** OperateNot chairId. */
+            public chairId: number;
+
+            /** OperateNot opCode. */
+            public opCode: number;
+
+            /** OperateNot cards. */
+            public cards: number[];
+
+            /**
+             * Creates a new OperateNot instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns OperateNot instance
+             */
+            public static create(properties?: proto.mj.IOperateNot): proto.mj.OperateNot;
+
+            /**
+             * Encodes the specified OperateNot message. Does not implicitly {@link proto.mj.OperateNot.verify|verify} messages.
+             * @param message OperateNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.IOperateNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified OperateNot message, length delimited. Does not implicitly {@link proto.mj.OperateNot.verify|verify} messages.
+             * @param message OperateNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.IOperateNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes an OperateNot message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns OperateNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.OperateNot;
+
+            /**
+             * Decodes an OperateNot message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns OperateNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.OperateNot;
+
+            /**
+             * Verifies an OperateNot message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates an OperateNot message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns OperateNot
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.OperateNot;
+
+            /**
+             * Creates a plain object from an OperateNot message. Also converts values to other types if specified.
+             * @param message OperateNot
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.OperateNot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this OperateNot to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

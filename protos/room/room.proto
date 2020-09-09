@@ -34,5 +34,4 @@ message CreateRoomRes {
   string code = 1;
   Room room = 2;
   string serverId = 3;
-
 }

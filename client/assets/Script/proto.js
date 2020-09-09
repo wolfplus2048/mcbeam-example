@@ -1,8 +1,8 @@
 /*eslint-disable block-scoped-var, id-length, no-control-regex, no-magic-numbers, no-prototype-builtins, no-redeclare, no-shadow, no-var, sort-vars*/
 "use strict";
 
-// var $protobuf = require("protobufjs/minimal");
-var $protobuf = protobuf
+var $protobuf = require("protobufjs/minimal");
+
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
 
@@ -21,7 +21,7 @@ $root.proto = (function() {
     proto.gate = (function() {
 
         /**
-         * Namespace gateway.
+         * Namespace gate.
          * @memberof proto
          * @namespace
          */
@@ -31,14 +31,14 @@ $root.proto = (function() {
 
             /**
              * Properties of a LoginReq.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @interface ILoginReq
              * @property {string|null} [username] LoginReq username
              */
 
             /**
              * Constructs a new LoginReq.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @classdesc Represents a LoginReq.
              * @implements ILoginReq
              * @constructor
@@ -54,7 +54,7 @@ $root.proto = (function() {
             /**
              * LoginReq username.
              * @member {string} username
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @instance
              */
             LoginReq.prototype.username = "";
@@ -62,7 +62,7 @@ $root.proto = (function() {
             /**
              * Creates a new LoginReq instance using the specified properties.
              * @function create
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {proto.gate.ILoginReq=} [properties] Properties to set
              * @returns {proto.gate.LoginReq} LoginReq instance
@@ -74,7 +74,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified LoginReq message. Does not implicitly {@link proto.gate.LoginReq.verify|verify} messages.
              * @function encode
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {proto.gate.ILoginReq} message LoginReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -91,7 +91,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified LoginReq message, length delimited. Does not implicitly {@link proto.gate.LoginReq.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {proto.gate.ILoginReq} message LoginReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -104,7 +104,7 @@ $root.proto = (function() {
             /**
              * Decodes a LoginReq message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -133,7 +133,7 @@ $root.proto = (function() {
             /**
              * Decodes a LoginReq message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.gate.LoginReq} LoginReq
@@ -149,7 +149,7 @@ $root.proto = (function() {
             /**
              * Verifies a LoginReq message.
              * @function verify
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -166,7 +166,7 @@ $root.proto = (function() {
             /**
              * Creates a LoginReq message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.gate.LoginReq} LoginReq
@@ -183,7 +183,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @static
              * @param {proto.gate.LoginReq} message LoginReq
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -203,7 +203,7 @@ $root.proto = (function() {
             /**
              * Converts this LoginReq to JSON.
              * @function toJSON
-             * @memberof proto.gateway.LoginReq
+             * @memberof proto.gate.LoginReq
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -218,7 +218,7 @@ $root.proto = (function() {
 
             /**
              * Properties of a LoginRes.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @interface ILoginRes
              * @property {string|null} [code] LoginRes code
              * @property {string|null} [uid] LoginRes uid
@@ -227,7 +227,7 @@ $root.proto = (function() {
 
             /**
              * Constructs a new LoginRes.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @classdesc Represents a LoginRes.
              * @implements ILoginRes
              * @constructor
@@ -243,7 +243,7 @@ $root.proto = (function() {
             /**
              * LoginRes code.
              * @member {string} code
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @instance
              */
             LoginRes.prototype.code = "";
@@ -251,7 +251,7 @@ $root.proto = (function() {
             /**
              * LoginRes uid.
              * @member {string} uid
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @instance
              */
             LoginRes.prototype.uid = "";
@@ -259,7 +259,7 @@ $root.proto = (function() {
             /**
              * LoginRes username.
              * @member {string} username
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @instance
              */
             LoginRes.prototype.username = "";
@@ -267,7 +267,7 @@ $root.proto = (function() {
             /**
              * Creates a new LoginRes instance using the specified properties.
              * @function create
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {proto.gate.ILoginRes=} [properties] Properties to set
              * @returns {proto.gate.LoginRes} LoginRes instance
@@ -279,7 +279,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified LoginRes message. Does not implicitly {@link proto.gate.LoginRes.verify|verify} messages.
              * @function encode
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {proto.gate.ILoginRes} message LoginRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -300,7 +300,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified LoginRes message, length delimited. Does not implicitly {@link proto.gate.LoginRes.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {proto.gate.ILoginRes} message LoginRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -313,7 +313,7 @@ $root.proto = (function() {
             /**
              * Decodes a LoginRes message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -348,7 +348,7 @@ $root.proto = (function() {
             /**
              * Decodes a LoginRes message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.gate.LoginRes} LoginRes
@@ -364,7 +364,7 @@ $root.proto = (function() {
             /**
              * Verifies a LoginRes message.
              * @function verify
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -387,7 +387,7 @@ $root.proto = (function() {
             /**
              * Creates a LoginRes message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.gate.LoginRes} LoginRes
@@ -408,7 +408,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a LoginRes message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @static
              * @param {proto.gate.LoginRes} message LoginRes
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -435,7 +435,7 @@ $root.proto = (function() {
             /**
              * Converts this LoginRes to JSON.
              * @function toJSON
-             * @memberof proto.gateway.LoginRes
+             * @memberof proto.gate.LoginRes
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -450,14 +450,14 @@ $root.proto = (function() {
 
             /**
              * Properties of a GetUserInfoReq.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @interface IGetUserInfoReq
              * @property {string|null} [uid] GetUserInfoReq uid
              */
 
             /**
              * Constructs a new GetUserInfoReq.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @classdesc Represents a GetUserInfoReq.
              * @implements IGetUserInfoReq
              * @constructor
@@ -473,7 +473,7 @@ $root.proto = (function() {
             /**
              * GetUserInfoReq uid.
              * @member {string} uid
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @instance
              */
             GetUserInfoReq.prototype.uid = "";
@@ -481,7 +481,7 @@ $root.proto = (function() {
             /**
              * Creates a new GetUserInfoReq instance using the specified properties.
              * @function create
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {proto.gate.IGetUserInfoReq=} [properties] Properties to set
              * @returns {proto.gate.GetUserInfoReq} GetUserInfoReq instance
@@ -493,7 +493,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified GetUserInfoReq message. Does not implicitly {@link proto.gate.GetUserInfoReq.verify|verify} messages.
              * @function encode
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {proto.gate.IGetUserInfoReq} message GetUserInfoReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -510,7 +510,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified GetUserInfoReq message, length delimited. Does not implicitly {@link proto.gate.GetUserInfoReq.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {proto.gate.IGetUserInfoReq} message GetUserInfoReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -523,7 +523,7 @@ $root.proto = (function() {
             /**
              * Decodes a GetUserInfoReq message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -552,7 +552,7 @@ $root.proto = (function() {
             /**
              * Decodes a GetUserInfoReq message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.gate.GetUserInfoReq} GetUserInfoReq
@@ -568,7 +568,7 @@ $root.proto = (function() {
             /**
              * Verifies a GetUserInfoReq message.
              * @function verify
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -585,7 +585,7 @@ $root.proto = (function() {
             /**
              * Creates a GetUserInfoReq message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.gate.GetUserInfoReq} GetUserInfoReq
@@ -602,7 +602,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a GetUserInfoReq message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @static
              * @param {proto.gate.GetUserInfoReq} message GetUserInfoReq
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -622,7 +622,7 @@ $root.proto = (function() {
             /**
              * Converts this GetUserInfoReq to JSON.
              * @function toJSON
-             * @memberof proto.gateway.GetUserInfoReq
+             * @memberof proto.gate.GetUserInfoReq
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -637,7 +637,7 @@ $root.proto = (function() {
 
             /**
              * Properties of a GetUserInfoRes.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @interface IGetUserInfoRes
              * @property {string|null} [code] GetUserInfoRes code
              * @property {string|null} [uid] GetUserInfoRes uid
@@ -646,7 +646,7 @@ $root.proto = (function() {
 
             /**
              * Constructs a new GetUserInfoRes.
-             * @memberof proto.gateway
+             * @memberof proto.gate
              * @classdesc Represents a GetUserInfoRes.
              * @implements IGetUserInfoRes
              * @constructor
@@ -662,7 +662,7 @@ $root.proto = (function() {
             /**
              * GetUserInfoRes code.
              * @member {string} code
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @instance
              */
             GetUserInfoRes.prototype.code = "";
@@ -670,7 +670,7 @@ $root.proto = (function() {
             /**
              * GetUserInfoRes uid.
              * @member {string} uid
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @instance
              */
             GetUserInfoRes.prototype.uid = "";
@@ -678,7 +678,7 @@ $root.proto = (function() {
             /**
              * GetUserInfoRes username.
              * @member {string} username
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @instance
              */
             GetUserInfoRes.prototype.username = "";
@@ -686,7 +686,7 @@ $root.proto = (function() {
             /**
              * Creates a new GetUserInfoRes instance using the specified properties.
              * @function create
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {proto.gate.IGetUserInfoRes=} [properties] Properties to set
              * @returns {proto.gate.GetUserInfoRes} GetUserInfoRes instance
@@ -698,7 +698,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified GetUserInfoRes message. Does not implicitly {@link proto.gate.GetUserInfoRes.verify|verify} messages.
              * @function encode
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {proto.gate.IGetUserInfoRes} message GetUserInfoRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -719,7 +719,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified GetUserInfoRes message, length delimited. Does not implicitly {@link proto.gate.GetUserInfoRes.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {proto.gate.IGetUserInfoRes} message GetUserInfoRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -732,7 +732,7 @@ $root.proto = (function() {
             /**
              * Decodes a GetUserInfoRes message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -767,7 +767,7 @@ $root.proto = (function() {
             /**
              * Decodes a GetUserInfoRes message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.gate.GetUserInfoRes} GetUserInfoRes
@@ -783,7 +783,7 @@ $root.proto = (function() {
             /**
              * Verifies a GetUserInfoRes message.
              * @function verify
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -806,7 +806,7 @@ $root.proto = (function() {
             /**
              * Creates a GetUserInfoRes message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.gate.GetUserInfoRes} GetUserInfoRes
@@ -827,7 +827,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a GetUserInfoRes message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @static
              * @param {proto.gate.GetUserInfoRes} message GetUserInfoRes
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -854,7 +854,7 @@ $root.proto = (function() {
             /**
              * Converts this GetUserInfoRes to JSON.
              * @function toJSON
-             * @memberof proto.gateway.GetUserInfoRes
+             * @memberof proto.gate.GetUserInfoRes
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -3811,6 +3811,1091 @@ $root.proto = (function() {
         })();
 
         return room;
+    })();
+
+    proto.mj = (function() {
+
+        /**
+         * Namespace mj.
+         * @memberof proto
+         * @namespace
+         */
+        var mj = {};
+
+        mj.BeginGameNot = (function() {
+
+            /**
+             * Properties of a BeginGameNot.
+             * @memberof proto.mj
+             * @interface IBeginGameNot
+             */
+
+            /**
+             * Constructs a new BeginGameNot.
+             * @memberof proto.mj
+             * @classdesc Represents a BeginGameNot.
+             * @implements IBeginGameNot
+             * @constructor
+             * @param {proto.mj.IBeginGameNot=} [properties] Properties to set
+             */
+            function BeginGameNot(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new BeginGameNot instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {proto.mj.IBeginGameNot=} [properties] Properties to set
+             * @returns {proto.mj.BeginGameNot} BeginGameNot instance
+             */
+            BeginGameNot.create = function create(properties) {
+                return new BeginGameNot(properties);
+            };
+
+            /**
+             * Encodes the specified BeginGameNot message. Does not implicitly {@link proto.mj.BeginGameNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {proto.mj.IBeginGameNot} message BeginGameNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BeginGameNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified BeginGameNot message, length delimited. Does not implicitly {@link proto.mj.BeginGameNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {proto.mj.IBeginGameNot} message BeginGameNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            BeginGameNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a BeginGameNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.BeginGameNot} BeginGameNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BeginGameNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.BeginGameNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a BeginGameNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.BeginGameNot} BeginGameNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            BeginGameNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a BeginGameNot message.
+             * @function verify
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            BeginGameNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a BeginGameNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.BeginGameNot} BeginGameNot
+             */
+            BeginGameNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.BeginGameNot)
+                    return object;
+                return new $root.proto.mj.BeginGameNot();
+            };
+
+            /**
+             * Creates a plain object from a BeginGameNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.BeginGameNot
+             * @static
+             * @param {proto.mj.BeginGameNot} message BeginGameNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            BeginGameNot.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this BeginGameNot to JSON.
+             * @function toJSON
+             * @memberof proto.mj.BeginGameNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            BeginGameNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return BeginGameNot;
+        })();
+
+        mj.HandCardsNot = (function() {
+
+            /**
+             * Properties of a HandCardsNot.
+             * @memberof proto.mj
+             * @interface IHandCardsNot
+             * @property {Array.<number>|null} [handCards] HandCardsNot handCards
+             */
+
+            /**
+             * Constructs a new HandCardsNot.
+             * @memberof proto.mj
+             * @classdesc Represents a HandCardsNot.
+             * @implements IHandCardsNot
+             * @constructor
+             * @param {proto.mj.IHandCardsNot=} [properties] Properties to set
+             */
+            function HandCardsNot(properties) {
+                this.handCards = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * HandCardsNot handCards.
+             * @member {Array.<number>} handCards
+             * @memberof proto.mj.HandCardsNot
+             * @instance
+             */
+            HandCardsNot.prototype.handCards = $util.emptyArray;
+
+            /**
+             * Creates a new HandCardsNot instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {proto.mj.IHandCardsNot=} [properties] Properties to set
+             * @returns {proto.mj.HandCardsNot} HandCardsNot instance
+             */
+            HandCardsNot.create = function create(properties) {
+                return new HandCardsNot(properties);
+            };
+
+            /**
+             * Encodes the specified HandCardsNot message. Does not implicitly {@link proto.mj.HandCardsNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {proto.mj.IHandCardsNot} message HandCardsNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HandCardsNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.handCards != null && message.handCards.length) {
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                    for (var i = 0; i < message.handCards.length; ++i)
+                        writer.int32(message.handCards[i]);
+                    writer.ldelim();
+                }
+                return writer;
+            };
+
+            /**
+             * Encodes the specified HandCardsNot message, length delimited. Does not implicitly {@link proto.mj.HandCardsNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {proto.mj.IHandCardsNot} message HandCardsNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            HandCardsNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a HandCardsNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.HandCardsNot} HandCardsNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HandCardsNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.HandCardsNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.handCards && message.handCards.length))
+                            message.handCards = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.handCards.push(reader.int32());
+                        } else
+                            message.handCards.push(reader.int32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a HandCardsNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.HandCardsNot} HandCardsNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            HandCardsNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a HandCardsNot message.
+             * @function verify
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            HandCardsNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.handCards != null && message.hasOwnProperty("handCards")) {
+                    if (!Array.isArray(message.handCards))
+                        return "handCards: array expected";
+                    for (var i = 0; i < message.handCards.length; ++i)
+                        if (!$util.isInteger(message.handCards[i]))
+                            return "handCards: integer[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates a HandCardsNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.HandCardsNot} HandCardsNot
+             */
+            HandCardsNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.HandCardsNot)
+                    return object;
+                var message = new $root.proto.mj.HandCardsNot();
+                if (object.handCards) {
+                    if (!Array.isArray(object.handCards))
+                        throw TypeError(".proto.mj.HandCardsNot.handCards: array expected");
+                    message.handCards = [];
+                    for (var i = 0; i < object.handCards.length; ++i)
+                        message.handCards[i] = object.handCards[i] | 0;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a HandCardsNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.HandCardsNot
+             * @static
+             * @param {proto.mj.HandCardsNot} message HandCardsNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            HandCardsNot.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.handCards = [];
+                if (message.handCards && message.handCards.length) {
+                    object.handCards = [];
+                    for (var j = 0; j < message.handCards.length; ++j)
+                        object.handCards[j] = message.handCards[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this HandCardsNot to JSON.
+             * @function toJSON
+             * @memberof proto.mj.HandCardsNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            HandCardsNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return HandCardsNot;
+        })();
+
+        mj.OperateReq = (function() {
+
+            /**
+             * Properties of an OperateReq.
+             * @memberof proto.mj
+             * @interface IOperateReq
+             * @property {Array.<number>|null} [opCodes] OperateReq opCodes
+             */
+
+            /**
+             * Constructs a new OperateReq.
+             * @memberof proto.mj
+             * @classdesc Represents an OperateReq.
+             * @implements IOperateReq
+             * @constructor
+             * @param {proto.mj.IOperateReq=} [properties] Properties to set
+             */
+            function OperateReq(properties) {
+                this.opCodes = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * OperateReq opCodes.
+             * @member {Array.<number>} opCodes
+             * @memberof proto.mj.OperateReq
+             * @instance
+             */
+            OperateReq.prototype.opCodes = $util.emptyArray;
+
+            /**
+             * Creates a new OperateReq instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {proto.mj.IOperateReq=} [properties] Properties to set
+             * @returns {proto.mj.OperateReq} OperateReq instance
+             */
+            OperateReq.create = function create(properties) {
+                return new OperateReq(properties);
+            };
+
+            /**
+             * Encodes the specified OperateReq message. Does not implicitly {@link proto.mj.OperateReq.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {proto.mj.IOperateReq} message OperateReq message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            OperateReq.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.opCodes != null && message.opCodes.length) {
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                    for (var i = 0; i < message.opCodes.length; ++i)
+                        writer.int32(message.opCodes[i]);
+                    writer.ldelim();
+                }
+                return writer;
+            };
+
+            /**
+             * Encodes the specified OperateReq message, length delimited. Does not implicitly {@link proto.mj.OperateReq.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {proto.mj.IOperateReq} message OperateReq message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            OperateReq.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an OperateReq message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.OperateReq} OperateReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            OperateReq.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.OperateReq();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.opCodes && message.opCodes.length))
+                            message.opCodes = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.opCodes.push(reader.int32());
+                        } else
+                            message.opCodes.push(reader.int32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an OperateReq message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.OperateReq} OperateReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            OperateReq.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an OperateReq message.
+             * @function verify
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            OperateReq.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.opCodes != null && message.hasOwnProperty("opCodes")) {
+                    if (!Array.isArray(message.opCodes))
+                        return "opCodes: array expected";
+                    for (var i = 0; i < message.opCodes.length; ++i)
+                        if (!$util.isInteger(message.opCodes[i]))
+                            return "opCodes: integer[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an OperateReq message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.OperateReq} OperateReq
+             */
+            OperateReq.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.OperateReq)
+                    return object;
+                var message = new $root.proto.mj.OperateReq();
+                if (object.opCodes) {
+                    if (!Array.isArray(object.opCodes))
+                        throw TypeError(".proto.mj.OperateReq.opCodes: array expected");
+                    message.opCodes = [];
+                    for (var i = 0; i < object.opCodes.length; ++i)
+                        message.opCodes[i] = object.opCodes[i] | 0;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an OperateReq message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.OperateReq
+             * @static
+             * @param {proto.mj.OperateReq} message OperateReq
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            OperateReq.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.opCodes = [];
+                if (message.opCodes && message.opCodes.length) {
+                    object.opCodes = [];
+                    for (var j = 0; j < message.opCodes.length; ++j)
+                        object.opCodes[j] = message.opCodes[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this OperateReq to JSON.
+             * @function toJSON
+             * @memberof proto.mj.OperateReq
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            OperateReq.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return OperateReq;
+        })();
+
+        mj.OperateRes = (function() {
+
+            /**
+             * Properties of an OperateRes.
+             * @memberof proto.mj
+             * @interface IOperateRes
+             * @property {number|null} [opCode] OperateRes opCode
+             * @property {Array.<number>|null} [cards] OperateRes cards
+             */
+
+            /**
+             * Constructs a new OperateRes.
+             * @memberof proto.mj
+             * @classdesc Represents an OperateRes.
+             * @implements IOperateRes
+             * @constructor
+             * @param {proto.mj.IOperateRes=} [properties] Properties to set
+             */
+            function OperateRes(properties) {
+                this.cards = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * OperateRes opCode.
+             * @member {number} opCode
+             * @memberof proto.mj.OperateRes
+             * @instance
+             */
+            OperateRes.prototype.opCode = 0;
+
+            /**
+             * OperateRes cards.
+             * @member {Array.<number>} cards
+             * @memberof proto.mj.OperateRes
+             * @instance
+             */
+            OperateRes.prototype.cards = $util.emptyArray;
+
+            /**
+             * Creates a new OperateRes instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {proto.mj.IOperateRes=} [properties] Properties to set
+             * @returns {proto.mj.OperateRes} OperateRes instance
+             */
+            OperateRes.create = function create(properties) {
+                return new OperateRes(properties);
+            };
+
+            /**
+             * Encodes the specified OperateRes message. Does not implicitly {@link proto.mj.OperateRes.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {proto.mj.IOperateRes} message OperateRes message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            OperateRes.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.opCode != null && Object.hasOwnProperty.call(message, "opCode"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.opCode);
+                if (message.cards != null && message.cards.length) {
+                    writer.uint32(/* id 2, wireType 2 =*/18).fork();
+                    for (var i = 0; i < message.cards.length; ++i)
+                        writer.int32(message.cards[i]);
+                    writer.ldelim();
+                }
+                return writer;
+            };
+
+            /**
+             * Encodes the specified OperateRes message, length delimited. Does not implicitly {@link proto.mj.OperateRes.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {proto.mj.IOperateRes} message OperateRes message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            OperateRes.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an OperateRes message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.OperateRes} OperateRes
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            OperateRes.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.OperateRes();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.opCode = reader.int32();
+                        break;
+                    case 2:
+                        if (!(message.cards && message.cards.length))
+                            message.cards = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.cards.push(reader.int32());
+                        } else
+                            message.cards.push(reader.int32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an OperateRes message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.OperateRes} OperateRes
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            OperateRes.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an OperateRes message.
+             * @function verify
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            OperateRes.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.opCode != null && message.hasOwnProperty("opCode"))
+                    if (!$util.isInteger(message.opCode))
+                        return "opCode: integer expected";
+                if (message.cards != null && message.hasOwnProperty("cards")) {
+                    if (!Array.isArray(message.cards))
+                        return "cards: array expected";
+                    for (var i = 0; i < message.cards.length; ++i)
+                        if (!$util.isInteger(message.cards[i]))
+                            return "cards: integer[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an OperateRes message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.OperateRes} OperateRes
+             */
+            OperateRes.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.OperateRes)
+                    return object;
+                var message = new $root.proto.mj.OperateRes();
+                if (object.opCode != null)
+                    message.opCode = object.opCode | 0;
+                if (object.cards) {
+                    if (!Array.isArray(object.cards))
+                        throw TypeError(".proto.mj.OperateRes.cards: array expected");
+                    message.cards = [];
+                    for (var i = 0; i < object.cards.length; ++i)
+                        message.cards[i] = object.cards[i] | 0;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an OperateRes message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.OperateRes
+             * @static
+             * @param {proto.mj.OperateRes} message OperateRes
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            OperateRes.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.cards = [];
+                if (options.defaults)
+                    object.opCode = 0;
+                if (message.opCode != null && message.hasOwnProperty("opCode"))
+                    object.opCode = message.opCode;
+                if (message.cards && message.cards.length) {
+                    object.cards = [];
+                    for (var j = 0; j < message.cards.length; ++j)
+                        object.cards[j] = message.cards[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this OperateRes to JSON.
+             * @function toJSON
+             * @memberof proto.mj.OperateRes
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            OperateRes.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return OperateRes;
+        })();
+
+        mj.OperateNot = (function() {
+
+            /**
+             * Properties of an OperateNot.
+             * @memberof proto.mj
+             * @interface IOperateNot
+             * @property {number|null} [chairId] OperateNot chairId
+             * @property {number|null} [opCode] OperateNot opCode
+             * @property {Array.<number>|null} [cards] OperateNot cards
+             */
+
+            /**
+             * Constructs a new OperateNot.
+             * @memberof proto.mj
+             * @classdesc Represents an OperateNot.
+             * @implements IOperateNot
+             * @constructor
+             * @param {proto.mj.IOperateNot=} [properties] Properties to set
+             */
+            function OperateNot(properties) {
+                this.cards = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * OperateNot chairId.
+             * @member {number} chairId
+             * @memberof proto.mj.OperateNot
+             * @instance
+             */
+            OperateNot.prototype.chairId = 0;
+
+            /**
+             * OperateNot opCode.
+             * @member {number} opCode
+             * @memberof proto.mj.OperateNot
+             * @instance
+             */
+            OperateNot.prototype.opCode = 0;
+
+            /**
+             * OperateNot cards.
+             * @member {Array.<number>} cards
+             * @memberof proto.mj.OperateNot
+             * @instance
+             */
+            OperateNot.prototype.cards = $util.emptyArray;
+
+            /**
+             * Creates a new OperateNot instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {proto.mj.IOperateNot=} [properties] Properties to set
+             * @returns {proto.mj.OperateNot} OperateNot instance
+             */
+            OperateNot.create = function create(properties) {
+                return new OperateNot(properties);
+            };
+
+            /**
+             * Encodes the specified OperateNot message. Does not implicitly {@link proto.mj.OperateNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {proto.mj.IOperateNot} message OperateNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            OperateNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.chairId != null && Object.hasOwnProperty.call(message, "chairId"))
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.chairId);
+                if (message.opCode != null && Object.hasOwnProperty.call(message, "opCode"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.opCode);
+                if (message.cards != null && message.cards.length) {
+                    writer.uint32(/* id 3, wireType 2 =*/26).fork();
+                    for (var i = 0; i < message.cards.length; ++i)
+                        writer.int32(message.cards[i]);
+                    writer.ldelim();
+                }
+                return writer;
+            };
+
+            /**
+             * Encodes the specified OperateNot message, length delimited. Does not implicitly {@link proto.mj.OperateNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {proto.mj.IOperateNot} message OperateNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            OperateNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an OperateNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.OperateNot} OperateNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            OperateNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.OperateNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.chairId = reader.int32();
+                        break;
+                    case 2:
+                        message.opCode = reader.int32();
+                        break;
+                    case 3:
+                        if (!(message.cards && message.cards.length))
+                            message.cards = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.cards.push(reader.int32());
+                        } else
+                            message.cards.push(reader.int32());
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an OperateNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.OperateNot} OperateNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            OperateNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an OperateNot message.
+             * @function verify
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            OperateNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.chairId != null && message.hasOwnProperty("chairId"))
+                    if (!$util.isInteger(message.chairId))
+                        return "chairId: integer expected";
+                if (message.opCode != null && message.hasOwnProperty("opCode"))
+                    if (!$util.isInteger(message.opCode))
+                        return "opCode: integer expected";
+                if (message.cards != null && message.hasOwnProperty("cards")) {
+                    if (!Array.isArray(message.cards))
+                        return "cards: array expected";
+                    for (var i = 0; i < message.cards.length; ++i)
+                        if (!$util.isInteger(message.cards[i]))
+                            return "cards: integer[] expected";
+                }
+                return null;
+            };
+
+            /**
+             * Creates an OperateNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.OperateNot} OperateNot
+             */
+            OperateNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.OperateNot)
+                    return object;
+                var message = new $root.proto.mj.OperateNot();
+                if (object.chairId != null)
+                    message.chairId = object.chairId | 0;
+                if (object.opCode != null)
+                    message.opCode = object.opCode | 0;
+                if (object.cards) {
+                    if (!Array.isArray(object.cards))
+                        throw TypeError(".proto.mj.OperateNot.cards: array expected");
+                    message.cards = [];
+                    for (var i = 0; i < object.cards.length; ++i)
+                        message.cards[i] = object.cards[i] | 0;
+                }
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an OperateNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.OperateNot
+             * @static
+             * @param {proto.mj.OperateNot} message OperateNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            OperateNot.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.cards = [];
+                if (options.defaults) {
+                    object.chairId = 0;
+                    object.opCode = 0;
+                }
+                if (message.chairId != null && message.hasOwnProperty("chairId"))
+                    object.chairId = message.chairId;
+                if (message.opCode != null && message.hasOwnProperty("opCode"))
+                    object.opCode = message.opCode;
+                if (message.cards && message.cards.length) {
+                    object.cards = [];
+                    for (var j = 0; j < message.cards.length; ++j)
+                        object.cards[j] = message.cards[j];
+                }
+                return object;
+            };
+
+            /**
+             * Converts this OperateNot to JSON.
+             * @function toJSON
+             * @memberof proto.mj.OperateNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            OperateNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return OperateNot;
+        })();
+
+        return mj;
     })();
 
     return proto;

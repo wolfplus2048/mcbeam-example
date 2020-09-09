@@ -24,6 +24,9 @@ func NewPlayer(s *session.Session, uid, name string) *Player {
 func (p *Player) UID() string {
 	return p.uid
 }
+func (p *Player) Push(route string, payload interface{}) {
+	p.session.Push(route, payload)
+}
 func (p *Player) SetRoom(r *Room, id int) {
 	p.room = r
 	p.chairId = id

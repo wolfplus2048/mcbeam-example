@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package proto.mj;
+
+message BeginGameNot {
+
+}
+message HandCardsNot {
+  repeated int32 handCards = 1;
+}
+message OperateReq {
+  repeated int32 opCodes = 1;
+}
+message OperateRes {
+  int32 opCode = 1;
+  repeated int32 cards = 2;
+}
+message OperateNot {
+  int32 chairId = 1;
+  int32 opCode = 2;
+  repeated int32 cards = 3;
+}
+
+
