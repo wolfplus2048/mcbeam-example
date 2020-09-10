@@ -34,7 +34,6 @@ func newRoom(name string) *Room {
 	return r
 }
 func (r *Room) JoinRoom(player *Player) error {
-
 	for i := 0; i < len(r.players); i++ {
 		if r.players[i] == nil {
 			r.players[i] = player
@@ -42,9 +41,7 @@ func (r *Room) JoinRoom(player *Player) error {
 			return nil
 		}
 	}
-
 	return errors.New("room full")
-
 }
 func (r *Room) LeaveRoom(player *Player) error {
 	for i := 0; i < len(r.players); i++ {
@@ -55,7 +52,6 @@ func (r *Room) LeaveRoom(player *Player) error {
 		}
 	}
 	return errors.New("cant find player")
-
 }
 func (r *Room) GetUsers() []*proto_room.User {
 	users := make([]*proto_room.User, 0)

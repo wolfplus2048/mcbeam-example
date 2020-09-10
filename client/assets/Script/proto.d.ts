@@ -1811,6 +1811,102 @@ export namespace proto {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a SetDealerNot. */
+        interface ISetDealerNot {
+
+            /** SetDealerNot dices */
+            dices?: (number[]|null);
+
+            /** SetDealerNot uid */
+            uid?: (string|null);
+        }
+
+        /** Represents a SetDealerNot. */
+        class SetDealerNot implements ISetDealerNot {
+
+            /**
+             * Constructs a new SetDealerNot.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.ISetDealerNot);
+
+            /** SetDealerNot dices. */
+            public dices: number[];
+
+            /** SetDealerNot uid. */
+            public uid: string;
+
+            /**
+             * Creates a new SetDealerNot instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns SetDealerNot instance
+             */
+            public static create(properties?: proto.mj.ISetDealerNot): proto.mj.SetDealerNot;
+
+            /**
+             * Encodes the specified SetDealerNot message. Does not implicitly {@link proto.mj.SetDealerNot.verify|verify} messages.
+             * @param message SetDealerNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.ISetDealerNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified SetDealerNot message, length delimited. Does not implicitly {@link proto.mj.SetDealerNot.verify|verify} messages.
+             * @param message SetDealerNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.ISetDealerNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a SetDealerNot message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns SetDealerNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.SetDealerNot;
+
+            /**
+             * Decodes a SetDealerNot message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns SetDealerNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.SetDealerNot;
+
+            /**
+             * Verifies a SetDealerNot message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a SetDealerNot message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns SetDealerNot
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.SetDealerNot;
+
+            /**
+             * Creates a plain object from a SetDealerNot message. Also converts values to other types if specified.
+             * @param message SetDealerNot
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.SetDealerNot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this SetDealerNot to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Properties of a HandCardsNot. */
         interface IHandCardsNot {
 
@@ -2184,6 +2280,180 @@ export namespace proto {
 
             /**
              * Converts this OperateNot to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadyReq. */
+        interface IReadyReq {
+        }
+
+        /** Represents a ReadyReq. */
+        class ReadyReq implements IReadyReq {
+
+            /**
+             * Constructs a new ReadyReq.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.IReadyReq);
+
+            /**
+             * Creates a new ReadyReq instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadyReq instance
+             */
+            public static create(properties?: proto.mj.IReadyReq): proto.mj.ReadyReq;
+
+            /**
+             * Encodes the specified ReadyReq message. Does not implicitly {@link proto.mj.ReadyReq.verify|verify} messages.
+             * @param message ReadyReq message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.IReadyReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadyReq message, length delimited. Does not implicitly {@link proto.mj.ReadyReq.verify|verify} messages.
+             * @param message ReadyReq message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.IReadyReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadyReq message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadyReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.ReadyReq;
+
+            /**
+             * Decodes a ReadyReq message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadyReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.ReadyReq;
+
+            /**
+             * Verifies a ReadyReq message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadyReq message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadyReq
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.ReadyReq;
+
+            /**
+             * Creates a plain object from a ReadyReq message. Also converts values to other types if specified.
+             * @param message ReadyReq
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.ReadyReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadyReq to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ReadyNot. */
+        interface IReadyNot {
+
+            /** ReadyNot uid */
+            uid?: (string|null);
+        }
+
+        /** Represents a ReadyNot. */
+        class ReadyNot implements IReadyNot {
+
+            /**
+             * Constructs a new ReadyNot.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mj.IReadyNot);
+
+            /** ReadyNot uid. */
+            public uid: string;
+
+            /**
+             * Creates a new ReadyNot instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ReadyNot instance
+             */
+            public static create(properties?: proto.mj.IReadyNot): proto.mj.ReadyNot;
+
+            /**
+             * Encodes the specified ReadyNot message. Does not implicitly {@link proto.mj.ReadyNot.verify|verify} messages.
+             * @param message ReadyNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mj.IReadyNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ReadyNot message, length delimited. Does not implicitly {@link proto.mj.ReadyNot.verify|verify} messages.
+             * @param message ReadyNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mj.IReadyNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ReadyNot message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ReadyNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mj.ReadyNot;
+
+            /**
+             * Decodes a ReadyNot message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ReadyNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mj.ReadyNot;
+
+            /**
+             * Verifies a ReadyNot message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ReadyNot message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ReadyNot
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mj.ReadyNot;
+
+            /**
+             * Creates a plain object from a ReadyNot message. Also converts values to other types if specified.
+             * @param message ReadyNot
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mj.ReadyNot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ReadyNot to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

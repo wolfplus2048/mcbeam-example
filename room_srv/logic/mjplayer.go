@@ -39,6 +39,7 @@ type MJPlayer struct {
 	fsm          *fsm.FSM
 	room         *MJRoom
 	timerId      int64
+	isReady      bool
 }
 
 func newMJPlayer() *MJPlayer {
@@ -56,8 +57,11 @@ func newMJPlayer() *MJPlayer {
 	return p
 }
 
-func (p *MJPlayer) getChairID() int {
-	return p.player.GetChairID()
+func (p *MJPlayer) getChairId() int {
+	return p.player.GetChairId()
+}
+func (p *MJPlayer) GetUid() string {
+	return p.player.GetUid()
 }
 func (p *MJPlayer) push(route string, v interface{}) {
 	p.player.Push(route, v)
@@ -68,15 +72,22 @@ func (p *MJPlayer) setHandTitls(cards []int) {
 	not.HandCards = util.IntSliceToInt32(cards)
 	p.push("handcardsnot", not)
 }
-func (p *MJPlayer) ready() {
-
+func (p *MJPlayer) doReady() {
+	p.isReady = true
+}
+func (p *MJPlayer) reset() {
+	p.handCards = []int{}
+	p.isReady = false
+	p.showCards = make([]*card.ShowCard, 0)
+	p.discardCards = []int{}
+	p.timerId = -1
 }
 func (p *MJPlayer) reqChuPai() {
 	//send
 	p.push("chupaireq", proto_mj.OperateReq{OpCodes: []int32{common.OP_CHOW}})
 
 	p.timerId = scheduler.NewTimer(10*time.Second, func() {
-		p.doChuPai(-1)
+		p.doChuPai(p.handCards[len(p.handCards)-1])
 	})
 }
 func (p *MJPlayer) doChuPai(card int) {
@@ -89,23 +100,27 @@ func (p *MJPlayer) doChuPai(card int) {
 	scheduler.RemoveTimer(p.timerId)
 	p.timerId = -1
 	p.handCards = util.SliceDel(p.handCards, card)
+	p.discardCards = append(p.discardCards, card)
 
-	p.push("operate", &proto_mj.OperateNot{
-		ChairId: (int32)(p.getChairID()),
+	p.room.broadcast("operate", &proto_mj.OperateNot{
+		ChairId: (int32)(p.getChairId()),
 		OpCode:  common.OP_CHOW,
 		Cards:   []int32{(int32)(card)},
 	})
+	scheduler.NewTimer(2*time.Second, func() {
+		p.room.fsm.Event(common.EV_OPERATE, p.getChairId(), card)
 
-	p.room.fsm.Event(common.EV_OPERATE, p.getChairID(), card)
+	})
 }
 func (p *MJPlayer) reqOperate(ops []common.OpCode) {
-
-	p.push("operatereq", &proto_mj.OperateReq{
-		OpCodes: op,
-	})
+	req := &proto_mj.OperateReq{}
+	for _, o := range ops {
+		req.OpCodes = append(req.OpCodes, (int32)(o))
+	}
+	p.push("operatereq", req)
 
 	p.timerId = scheduler.NewTimer(10*time.Second, func() {
-		p.doOperate(-1)
+		p.doOperate(common.OP_PASS_CANCEL)
 	})
 }
 func (p *MJPlayer) doOperate(op common.OpCode) {
@@ -123,7 +138,7 @@ func (p *MJPlayer) doPong(c int) {
 	p.fsm.Event(common.EV_CHUPAI)
 }
 func (p *MJPlayer) canOperate(target int, c int) []common.OpCode {
-	ops := []common.OpCode{}
+	var ops []common.OpCode
 	cards := util.SliceCopy(p.handCards)
 
 	cards = append(cards, c)

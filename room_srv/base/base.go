@@ -7,7 +7,8 @@ type BaseRoom interface {
 type GameRoom interface {
 }
 type BasePlayer interface {
-	GetChairID() int
+	GetChairId() int
+	GetUid() string
 	Push(route string, payload interface{})
 }
 type GamePlayer interface {

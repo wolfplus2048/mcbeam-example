@@ -6,8 +6,10 @@ import (
 	"gitee.com/microbeam/mcbeam-mind-mahjong/wall"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/win"
 	"github.com/looplab/fsm"
+	proto_mj "github.com/wolfplus2048/mcbeam-example/protos/mj"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
 	"github.com/wolfplus2048/mcbeam-plus/scheduler"
+	"math/rand"
 	"time"
 )
 
@@ -51,24 +53,53 @@ func NewRoom() *MJRoom {
 	)
 	return mj
 }
-func (m *MJRoom) ready() {
-
-}
-
-func (m *MJRoom) onBegin() {
-	m.ready()
+func (m *MJRoom) tryBegin() {
+	allready := true
 	for _, v := range m.room.GetGamePlayers() {
 		p := v.(*MJPlayer)
-		p.ready()
+		if !p.isReady {
+			allready = false
+		}
 	}
-	//sendto
+	if !allready {
+		return
+	}
+	m.fsm.Event(common.EV_BEGIN)
+}
+func (m *MJRoom) reset() {
+	m.wallCard.Reset()
+	m.wallCard.Shuffle()
+}
+func (m *MJRoom) broadcast(route string, payload interface{}) {
+	for _, v := range m.room.GetGamePlayers() {
+		if v == nil {
+			continue
+		}
+		p := v.(*MJPlayer)
+		p.push(route, payload)
+	}
+}
+func (m *MJRoom) onBegin() {
+	m.reset()
+	for _, v := range m.room.GetGamePlayers() {
+		p := v.(*MJPlayer)
+		p.reset()
 
+	}
+	m.broadcast("begingamenot", &proto_mj.BeginGameNot{})
 	m.fsm.Event(common.EV_DINGZHUANG)
 }
 func (m *MJRoom) onMakeDealer() {
 	m.dealer = m.room.GetGamePlayers()[0].(*MJPlayer)
 	m.currPlayer = m.dealer
-	//to do
+	not := &proto_mj.SetDealerNot{}
+	not.Dices = append(not.Dices, (int32)(rand.Int()%6))
+	not.Dices = append(not.Dices, (int32)(rand.Int()%6))
+	not.Uid = m.currPlayer.GetUid()
+	m.broadcast("setdealernot", &proto_mj.SetDealerNot{
+		Dices: nil,
+		Uid:   m.currPlayer.GetUid(),
+	})
 	scheduler.NewTimer(10*time.Second, func() {
 		m.fsm.Event(common.EV_FAPAI)
 	})
@@ -100,12 +131,12 @@ func (m *MJRoom) onOperate(event *fsm.Event) {
 		if p == m.currPlayer {
 			continue
 		}
-		op := p.canOperate(target.getChairID(), targetCard)
+		op := p.canOperate(target.getChairId(), targetCard)
 		if len(op) > 0 {
 			p.reqOperate(op)
 			m.operators = append(m.operators, Operator{
 				operator:    v.(*MJPlayer),
-				target:      target.getChairID(),
+				target:      target.getChairId(),
 				targetCard:  targetCard,
 				ValidateOps: op,
 				AckOp:       common.OP_NONE,
@@ -114,7 +145,7 @@ func (m *MJRoom) onOperate(event *fsm.Event) {
 	}
 	if len(m.operators) <= 0 {
 		m.currPlayer = m.room.GetNextPlayer((base.GamePlayer)(m.currPlayer)).(*MJPlayer)
-		m.fsm.Event(common.EV_CHUPAI)
+		m.fsm.Event(common.EV_MOPAI)
 	}
 }
 func (m *MJRoom) doOperate(p *MJPlayer, op common.OpCode) {
@@ -161,6 +192,7 @@ Out:
 	m.fsm.Event(common.EV_MOPAI)
 }
 func (m *MJRoom) onMoPai() {
+
 	m.currPlayer.doMoPai()
 	m.fsm.Event(common.EV_CHUPAI)
 }

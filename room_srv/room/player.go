@@ -21,7 +21,7 @@ func NewPlayer(s *session.Session, uid, name string) *Player {
 		session: s,
 	}
 }
-func (p *Player) UID() string {
+func (p *Player) GetUid() string {
 	return p.uid
 }
 func (p *Player) Push(route string, payload interface{}) {
@@ -37,6 +37,6 @@ func (p *Player) GetRoom() *Room {
 func (p *Player) GetGamePlayer() base.GamePlayer {
 	return p.gamePlayer
 }
-func (p *Player) GetChairID() int {
+func (p *Player) GetChairId() int {
 	return p.chairId
 }

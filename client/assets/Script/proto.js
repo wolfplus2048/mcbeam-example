@@ -3982,6 +3982,240 @@ $root.proto = (function() {
             return BeginGameNot;
         })();
 
+        mj.SetDealerNot = (function() {
+
+            /**
+             * Properties of a SetDealerNot.
+             * @memberof proto.mj
+             * @interface ISetDealerNot
+             * @property {Array.<number>|null} [dices] SetDealerNot dices
+             * @property {string|null} [uid] SetDealerNot uid
+             */
+
+            /**
+             * Constructs a new SetDealerNot.
+             * @memberof proto.mj
+             * @classdesc Represents a SetDealerNot.
+             * @implements ISetDealerNot
+             * @constructor
+             * @param {proto.mj.ISetDealerNot=} [properties] Properties to set
+             */
+            function SetDealerNot(properties) {
+                this.dices = [];
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * SetDealerNot dices.
+             * @member {Array.<number>} dices
+             * @memberof proto.mj.SetDealerNot
+             * @instance
+             */
+            SetDealerNot.prototype.dices = $util.emptyArray;
+
+            /**
+             * SetDealerNot uid.
+             * @member {string} uid
+             * @memberof proto.mj.SetDealerNot
+             * @instance
+             */
+            SetDealerNot.prototype.uid = "";
+
+            /**
+             * Creates a new SetDealerNot instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {proto.mj.ISetDealerNot=} [properties] Properties to set
+             * @returns {proto.mj.SetDealerNot} SetDealerNot instance
+             */
+            SetDealerNot.create = function create(properties) {
+                return new SetDealerNot(properties);
+            };
+
+            /**
+             * Encodes the specified SetDealerNot message. Does not implicitly {@link proto.mj.SetDealerNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {proto.mj.ISetDealerNot} message SetDealerNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetDealerNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.dices != null && message.dices.length) {
+                    writer.uint32(/* id 1, wireType 2 =*/10).fork();
+                    for (var i = 0; i < message.dices.length; ++i)
+                        writer.int32(message.dices[i]);
+                    writer.ldelim();
+                }
+                if (message.uid != null && Object.hasOwnProperty.call(message, "uid"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.uid);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified SetDealerNot message, length delimited. Does not implicitly {@link proto.mj.SetDealerNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {proto.mj.ISetDealerNot} message SetDealerNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            SetDealerNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a SetDealerNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.SetDealerNot} SetDealerNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetDealerNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.SetDealerNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        if (!(message.dices && message.dices.length))
+                            message.dices = [];
+                        if ((tag & 7) === 2) {
+                            var end2 = reader.uint32() + reader.pos;
+                            while (reader.pos < end2)
+                                message.dices.push(reader.int32());
+                        } else
+                            message.dices.push(reader.int32());
+                        break;
+                    case 2:
+                        message.uid = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a SetDealerNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.SetDealerNot} SetDealerNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            SetDealerNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a SetDealerNot message.
+             * @function verify
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            SetDealerNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.dices != null && message.hasOwnProperty("dices")) {
+                    if (!Array.isArray(message.dices))
+                        return "dices: array expected";
+                    for (var i = 0; i < message.dices.length; ++i)
+                        if (!$util.isInteger(message.dices[i]))
+                            return "dices: integer[] expected";
+                }
+                if (message.uid != null && message.hasOwnProperty("uid"))
+                    if (!$util.isString(message.uid))
+                        return "uid: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a SetDealerNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.SetDealerNot} SetDealerNot
+             */
+            SetDealerNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.SetDealerNot)
+                    return object;
+                var message = new $root.proto.mj.SetDealerNot();
+                if (object.dices) {
+                    if (!Array.isArray(object.dices))
+                        throw TypeError(".proto.mj.SetDealerNot.dices: array expected");
+                    message.dices = [];
+                    for (var i = 0; i < object.dices.length; ++i)
+                        message.dices[i] = object.dices[i] | 0;
+                }
+                if (object.uid != null)
+                    message.uid = String(object.uid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a SetDealerNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.SetDealerNot
+             * @static
+             * @param {proto.mj.SetDealerNot} message SetDealerNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            SetDealerNot.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.arrays || options.defaults)
+                    object.dices = [];
+                if (options.defaults)
+                    object.uid = "";
+                if (message.dices && message.dices.length) {
+                    object.dices = [];
+                    for (var j = 0; j < message.dices.length; ++j)
+                        object.dices[j] = message.dices[j];
+                }
+                if (message.uid != null && message.hasOwnProperty("uid"))
+                    object.uid = message.uid;
+                return object;
+            };
+
+            /**
+             * Converts this SetDealerNot to JSON.
+             * @function toJSON
+             * @memberof proto.mj.SetDealerNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            SetDealerNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return SetDealerNot;
+        })();
+
         mj.HandCardsNot = (function() {
 
             /**
@@ -4893,6 +5127,353 @@ $root.proto = (function() {
             };
 
             return OperateNot;
+        })();
+
+        mj.ReadyReq = (function() {
+
+            /**
+             * Properties of a ReadyReq.
+             * @memberof proto.mj
+             * @interface IReadyReq
+             */
+
+            /**
+             * Constructs a new ReadyReq.
+             * @memberof proto.mj
+             * @classdesc Represents a ReadyReq.
+             * @implements IReadyReq
+             * @constructor
+             * @param {proto.mj.IReadyReq=} [properties] Properties to set
+             */
+            function ReadyReq(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Creates a new ReadyReq instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {proto.mj.IReadyReq=} [properties] Properties to set
+             * @returns {proto.mj.ReadyReq} ReadyReq instance
+             */
+            ReadyReq.create = function create(properties) {
+                return new ReadyReq(properties);
+            };
+
+            /**
+             * Encodes the specified ReadyReq message. Does not implicitly {@link proto.mj.ReadyReq.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {proto.mj.IReadyReq} message ReadyReq message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadyReq.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ReadyReq message, length delimited. Does not implicitly {@link proto.mj.ReadyReq.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {proto.mj.IReadyReq} message ReadyReq message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadyReq.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ReadyReq message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.ReadyReq} ReadyReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadyReq.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.ReadyReq();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ReadyReq message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.ReadyReq} ReadyReq
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadyReq.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ReadyReq message.
+             * @function verify
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ReadyReq.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                return null;
+            };
+
+            /**
+             * Creates a ReadyReq message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.ReadyReq} ReadyReq
+             */
+            ReadyReq.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.ReadyReq)
+                    return object;
+                return new $root.proto.mj.ReadyReq();
+            };
+
+            /**
+             * Creates a plain object from a ReadyReq message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.ReadyReq
+             * @static
+             * @param {proto.mj.ReadyReq} message ReadyReq
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ReadyReq.toObject = function toObject() {
+                return {};
+            };
+
+            /**
+             * Converts this ReadyReq to JSON.
+             * @function toJSON
+             * @memberof proto.mj.ReadyReq
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ReadyReq.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ReadyReq;
+        })();
+
+        mj.ReadyNot = (function() {
+
+            /**
+             * Properties of a ReadyNot.
+             * @memberof proto.mj
+             * @interface IReadyNot
+             * @property {string|null} [uid] ReadyNot uid
+             */
+
+            /**
+             * Constructs a new ReadyNot.
+             * @memberof proto.mj
+             * @classdesc Represents a ReadyNot.
+             * @implements IReadyNot
+             * @constructor
+             * @param {proto.mj.IReadyNot=} [properties] Properties to set
+             */
+            function ReadyNot(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * ReadyNot uid.
+             * @member {string} uid
+             * @memberof proto.mj.ReadyNot
+             * @instance
+             */
+            ReadyNot.prototype.uid = "";
+
+            /**
+             * Creates a new ReadyNot instance using the specified properties.
+             * @function create
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {proto.mj.IReadyNot=} [properties] Properties to set
+             * @returns {proto.mj.ReadyNot} ReadyNot instance
+             */
+            ReadyNot.create = function create(properties) {
+                return new ReadyNot(properties);
+            };
+
+            /**
+             * Encodes the specified ReadyNot message. Does not implicitly {@link proto.mj.ReadyNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {proto.mj.IReadyNot} message ReadyNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadyNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.uid != null && Object.hasOwnProperty.call(message, "uid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.uid);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified ReadyNot message, length delimited. Does not implicitly {@link proto.mj.ReadyNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {proto.mj.IReadyNot} message ReadyNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            ReadyNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a ReadyNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mj.ReadyNot} ReadyNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadyNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mj.ReadyNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.uid = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a ReadyNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mj.ReadyNot} ReadyNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            ReadyNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a ReadyNot message.
+             * @function verify
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            ReadyNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.uid != null && message.hasOwnProperty("uid"))
+                    if (!$util.isString(message.uid))
+                        return "uid: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a ReadyNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mj.ReadyNot} ReadyNot
+             */
+            ReadyNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mj.ReadyNot)
+                    return object;
+                var message = new $root.proto.mj.ReadyNot();
+                if (object.uid != null)
+                    message.uid = String(object.uid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a ReadyNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mj.ReadyNot
+             * @static
+             * @param {proto.mj.ReadyNot} message ReadyNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            ReadyNot.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.uid = "";
+                if (message.uid != null && message.hasOwnProperty("uid"))
+                    object.uid = message.uid;
+                return object;
+            };
+
+            /**
+             * Converts this ReadyNot to JSON.
+             * @function toJSON
+             * @memberof proto.mj.ReadyNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            ReadyNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return ReadyNot;
         })();
 
         return mj;

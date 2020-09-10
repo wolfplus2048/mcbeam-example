@@ -6,7 +6,7 @@ import (
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry/etcd"
 	"github.com/micro/go-plugins/store/redis/v2"
-	"github.com/wolfplus2048/mcbeam-example/room_srv/handler"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/room"
 	"github.com/wolfplus2048/mcbeam-plus"
 )
 
@@ -25,10 +25,10 @@ func main() {
 	if err := service.Init(); err != nil {
 		logger.Fatal(err)
 	}
-	service.Register(&handler.Handler{Service: service.Options().Service})
+	service.Register(&room.Handler{Service: service.Options().Service})
 
 	s := service.Options().Service.Server()
-	s.Subscribe(s.NewSubscriber("session.onclose", &handler.Sub{}))
+	s.Subscribe(s.NewSubscriber("session.onclose", &room.Sub{}))
 	if err := service.Run(); err != nil {
 		logger.Fatal(err)
 	}
