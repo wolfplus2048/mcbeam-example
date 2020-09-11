@@ -2779,6 +2779,193 @@ $root.proto = (function() {
             return JoinRes;
         })();
 
+        room.LeaveNot = (function() {
+
+            /**
+             * Properties of a LeaveNot.
+             * @memberof proto.room
+             * @interface ILeaveNot
+             * @property {string|null} [uid] LeaveNot uid
+             */
+
+            /**
+             * Constructs a new LeaveNot.
+             * @memberof proto.room
+             * @classdesc Represents a LeaveNot.
+             * @implements ILeaveNot
+             * @constructor
+             * @param {proto.room.ILeaveNot=} [properties] Properties to set
+             */
+            function LeaveNot(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * LeaveNot uid.
+             * @member {string} uid
+             * @memberof proto.room.LeaveNot
+             * @instance
+             */
+            LeaveNot.prototype.uid = "";
+
+            /**
+             * Creates a new LeaveNot instance using the specified properties.
+             * @function create
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {proto.room.ILeaveNot=} [properties] Properties to set
+             * @returns {proto.room.LeaveNot} LeaveNot instance
+             */
+            LeaveNot.create = function create(properties) {
+                return new LeaveNot(properties);
+            };
+
+            /**
+             * Encodes the specified LeaveNot message. Does not implicitly {@link proto.room.LeaveNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {proto.room.ILeaveNot} message LeaveNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LeaveNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.uid != null && Object.hasOwnProperty.call(message, "uid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.uid);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified LeaveNot message, length delimited. Does not implicitly {@link proto.room.LeaveNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {proto.room.ILeaveNot} message LeaveNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            LeaveNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a LeaveNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.room.LeaveNot} LeaveNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LeaveNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.room.LeaveNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.uid = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a LeaveNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.room.LeaveNot} LeaveNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            LeaveNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a LeaveNot message.
+             * @function verify
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            LeaveNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.uid != null && message.hasOwnProperty("uid"))
+                    if (!$util.isString(message.uid))
+                        return "uid: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a LeaveNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.room.LeaveNot} LeaveNot
+             */
+            LeaveNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.room.LeaveNot)
+                    return object;
+                var message = new $root.proto.room.LeaveNot();
+                if (object.uid != null)
+                    message.uid = String(object.uid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a LeaveNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.room.LeaveNot
+             * @static
+             * @param {proto.room.LeaveNot} message LeaveNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            LeaveNot.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.uid = "";
+                if (message.uid != null && message.hasOwnProperty("uid"))
+                    object.uid = message.uid;
+                return object;
+            };
+
+            /**
+             * Converts this LeaveNot to JSON.
+             * @function toJSON
+             * @memberof proto.room.LeaveNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            LeaveNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return LeaveNot;
+        })();
+
         room.ChatReq = (function() {
 
             /**

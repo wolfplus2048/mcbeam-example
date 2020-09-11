@@ -6,6 +6,7 @@ import (
 	"gitee.com/microbeam/mcbeam-mind-mahjong/common"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/setting"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/util"
+	"gitee.com/microbeam/mcbeam-mind-mahjong/wall"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/win"
 	"github.com/looplab/fsm"
 	proto_mj "github.com/wolfplus2048/mcbeam-example/protos/mj"
@@ -70,7 +71,7 @@ func (p *MJPlayer) setHandTitls(cards []int) {
 	p.handCards = cards
 	not := &proto_mj.HandCardsNot{}
 	not.HandCards = util.IntSliceToInt32(cards)
-	p.push("handcardsnot", not)
+	p.push("HandCardsNot", not)
 }
 func (p *MJPlayer) doReady() {
 	p.isReady = true
@@ -84,7 +85,7 @@ func (p *MJPlayer) reset() {
 }
 func (p *MJPlayer) reqChuPai() {
 	//send
-	p.push("chupaireq", proto_mj.OperateReq{OpCodes: []int32{common.OP_CHOW}})
+	p.push("ChuPaiReq", proto_mj.OperateReq{OpCodes: []int32{common.OP_CHOW}})
 
 	p.timerId = scheduler.NewTimer(10*time.Second, func() {
 		p.doChuPai(p.handCards[len(p.handCards)-1])
@@ -102,7 +103,7 @@ func (p *MJPlayer) doChuPai(card int) {
 	p.handCards = util.SliceDel(p.handCards, card)
 	p.discardCards = append(p.discardCards, card)
 
-	p.room.broadcast("operate", &proto_mj.OperateNot{
+	p.room.broadcast("OperateNot", &proto_mj.OperateNot{
 		ChairId: (int32)(p.getChairId()),
 		OpCode:  common.OP_CHOW,
 		Cards:   []int32{(int32)(card)},
@@ -117,7 +118,7 @@ func (p *MJPlayer) reqOperate(ops []common.OpCode) {
 	for _, o := range ops {
 		req.OpCodes = append(req.OpCodes, (int32)(o))
 	}
-	p.push("operatereq", req)
+	p.push("OperateReq", req)
 
 	p.timerId = scheduler.NewTimer(10*time.Second, func() {
 		p.doOperate(common.OP_PASS_CANCEL)
@@ -163,7 +164,27 @@ func (p *MJPlayer) canOperate(target int, c int) []common.OpCode {
 	}
 	return ops
 }
+func (m *MJPlayer) canSelfOperate() []common.OpCode {
+	return []common.OpCode{}
+}
 func (p *MJPlayer) doMoPai() {
-	//to do
+	c := wall.ForwardDraw()
+	p.handCards = append(p.handCards, c)
+	not := &proto_mj.OperateNot{
+		ChairId: (int32)(p.getChairId()),
+		OpCode:  common.OP_PLAY,
+	}
+	for _, v := range p.room.room.GetGamePlayers() {
+		if v == p {
+			not.Cards = append(not.Cards, (int32)(c))
+			p.push("OperateNot", not)
+		} else {
+			not.Cards = []int32{card.MAHJONG_PLACEHOLDER}
+		}
 
+	}
+
+	scheduler.NewTimer(2*time.Second, func() {
+		p.room.fsm.Event(common.EV_SELF_OPERATE)
+	})
 }

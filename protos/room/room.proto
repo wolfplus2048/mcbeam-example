@@ -16,6 +16,9 @@ message JoinRes {
   string code = 1;
     Room room = 2;
 }
+message LeaveNot {
+  string uid = 1;
+}
 message ChatReq {
   string content = 1;
 }

@@ -3,6 +3,7 @@ package room
 import (
 	"errors"
 	"github.com/micro/go-micro/v2/logger"
+	proto_room "github.com/wolfplus2048/mcbeam-example/protos/room"
 	"runtime/debug"
 )
 
@@ -62,6 +63,14 @@ func (m *manager) FindPlayer(uid string) (*Player, bool) {
 	return p, ok
 }
 func (m *manager) RemovePlayer(uid string) error {
+	p, ok := m.FindPlayer(uid)
+	if !ok {
+		return nil
+	}
+	if p.room != nil {
+		p.room.LeaveRoom(p)
+		p.room.Broadcast("leaveroomnot", &proto_room.LeaveNot{Uid: uid})
+	}
 	delete(m.players, uid)
 	return nil
 }

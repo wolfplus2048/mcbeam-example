@@ -25,7 +25,7 @@ func (s *Sub) Process(ctx context.Context, arg *proto_gate.LoginReq) error {
 		if r.GetUserNum() == 0 {
 			Manager.RemoveRoom(r.Id)
 		}
-		Manager.RemovePlayer(p.UID())
+		Manager.RemovePlayer(p.GetUid())
 	})
 	return nil
 }

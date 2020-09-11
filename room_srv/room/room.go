@@ -2,6 +2,7 @@ package room
 
 import (
 	"errors"
+	"gitee.com/microbeam/mcbeam-mind-mahjong/setting"
 	"github.com/google/uuid"
 	"github.com/looplab/fsm"
 	proto_room "github.com/wolfplus2048/mcbeam-example/protos/room"
@@ -20,7 +21,7 @@ func newRoom(name string) *Room {
 	id := uuid.New().String()
 	r := &Room{Id: id,
 		Name:    name,
-		players: make([]*Player, 4),
+		players: make([]*Player, setting.PlayerNum()),
 	}
 	r.fsm = fsm.NewFSM(
 		"closed",
@@ -32,6 +33,13 @@ func newRoom(name string) *Room {
 		},
 	)
 	return r
+}
+func (m *Room) Broadcast(route string, payload interface{}) {
+	for _, p := range m.players {
+		if p != nil {
+			p.Push(route, payload)
+		}
+	}
 }
 func (r *Room) JoinRoom(player *Player) error {
 	for i := 0; i < len(r.players); i++ {
@@ -47,7 +55,6 @@ func (r *Room) LeaveRoom(player *Player) error {
 	for i := 0; i < len(r.players); i++ {
 		if r.players[i] == player {
 			r.players[i] = nil
-			player.SetRoom(nil, 0)
 			return nil
 		}
 	}

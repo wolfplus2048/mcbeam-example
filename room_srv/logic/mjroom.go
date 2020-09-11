@@ -40,15 +40,25 @@ func NewRoom() *MJRoom {
 		fsm:       nil,
 		operators: nil,
 	}
-	mj.fsm = fsm.NewFSM(common.ST_NONE,
+	mj.fsm = fsm.NewFSM(
+		common.ST_NONE,
 		fsm.Events{
 			{common.EV_BEGIN, []string{common.ST_NONE}, common.ST_BEGIN},
-			{common.EV_DINGZHUANG, []string{common.ST_BEGIN}, common.ST_DINGZHUANG},
-			{common.EV_FAPAI, []string{common.ST_DINGZHUANG}, common.ST_FAPAI},
-			{common.EV_CHUPAI, []string{common.ST_FAPAI}, common.ST_CHUPAI},
+			{common.EV_SET_DEALER, []string{common.ST_BEGIN}, common.ST_SET_DEALER},
+			{common.EV_FAPAI, []string{common.ST_SET_DEALER}, common.ST_FAPAI},
+			{common.EV_CHUPAI, []string{common.ST_FAPAI, common.ST_OPERATE, common.ST_SELF_OPERATE}, common.ST_CHUPAI},
+			{common.EV_OPERATE, []string{common.ST_CHUPAI}, common.ST_OPERATE},
+			{common.EV_SELF_OPERATE, []string{common.EV_MOPAI}, common.ST_OPERATE},
+			{common.EV_MOPAI, []string{common.ST_CHUPAI}, common.ST_MOPAI},
 		},
 		fsm.Callbacks{
-			"enter_begin": func(e *fsm.Event) { mj.onBegin() },
+			"enter_" + common.ST_BEGIN:        func(e *fsm.Event) { mj.onBegin() },
+			"enter_" + common.ST_SET_DEALER:   func(e *fsm.Event) { mj.onSetDealer() },
+			"enter_" + common.EV_FAPAI:        func(e *fsm.Event) { mj.onFaPai() },
+			"enter_" + common.EV_MOPAI:        func(e *fsm.Event) { mj.onMoPai() },
+			"enter_" + common.EV_CHUPAI:       func(e *fsm.Event) { mj.onChuPai() },
+			"enter_" + common.EV_OPERATE:      func(e *fsm.Event) { mj.onOperate(e) },
+			"enter_" + common.EV_SELF_OPERATE: func(e *fsm.Event) { mj.onSelfOperate() },
 		},
 	)
 	return mj
@@ -56,6 +66,9 @@ func NewRoom() *MJRoom {
 func (m *MJRoom) tryBegin() {
 	allready := true
 	for _, v := range m.room.GetGamePlayers() {
+		if v == nil {
+			allready = false
+		}
 		p := v.(*MJPlayer)
 		if !p.isReady {
 			allready = false
@@ -86,17 +99,19 @@ func (m *MJRoom) onBegin() {
 		p.reset()
 
 	}
-	m.broadcast("begingamenot", &proto_mj.BeginGameNot{})
-	m.fsm.Event(common.EV_DINGZHUANG)
+	m.broadcast("BeginGameNot", &proto_mj.BeginGameNot{})
+	m.fsm.Event(common.EV_SET_DEALER)
 }
-func (m *MJRoom) onMakeDealer() {
-	m.dealer = m.room.GetGamePlayers()[0].(*MJPlayer)
-	m.currPlayer = m.dealer
+func (m *MJRoom) onSetDealer() {
 	not := &proto_mj.SetDealerNot{}
 	not.Dices = append(not.Dices, (int32)(rand.Int()%6))
 	not.Dices = append(not.Dices, (int32)(rand.Int()%6))
+	index := (not.Dices[0] + not.Dices[1]) % (int32)(setting.PlayerNum())
+	m.dealer = m.room.GetGamePlayers()[index].(*MJPlayer)
+	m.currPlayer = m.dealer
+
 	not.Uid = m.currPlayer.GetUid()
-	m.broadcast("setdealernot", &proto_mj.SetDealerNot{
+	m.broadcast("SetDealerNot", &proto_mj.SetDealerNot{
 		Dices: nil,
 		Uid:   m.currPlayer.GetUid(),
 	})
@@ -133,7 +148,7 @@ func (m *MJRoom) onOperate(event *fsm.Event) {
 		}
 		op := p.canOperate(target.getChairId(), targetCard)
 		if len(op) > 0 {
-			p.reqOperate(op)
+			op = append(op, common.OP_PASS_CANCEL)
 			m.operators = append(m.operators, Operator{
 				operator:    v.(*MJPlayer),
 				target:      target.getChairId(),
@@ -141,12 +156,28 @@ func (m *MJRoom) onOperate(event *fsm.Event) {
 				ValidateOps: op,
 				AckOp:       common.OP_NONE,
 			})
+			p.reqOperate(op)
 		}
 	}
 	if len(m.operators) <= 0 {
 		m.currPlayer = m.room.GetNextPlayer((base.GamePlayer)(m.currPlayer)).(*MJPlayer)
 		m.fsm.Event(common.EV_MOPAI)
 	}
+}
+func (m *MJRoom) onSelfOperate() {
+	ops := m.currPlayer.canSelfOperate()
+	if len(ops) <= 0 {
+		m.currPlayer = m.room.GetNextPlayer(m.currPlayer).(*MJPlayer)
+		m.fsm.Event(common.EV_CHUPAI)
+		return
+	}
+	ops = append(ops, common.OP_PASS_CANCEL)
+	m.operators = append(m.operators, Operator{
+		operator:    m.currPlayer,
+		ValidateOps: ops,
+		AckOp:       common.OP_NONE,
+	})
+	m.currPlayer.reqOperate(ops)
 }
 func (m *MJRoom) doOperate(p *MJPlayer, op common.OpCode) {
 	if m.fsm.Current() != common.ST_OPERATE {
