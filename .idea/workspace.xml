@@ -21,12 +21,48 @@
   <component name="ChangeListManager">
     <list default="true" id="ed300a01-86b2-4abc-899a-1488fdc3bf86" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene/lobby.fire" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/lobby.fire" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene/lobby.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/lobby.fire.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/Scene/login.fire" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/login.fire" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/Scene/login.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/login.fire.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/LoginScene.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/LoginScene.ts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/creator.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/creator.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene/room.fire" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/room.fire" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Scene/room.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/room.fire.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/LobbyScene.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/LobbyScene.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/RoomScene.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/RoomScene.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/data.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/data/CustomEventListener.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data/CustomEventListener.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/protobuf.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/protobuf.js.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/protocol.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/protocol.js.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/starx-wsclient.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/starx-wsclient.js.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/prefabs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/proto.d.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/proto.d.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/proto.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/proto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/proto.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/proto.js.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Texture.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Texture/HelloWorld.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture/HelloWorld.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Texture/singleColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture/singleColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/migration.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/migration.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/migration/use_reversed_rotateBy.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/migration/use_reversed_rotateBy.js.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/settings/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/settings/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/settings/services.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/settings/services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +76,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -130,6 +166,10 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
+    <state x="753" y="451" key="#GOROOT" timestamp="1599911840688">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="753" y="451" key="#GOROOT/0.0.1920.1040@0.0.1920.1040" timestamp="1599911840688" />
     <state x="753" y="354" key="#Go_Modules" timestamp="1598347368465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

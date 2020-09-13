@@ -11,7 +11,7 @@ const {ccclass, property} = cc._decorator;
 export default class NewClass extends cc.Component {
 
     @property(cc.Label)
-    content: cc.Label = null;
+    label: cc.Label = null;
 
     @property
     text: string = 'hello';
@@ -20,13 +20,9 @@ export default class NewClass extends cc.Component {
 
     // onLoad () {}
 
-
     start () {
 
     }
 
-    send() {
-        
-    }
     // update (dt) {}
 }

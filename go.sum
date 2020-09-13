@@ -11,8 +11,8 @@ cloud.google.com/go/pubsub v1.0.1/go.mod h1:R0Gpsv3s54REJCy4fxDixWD93lHJMoZTyQ2k
 cloud.google.com/go/storage v1.0.0/go.mod h1:IhtSnM/ZTZV8YYJWCY8RULGVqBDmpoyjwiyrjsg+URw=
 contrib.go.opencensus.io/exporter/ocagent v0.4.12/go.mod h1:450APlNTSR6FrvC3CTRqYosuDstRB9un7SOx2k/9ckA=
 dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7gZCb22OMCxBHrMx7a5I7Hp++hsVxbQ4BYO7hU=
-gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200904141357-b34ca2659e8b h1:Ew06R7DyX02QQvlAcvTqKXo7ZxHIz5hR4P25W4JaKjQ=
-gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200904141357-b34ca2659e8b/go.mod h1:l+UoAh9tugsfkJB7/R4z2hVkufQ9KXNm3sz0EbwIznA=
+gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200908091553-ef30f6fa77b9 h1:C/8iDEjyPWYqAncWJG578uPe4aH9dKUme9ju+HvMjWU=
+gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200908091553-ef30f6fa77b9/go.mod h1:l+UoAh9tugsfkJB7/R4z2hVkufQ9KXNm3sz0EbwIznA=
 github.com/Azure/azure-sdk-for-go v32.4.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78/go.mod h1:LmzpDX56iTiv29bbRTIsUNlaFfuhWRQBWjQdVyAevI8=
 github.com/Azure/go-autorest/autorest v0.1.0/go.mod h1:AKyIcETwSUFxIcs/Wnq/C+kwCtlEYGUVd7FPNb2slmg=

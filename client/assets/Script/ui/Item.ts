@@ -1,9 +1,12 @@
+import Constants from "../data/Constants";
 // Learn TypeScript:
 //  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
 // Learn Attribute:
 //  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
+
+import CustomEventListener from "../data/CustomEventListener";
 
 const {ccclass, property} = cc._decorator;
 
@@ -18,5 +21,23 @@ export default class NewClass extends cc.Component {
 
     @property(cc.Label)
     state: cc.Label = null;
-    
+
+    private _roomid: string
+    start() {
+        this.node.on(cc.Node.EventType.TOUCH_START, this._touchStart)
+        this.node.on(cc.Node.EventType.TOUCH_END, this._touchEnd)
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this._touchEnd)
+
+    }
+    init(id: string, name:string, number:string, state:string) {
+        this._roomid = id
+        this.roomName.string = name
+        this.number.string = number
+        this.state.string = state
+    }
+    _touchStart(){
+    }
+    _touchEnd(){
+        CustomEventListener.dispatchEvent(Constants.EventName.JOIN_ROOM, this._roomid)
+    }
 }

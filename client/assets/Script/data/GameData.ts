@@ -5,22 +5,19 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
+import { proto } from "../proto";
+
 const {ccclass, property} = cc._decorator;
-import {proto} from "./proto"
+
 @ccclass
-export default class RoomManager {
-    public rooms = new Map<string, proto.room.Room>()
-    static _instance: RoomManager
+export default class GameData  {
+    static _instance: GameData = null
+    public currRoom: proto.room.Room = null
     public static instance() {
-        if (!this._instance) {
-            this._instance = new RoomManager();
+        if(this._instance == null) {
+            this._instance = new GameData()
         }
         return this._instance
     }
-    start() {
-        
-    }
-    public getRoomList() {
-
-    }
+    
 }

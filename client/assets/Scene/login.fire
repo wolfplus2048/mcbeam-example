@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        574.1748427090829,
+        499.4313457410631,
         0,
         0,
         0,
@@ -1195,7 +1195,7 @@
       "__id__": 26
     },
     "component": "",
-    "_componentId": "2d4adcYaERDTIGUi1BFFnFj",
+    "_componentId": "78a2baTXQBPlKo26T3taSMF",
     "handler": "login",
     "customEventData": ""
   },
@@ -1262,14 +1262,17 @@
     "_id": "1fMSSnDyVO67Bgec8XlhgZ"
   },
   {
-    "__type__": "2d4adcYaERDTIGUi1BFFnFj",
+    "__type__": "78a2baTXQBPlKo26T3taSMF",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 26
     },
     "_enabled": true,
-    "_id": "2a1DwTI9VCUrHyegt5M/VG"
+    "username": {
+      "__id__": 13
+    },
+    "_id": "83ThGE4P1G+KxH4TKfaaj3"
   },
   {
     "__type__": "cc.Widget",
