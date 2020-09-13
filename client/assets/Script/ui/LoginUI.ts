@@ -18,19 +18,37 @@ export default class LoginUI extends cc.Component {
     @property(cc.Label)
     username : cc.Label
     @property(cc.ProgressBar)
-    progress: cc.ProgressBar
+    loadingBar: cc.ProgressBar
+    @property(cc.Label)
+    txtWarning: cc.Label
 
     start() {
         CustomEventListener.on(Constants.EventName.LOGIN_RESPONSE, this.onLogin, this)
+
+        this.loadingBar.node.active = false
+        this.txtWarning.node.active = false
     }
     login() {
         NetManager.instance.login(this.username.string)
     }
-    onLogin(...args:any[]) {
-        let ply: proto.gate.LoginRes = args[0]
-        if(ply.code.length <= 0) {
-            PlayerData.instance().init(ply.uid, ply.username)
-            cc.director.preloadScene("lobby", )
+    onLogin(...args:string[]) {
+        if(args[0].length <= 0) {
+            this.loadingBar.node.active = true
+            let backup = cc.loader.onProgress
+            cc.loader.onProgress = (count:number, amount: number) => {
+                this.loadingBar.progress = count / amount
+            }
+            cc.director.preloadScene("lobby", () => {
+                cc.loader.onProgress = backup
+                cc.director.loadScene("lobby")
+            })
+        } else {
+            this.txtWarning.string = args[0]
+            this.txtWarning.node.active = true
+            this.scheduleOnce(()=>{
+                this.txtWarning.node.active = false
+            }, 2)
+
         }
 
     }

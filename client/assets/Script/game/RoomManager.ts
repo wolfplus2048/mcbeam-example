@@ -24,30 +24,5 @@ export default class RoomManager {
         return this._instance
     }
     
-    start() {
-    
-        CustomEventListener.on(Constants.EventName.JOIN_ROOM, this._joinRoom, this)
-        starx.on("GetRoomListRes", (data)=>{
-            let res = proto.mgr.GetRoomListRes.decode(data)
-            for(let r of res.rooms) {
-                this._rooms[r.id] = r
-            }
-        })
-        starx.on("JoinRoomRes", (data)=>{
-            let res = proto.room.JoinRes.decode(data)
-            if(res.code.length <= 0) {
-                GameData.instance().currRoom = res.room
-            }
-        })
-    }
-    getRoomList() {
-        let req = proto.mgr.GetRoomListReq.create({})
-        let buff = proto.mgr.GetRoomListReq.encode(req).finish()
-        starx.notify("mgr.handler.GetRoomListReq", buff)
-    }
-    _joinRoom(...args: any[]) {
-        let req = proto.room.JoinReq.create({id:args[0]})
-        let buf = proto.room.JoinReq.encode(req).finish()
-        starx.notify("room.handler.JoinRoomReq", buf)
-    }
+
 }
