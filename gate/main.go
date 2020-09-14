@@ -27,7 +27,7 @@ func main() {
 	logger.Debugf("app name: %s, version:%s", config.Get("app.name"), config.Get("app.ver"))
 
 	service := mcbeam.NewService(
-		mcbeam.Name(config.Get("app.name").String("gateway")),
+		mcbeam.Name(config.Get("app.name").String("gate")),
 		mcbeam.ClientAddress(":3250"),
 		mcbeam.Registry(etcd.NewRegistry()),
 		mcbeam.MicroService(

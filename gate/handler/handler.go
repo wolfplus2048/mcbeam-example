@@ -46,7 +46,6 @@ func (h *Handler) Login(ctx context.Context, req *proto_gate.LoginReq) {
 	logger.Infof("user login: %s", req.Username)
 	s := mcbeam.GetSessionFromCtx(ctx)
 	res := proto_gate.LoginRes{
-		Code:     "",
 		Uid:      uuid.New().String(),
 		Username: req.Username,
 	}

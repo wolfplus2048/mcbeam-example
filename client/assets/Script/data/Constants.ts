@@ -8,11 +8,11 @@
 const {ccclass, property} = cc._decorator;
 
 enum EventName {
-    LOGIN_RESPONSE = "login-response",
-    UPDATE_ROOM_LIST = "update-room-list",
+    LOGIN_RESPONSE = "login_response",
+    UPDATE_ROOM_LIST = "update_room_list",
 
-    JOIN_ROOM = "join-room-req"
-    
+    JOIN_ROOM = "join_room",
+    JOIN_ROOM_RESPONSE = "join_room_response"
 }
 @ccclass
 export default class Constants extends cc.Component {

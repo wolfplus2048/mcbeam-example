@@ -21,48 +21,26 @@
   <component name="ChangeListManager">
     <list default="true" id="ed300a01-86b2-4abc-899a-1488fdc3bf86" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Scene.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/Scene/lobby.fire" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/lobby.fire" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Scene/lobby.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/lobby.fire.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/Scene/login.fire" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/login.fire" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Scene/login.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/login.fire.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Scene/room.fire" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/room.fire" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Scene/room.fire.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/room.fire.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/LobbyScene.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/LobbyScene.ts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/RoomManager.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/RoomScene.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/RoomScene.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/data.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/data/CustomEventListener.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data/CustomEventListener.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/protobuf.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/protobuf.js.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/protocol.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/protocol.js.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/starx-wsclient.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/starx-wsclient.js.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/prefabs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/proto.d.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/proto.d.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/proto.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/proto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/proto.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/proto.js.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/data/Constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data/Constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/data/GameData.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data/GameData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/data/NetManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data/NetManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/game/RoomManager.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/game/RoomManager.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/proto.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/proto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/proto.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/proto.js.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/prefabs/Item.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Texture.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Texture/HelloWorld.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture/HelloWorld.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Texture/singleColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Texture/singleColor.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/migration.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/migration.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/migration/use_reversed_rotateBy.js.meta" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/migration/use_reversed_rotateBy.js.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/settings/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/settings/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/settings/services.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/settings/services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/UIManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/UIManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gate/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/gate/handler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gate/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/gate/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/gate/gate.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/protos/gate/gate.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/gate/gate.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/gate/gate.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +54,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" path="/usr/local/Cellar/go@1.14/1.14.7/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -87,6 +65,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
@@ -109,7 +88,7 @@
       <recent name="$PROJECT_DIR$/room_srv/handler" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build room">
+  <component name="RunManager" selected="Go Build.go build gate">
     <configuration name="go build gate" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="mcbeam-example" />
       <working_directory value="$PROJECT_DIR$" />
@@ -166,9 +145,10 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
-    <state x="753" y="451" key="#GOROOT" timestamp="1599911840688">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="722" y="481" key="#GOROOT" timestamp="1600070007580">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state x="722" y="481" key="#GOROOT/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600070007580" />
     <state x="753" y="451" key="#GOROOT/0.0.1920.1040@0.0.1920.1040" timestamp="1599911840688" />
     <state x="753" y="354" key="#Go_Modules" timestamp="1598347368465">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -184,9 +164,10 @@
     <state x="399" y="201" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1598951411761" />
     <state x="416" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598420107104" />
     <state x="399" y="201" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1840.1057@0.23.1840.1057" timestamp="1599228565021" />
-    <state width="450" height="466" key="DebuggerActiveHint" timestamp="1598420399127">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="880" height="474" key="DebuggerActiveHint" timestamp="1600073906022">
+      <screen x="0" y="23" width="1840" height="1057" />
     </state>
+    <state width="880" height="474" key="DebuggerActiveHint/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600073906022" />
     <state width="450" height="466" key="DebuggerActiveHint/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598420399127" />
     <state x="829" y="381" key="EnvironmentVariablesDialog" timestamp="1598347367067">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -196,59 +177,59 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="741" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598347305822" />
-    <state width="1798" height="290" key="GridCell.Tab.0.bottom" timestamp="1599806871062">
+    <state width="1798" height="333" key="GridCell.Tab.0.bottom" timestamp="1600074115841">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="290" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599806871062" />
+    <state width="1798" height="333" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115841" />
     <state width="1878" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
     <state width="1798" height="290" key="GridCell.Tab.0.bottom/0.23.1840.1057@0.23.1840.1057" timestamp="1599393393897" />
-    <state width="1798" height="290" key="GridCell.Tab.0.center" timestamp="1599806871062">
+    <state width="1798" height="333" key="GridCell.Tab.0.center" timestamp="1600074115839">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="290" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599806871062" />
+    <state width="1798" height="333" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115839" />
     <state width="1878" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
     <state width="1798" height="290" key="GridCell.Tab.0.center/0.23.1840.1057@0.23.1840.1057" timestamp="1599393393895" />
-    <state width="1798" height="290" key="GridCell.Tab.0.left" timestamp="1599806871061">
+    <state width="1798" height="333" key="GridCell.Tab.0.left" timestamp="1600074115837">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="290" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599806871061" />
+    <state width="1798" height="333" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115837" />
     <state width="1878" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041185" />
     <state width="1878" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929123" />
     <state width="1798" height="290" key="GridCell.Tab.0.left/0.23.1840.1057@0.23.1840.1057" timestamp="1599393393894" />
-    <state width="1798" height="290" key="GridCell.Tab.0.right" timestamp="1599806871062">
+    <state width="1798" height="333" key="GridCell.Tab.0.right" timestamp="1600074115840">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="290" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599806871062" />
+    <state width="1798" height="333" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115840" />
     <state width="1878" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
     <state width="1798" height="290" key="GridCell.Tab.0.right/0.23.1840.1057@0.23.1840.1057" timestamp="1599393393896" />
-    <state width="1798" height="333" key="GridCell.Tab.1.bottom" timestamp="1599723254626">
+    <state width="1798" height="333" key="GridCell.Tab.1.bottom" timestamp="1600074115844">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="333" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599723254626" />
+    <state width="1798" height="333" key="GridCell.Tab.1.bottom/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115844" />
     <state width="1878" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
     <state width="1798" height="333" key="GridCell.Tab.1.bottom/0.23.1840.1057@0.23.1840.1057" timestamp="1598970183755" />
-    <state width="1798" height="333" key="GridCell.Tab.1.center" timestamp="1599723254625">
+    <state width="1798" height="333" key="GridCell.Tab.1.center" timestamp="1600074115843">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="333" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599723254625" />
+    <state width="1798" height="333" key="GridCell.Tab.1.center/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115843" />
     <state width="1878" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
     <state width="1798" height="333" key="GridCell.Tab.1.center/0.23.1840.1057@0.23.1840.1057" timestamp="1598970183753" />
-    <state width="1798" height="333" key="GridCell.Tab.1.left" timestamp="1599723254624">
+    <state width="1798" height="333" key="GridCell.Tab.1.left" timestamp="1600074115842">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="333" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599723254624" />
+    <state width="1798" height="333" key="GridCell.Tab.1.left/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115842" />
     <state width="1878" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
     <state width="1798" height="333" key="GridCell.Tab.1.left/0.23.1840.1057@0.23.1840.1057" timestamp="1598970183753" />
-    <state width="1798" height="333" key="GridCell.Tab.1.right" timestamp="1599723254625">
+    <state width="1798" height="333" key="GridCell.Tab.1.right" timestamp="1600074115843">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
-    <state width="1798" height="333" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599723254625" />
+    <state width="1798" height="333" key="GridCell.Tab.1.right/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600074115843" />
     <state width="1878" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598424041186" />
     <state width="1878" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598442929124" />
     <state width="1798" height="333" key="GridCell.Tab.1.right/0.23.1840.1057@0.23.1840.1057" timestamp="1598970183754" />
@@ -271,6 +252,10 @@
     </state>
     <state x="498" y="270" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599806923770" />
     <state x="520" y="251" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1920.977@0.23.1920.977" timestamp="1598865910284" />
+    <state width="920" height="528" key="XDebugger.FullValuePopup" timestamp="1600073154416">
+      <screen x="0" y="23" width="1840" height="1057" />
+    </state>
+    <state width="920" height="528" key="XDebugger.FullValuePopup/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600073154416" />
     <state x="688" y="465" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599556570124">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
@@ -285,5 +270,16 @@
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
     <state x="585" y="258" width="670" height="676" key="search.everywhere.popup/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1599619455292" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../mcbeam-plus/gateway/tcp_handler.go</url>
+          <line>151</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

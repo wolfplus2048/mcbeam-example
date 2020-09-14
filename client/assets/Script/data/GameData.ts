@@ -5,19 +5,19 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import { proto } from "../proto";
+import { proto } from "../libs/proto";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class GameData  {
     static _instance: GameData = null
-    public currRoom: proto.room.Room = null
+    public roomList: proto.mgr.Room[] = null
+    public currRoom: proto.mgr.Room = null
     public static instance() {
         if(this._instance == null) {
             this._instance = new GameData()
         }
         return this._instance
     }
-    
 }

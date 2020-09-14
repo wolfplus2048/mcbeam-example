@@ -10,26 +10,29 @@ import CustomEventListener from "../data/CustomEventListener";
 import NetManager from "../data/NetManager";
 import PlayerData from "../data/PlayerData";
 import { proto } from "../libs/proto";
+import UIManager from "./UIManager";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class LoginUI extends cc.Component {
     @property(cc.Label)
-    username : cc.Label
+    username : cc.Label = null
     @property(cc.ProgressBar)
-    loadingBar: cc.ProgressBar
-    @property(cc.Label)
-    txtWarning: cc.Label
+    loadingBar: cc.ProgressBar = null
+
 
     start() {
+        this.init()
         CustomEventListener.on(Constants.EventName.LOGIN_RESPONSE, this.onLogin, this)
 
         this.loadingBar.node.active = false
-        this.txtWarning.node.active = false
+    }
+    init() {
+        NetManager.instance().init()
     }
     login() {
-        NetManager.instance.login(this.username.string)
+        NetManager.instance().login(this.username.string)
     }
     onLogin(...args:string[]) {
         if(args[0].length <= 0) {
@@ -43,12 +46,7 @@ export default class LoginUI extends cc.Component {
                 cc.director.loadScene("lobby")
             })
         } else {
-            this.txtWarning.string = args[0]
-            this.txtWarning.node.active = true
-            this.scheduleOnce(()=>{
-                this.txtWarning.node.active = false
-            }, 2)
-
+            UIManager.showDialog("dialogTip", null, args[0])
         }
 
     }

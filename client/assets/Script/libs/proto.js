@@ -2,8 +2,7 @@
 "use strict";
 
 // var $protobuf = require("protobufjs/minimal");
-var $protobuf = protobufjs
-
+var $protobuf = protobuf
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
 
@@ -27,6 +26,260 @@ $root.proto = (function() {
          * @namespace
          */
         var gate = {};
+
+        gate.Error = (function() {
+
+            /**
+             * Properties of an Error.
+             * @memberof proto.gate
+             * @interface IError
+             * @property {string|null} [id] Error id
+             * @property {number|null} [code] Error code
+             * @property {string|null} [detail] Error detail
+             * @property {string|null} [status] Error status
+             */
+
+            /**
+             * Constructs a new Error.
+             * @memberof proto.gate
+             * @classdesc Represents an Error.
+             * @implements IError
+             * @constructor
+             * @param {proto.gate.IError=} [properties] Properties to set
+             */
+            function Error(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * Error id.
+             * @member {string} id
+             * @memberof proto.gate.Error
+             * @instance
+             */
+            Error.prototype.id = "";
+
+            /**
+             * Error code.
+             * @member {number} code
+             * @memberof proto.gate.Error
+             * @instance
+             */
+            Error.prototype.code = 0;
+
+            /**
+             * Error detail.
+             * @member {string} detail
+             * @memberof proto.gate.Error
+             * @instance
+             */
+            Error.prototype.detail = "";
+
+            /**
+             * Error status.
+             * @member {string} status
+             * @memberof proto.gate.Error
+             * @instance
+             */
+            Error.prototype.status = "";
+
+            /**
+             * Creates a new Error instance using the specified properties.
+             * @function create
+             * @memberof proto.gate.Error
+             * @static
+             * @param {proto.gate.IError=} [properties] Properties to set
+             * @returns {proto.gate.Error} Error instance
+             */
+            Error.create = function create(properties) {
+                return new Error(properties);
+            };
+
+            /**
+             * Encodes the specified Error message. Does not implicitly {@link proto.gate.Error.verify|verify} messages.
+             * @function encode
+             * @memberof proto.gate.Error
+             * @static
+             * @param {proto.gate.IError} message Error message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Error.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.id);
+                if (message.code != null && Object.hasOwnProperty.call(message, "code"))
+                    writer.uint32(/* id 2, wireType 0 =*/16).int32(message.code);
+                if (message.detail != null && Object.hasOwnProperty.call(message, "detail"))
+                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.detail);
+                if (message.status != null && Object.hasOwnProperty.call(message, "status"))
+                    writer.uint32(/* id 4, wireType 2 =*/34).string(message.status);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified Error message, length delimited. Does not implicitly {@link proto.gate.Error.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.gate.Error
+             * @static
+             * @param {proto.gate.IError} message Error message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            Error.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes an Error message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.gate.Error
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.gate.Error} Error
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Error.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.gate.Error();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.id = reader.string();
+                        break;
+                    case 2:
+                        message.code = reader.int32();
+                        break;
+                    case 3:
+                        message.detail = reader.string();
+                        break;
+                    case 4:
+                        message.status = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes an Error message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.gate.Error
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.gate.Error} Error
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            Error.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies an Error message.
+             * @function verify
+             * @memberof proto.gate.Error
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            Error.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.id != null && message.hasOwnProperty("id"))
+                    if (!$util.isString(message.id))
+                        return "id: string expected";
+                if (message.code != null && message.hasOwnProperty("code"))
+                    if (!$util.isInteger(message.code))
+                        return "code: integer expected";
+                if (message.detail != null && message.hasOwnProperty("detail"))
+                    if (!$util.isString(message.detail))
+                        return "detail: string expected";
+                if (message.status != null && message.hasOwnProperty("status"))
+                    if (!$util.isString(message.status))
+                        return "status: string expected";
+                return null;
+            };
+
+            /**
+             * Creates an Error message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.gate.Error
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.gate.Error} Error
+             */
+            Error.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.gate.Error)
+                    return object;
+                var message = new $root.proto.gate.Error();
+                if (object.id != null)
+                    message.id = String(object.id);
+                if (object.code != null)
+                    message.code = object.code | 0;
+                if (object.detail != null)
+                    message.detail = String(object.detail);
+                if (object.status != null)
+                    message.status = String(object.status);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from an Error message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.gate.Error
+             * @static
+             * @param {proto.gate.Error} message Error
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            Error.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults) {
+                    object.id = "";
+                    object.code = 0;
+                    object.detail = "";
+                    object.status = "";
+                }
+                if (message.id != null && message.hasOwnProperty("id"))
+                    object.id = message.id;
+                if (message.code != null && message.hasOwnProperty("code"))
+                    object.code = message.code;
+                if (message.detail != null && message.hasOwnProperty("detail"))
+                    object.detail = message.detail;
+                if (message.status != null && message.hasOwnProperty("status"))
+                    object.status = message.status;
+                return object;
+            };
+
+            /**
+             * Converts this Error to JSON.
+             * @function toJSON
+             * @memberof proto.gate.Error
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            Error.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return Error;
+        })();
 
         gate.LoginReq = (function() {
 
