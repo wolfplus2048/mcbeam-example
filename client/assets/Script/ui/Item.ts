@@ -6,7 +6,7 @@ import Constants from "../data/Constants";
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import CustomEventListener from "../data/CustomEventListener";
+import NetManager from "../data/NetManager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -38,6 +38,6 @@ export default class NewClass extends cc.Component {
     _touchStart(){
     }
     _touchEnd(){
-        CustomEventListener.dispatchEvent(Constants.EventName.JOIN_ROOM, this._roomid)
+        NetManager.instance().joinRoom(this._roomid)
     }
 }

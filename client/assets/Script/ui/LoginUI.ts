@@ -1,5 +1,6 @@
+import CustomEventListener from "../common/CustomEventListener";
+import UIManager from "../common/UIManager";
 import Constants from "../data/Constants";
-import CustomEventListener from "../data/CustomEventListener";
 // Learn TypeScript:
 //  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
 // Learn Attribute:
@@ -10,7 +11,6 @@ import CustomEventListener from "../data/CustomEventListener";
 import NetManager from "../data/NetManager";
 import PlayerData from "../data/PlayerData";
 import { proto } from "../libs/proto";
-import UIManager from "./UIManager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -27,6 +27,9 @@ export default class LoginUI extends cc.Component {
         CustomEventListener.on(Constants.EventName.LOGIN_RESPONSE, this.onLogin, this)
 
         this.loadingBar.node.active = false
+    }
+    onDestroy() {
+        CustomEventListener.off(Constants.EventName.LOGIN_RESPONSE, this.onLoad, this)
     }
     init() {
         NetManager.instance().init()

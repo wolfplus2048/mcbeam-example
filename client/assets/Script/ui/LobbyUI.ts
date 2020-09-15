@@ -11,11 +11,12 @@ import CustomEventListener from "../data/CustomEventListener";
 import GameData from "../data/GameData";
 import { proto } from "../libs/proto";
 import NetManager from "../data/NetManager";
+import UIManager from "../common/UIManager";
 @ccclass
 export default class LobbyUI extends cc.Component {
 
     @property(cc.Prefab)
-    itemPrefab: cc.Prefab
+    itemPrefab: cc.Prefab = null
 
     @property(cc.ScrollView)
     roomList: cc.ScrollView = null;
@@ -37,7 +38,6 @@ export default class LobbyUI extends cc.Component {
     }
     onEnable() {
         CustomEventListener.on(Constants.EventName.UPDATE_ROOM_LIST, this.updateRoomList, this)
-        CustomEventListener.on(Constants.EventName.JOIN_ROOM, this.joinRoom, this)
         CustomEventListener.on(Constants.EventName.JOIN_ROOM_RESPONSE, this.onJoinRoom, this)
     }
     onDisable() {
@@ -48,14 +48,11 @@ export default class LobbyUI extends cc.Component {
         item.getComponent("Item").init(data.name, "1/4", "playing")
         this.roomList.content.addChild(item)
     }
-    private joinRoom(id: string) {
-        NetManager.instance().joinRoom(id)
-    }
     private onJoinRoom(code: string) {
         if(code.length <= 0) {
             cc.director.loadScene("game")
         } else {
-            
+            UIManager.showDialog("dialogTip", null, code)
         }
     }
 

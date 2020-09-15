@@ -11,7 +11,6 @@ enum EventName {
     LOGIN_RESPONSE = "login_response",
     UPDATE_ROOM_LIST = "update_room_list",
 
-    JOIN_ROOM = "join_room",
     JOIN_ROOM_RESPONSE = "join_room_response"
 }
 @ccclass
