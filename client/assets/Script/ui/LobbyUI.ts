@@ -7,11 +7,11 @@
 
 const {ccclass, property} = cc._decorator;
 import Constants from "../data/Constants";
-import CustomEventListener from "../data/CustomEventListener";
 import GameData from "../data/GameData";
 import { proto } from "../libs/proto";
 import NetManager from "../data/NetManager";
 import UIManager from "../common/UIManager";
+import CustomEventListener from "../common/CustomEventListener";
 @ccclass
 export default class LobbyUI extends cc.Component {
 

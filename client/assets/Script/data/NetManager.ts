@@ -1,3 +1,4 @@
+import CustomEventListener from "../common/CustomEventListener";
 // Learn TypeScript:
 //  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
 // Learn Attribute:
@@ -7,9 +8,8 @@
 
 import { proto } from "../libs/proto";
 import Constants from "./Constants";
-import CustomEventListener from "./CustomEventListener";
-import PlayerData from "./PlayerData";
 import GameData from "./GameData";
+import PlayerData from "./PlayerData";
 
 const {ccclass, property} = cc._decorator;
 
@@ -27,11 +27,12 @@ export default class NetManager {
             console.log("connected to server")
         })
         starx.on("SysError", (ret)=>{
-            let err = proto.gate.Error.decode(ret)
+            let err = proto.auth.Error.decode(ret)
             console.log(err)
         })
         starx.on("LoginRes", (ret)=>{
-            let res = proto.gate.LoginRes.decode(ret)
+            let res = proto.auth.LoginRes.decode(ret)
+            console.log(res)
             if(res.code.length <= 0) {
                 PlayerData.instance().init(res.uid, res.username)
             }
@@ -39,10 +40,12 @@ export default class NetManager {
         })
         starx.on("GetRoomListRes", (data)=>{
             let res = proto.mgr.GetRoomListRes.decode(data)
+            console.log(res)
             GameData.instance().roomList = res.rooms
         })
         starx.on("JoinRoomRes", (data)=>{
             let res = proto.room.JoinRes.decode(data)
+            console.log(res)
             if(res.code.length <= 0) {
                 GameData.instance().currRoom = res.room
             }
@@ -50,9 +53,9 @@ export default class NetManager {
         })
     }
     public login(username: string) {
-        let req = proto.gate.LoginReq.create({username: username})
-        let buff = proto.gate.LoginReq.encode(req).finish()
-        starx.notify("gate.auth.login2", buff)
+        let req = proto.auth.LoginReq.create({username: username})
+        let buff = proto.auth.LoginReq.encode(req).finish()
+        starx.notify("auth.auth.login", buff)
     }
     public getRoomList() {
         if(GameData.instance().roomList) {
@@ -60,11 +63,11 @@ export default class NetManager {
         }
         let req = proto.mgr.GetRoomListReq.create({})
         let buff = proto.mgr.GetRoomListReq.encode(req).finish()
-        starx.notify("mgr.handler.GetRoomListReq", buff)
+        starx.notify("mgr.handler.getroomlist", buff)
     }
     public joinRoom(...args: any[]) {
         let req = proto.room.JoinReq.create({id:args[0]})
         let buf = proto.room.JoinReq.encode(req).finish()
-        starx.notify("room.handler.JoinRoomReq", buf)
+        starx.notify("room.handler.JoinRoom", buf)
     }
 }

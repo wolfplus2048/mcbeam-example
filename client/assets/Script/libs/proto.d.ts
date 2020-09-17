@@ -2,8 +2,8 @@ import * as $protobuf from "protobufjs";
 /** Namespace proto. */
 export namespace proto {
 
-    /** Namespace gate. */
-    namespace gate {
+    /** Namespace auth. */
+    namespace auth {
 
         /** Properties of an Error. */
         interface IError {
@@ -28,7 +28,7 @@ export namespace proto {
              * Constructs a new Error.
              * @param [properties] Properties to set
              */
-            constructor(properties?: proto.gate.IError);
+            constructor(properties?: proto.auth.IError);
 
             /** Error id. */
             public id: string;
@@ -47,23 +47,23 @@ export namespace proto {
              * @param [properties] Properties to set
              * @returns Error instance
              */
-            public static create(properties?: proto.gate.IError): proto.gate.Error;
+            public static create(properties?: proto.auth.IError): proto.auth.Error;
 
             /**
-             * Encodes the specified Error message. Does not implicitly {@link proto.gate.Error.verify|verify} messages.
+             * Encodes the specified Error message. Does not implicitly {@link proto.auth.Error.verify|verify} messages.
              * @param message Error message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: proto.gate.IError, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: proto.auth.IError, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified Error message, length delimited. Does not implicitly {@link proto.gate.Error.verify|verify} messages.
+             * Encodes the specified Error message, length delimited. Does not implicitly {@link proto.auth.Error.verify|verify} messages.
              * @param message Error message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: proto.gate.IError, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: proto.auth.IError, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
              * Decodes an Error message from the specified reader or buffer.
@@ -73,7 +73,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.gate.Error;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.auth.Error;
 
             /**
              * Decodes an Error message from the specified reader or buffer, length delimited.
@@ -82,7 +82,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.gate.Error;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.auth.Error;
 
             /**
              * Verifies an Error message.
@@ -96,7 +96,7 @@ export namespace proto {
              * @param object Plain object
              * @returns Error
              */
-            public static fromObject(object: { [k: string]: any }): proto.gate.Error;
+            public static fromObject(object: { [k: string]: any }): proto.auth.Error;
 
             /**
              * Creates a plain object from an Error message. Also converts values to other types if specified.
@@ -104,7 +104,7 @@ export namespace proto {
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: proto.gate.Error, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: proto.auth.Error, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
              * Converts this Error to JSON.
@@ -127,7 +127,7 @@ export namespace proto {
              * Constructs a new LoginReq.
              * @param [properties] Properties to set
              */
-            constructor(properties?: proto.gate.ILoginReq);
+            constructor(properties?: proto.auth.ILoginReq);
 
             /** LoginReq username. */
             public username: string;
@@ -137,23 +137,23 @@ export namespace proto {
              * @param [properties] Properties to set
              * @returns LoginReq instance
              */
-            public static create(properties?: proto.gate.ILoginReq): proto.gate.LoginReq;
+            public static create(properties?: proto.auth.ILoginReq): proto.auth.LoginReq;
 
             /**
-             * Encodes the specified LoginReq message. Does not implicitly {@link proto.gate.LoginReq.verify|verify} messages.
+             * Encodes the specified LoginReq message. Does not implicitly {@link proto.auth.LoginReq.verify|verify} messages.
              * @param message LoginReq message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: proto.gate.ILoginReq, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: proto.auth.ILoginReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified LoginReq message, length delimited. Does not implicitly {@link proto.gate.LoginReq.verify|verify} messages.
+             * Encodes the specified LoginReq message, length delimited. Does not implicitly {@link proto.auth.LoginReq.verify|verify} messages.
              * @param message LoginReq message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: proto.gate.ILoginReq, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: proto.auth.ILoginReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
              * Decodes a LoginReq message from the specified reader or buffer.
@@ -163,7 +163,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.gate.LoginReq;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.auth.LoginReq;
 
             /**
              * Decodes a LoginReq message from the specified reader or buffer, length delimited.
@@ -172,7 +172,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.gate.LoginReq;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.auth.LoginReq;
 
             /**
              * Verifies a LoginReq message.
@@ -186,7 +186,7 @@ export namespace proto {
              * @param object Plain object
              * @returns LoginReq
              */
-            public static fromObject(object: { [k: string]: any }): proto.gate.LoginReq;
+            public static fromObject(object: { [k: string]: any }): proto.auth.LoginReq;
 
             /**
              * Creates a plain object from a LoginReq message. Also converts values to other types if specified.
@@ -194,7 +194,7 @@ export namespace proto {
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: proto.gate.LoginReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: proto.auth.LoginReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
              * Converts this LoginReq to JSON.
@@ -223,7 +223,7 @@ export namespace proto {
              * Constructs a new LoginRes.
              * @param [properties] Properties to set
              */
-            constructor(properties?: proto.gate.ILoginRes);
+            constructor(properties?: proto.auth.ILoginRes);
 
             /** LoginRes code. */
             public code: string;
@@ -239,23 +239,23 @@ export namespace proto {
              * @param [properties] Properties to set
              * @returns LoginRes instance
              */
-            public static create(properties?: proto.gate.ILoginRes): proto.gate.LoginRes;
+            public static create(properties?: proto.auth.ILoginRes): proto.auth.LoginRes;
 
             /**
-             * Encodes the specified LoginRes message. Does not implicitly {@link proto.gate.LoginRes.verify|verify} messages.
+             * Encodes the specified LoginRes message. Does not implicitly {@link proto.auth.LoginRes.verify|verify} messages.
              * @param message LoginRes message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: proto.gate.ILoginRes, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: proto.auth.ILoginRes, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified LoginRes message, length delimited. Does not implicitly {@link proto.gate.LoginRes.verify|verify} messages.
+             * Encodes the specified LoginRes message, length delimited. Does not implicitly {@link proto.auth.LoginRes.verify|verify} messages.
              * @param message LoginRes message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: proto.gate.ILoginRes, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: proto.auth.ILoginRes, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
              * Decodes a LoginRes message from the specified reader or buffer.
@@ -265,7 +265,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.gate.LoginRes;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.auth.LoginRes;
 
             /**
              * Decodes a LoginRes message from the specified reader or buffer, length delimited.
@@ -274,7 +274,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.gate.LoginRes;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.auth.LoginRes;
 
             /**
              * Verifies a LoginRes message.
@@ -288,7 +288,7 @@ export namespace proto {
              * @param object Plain object
              * @returns LoginRes
              */
-            public static fromObject(object: { [k: string]: any }): proto.gate.LoginRes;
+            public static fromObject(object: { [k: string]: any }): proto.auth.LoginRes;
 
             /**
              * Creates a plain object from a LoginRes message. Also converts values to other types if specified.
@@ -296,7 +296,7 @@ export namespace proto {
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: proto.gate.LoginRes, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: proto.auth.LoginRes, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
              * Converts this LoginRes to JSON.
@@ -319,7 +319,7 @@ export namespace proto {
              * Constructs a new GetUserInfoReq.
              * @param [properties] Properties to set
              */
-            constructor(properties?: proto.gate.IGetUserInfoReq);
+            constructor(properties?: proto.auth.IGetUserInfoReq);
 
             /** GetUserInfoReq uid. */
             public uid: string;
@@ -329,23 +329,23 @@ export namespace proto {
              * @param [properties] Properties to set
              * @returns GetUserInfoReq instance
              */
-            public static create(properties?: proto.gate.IGetUserInfoReq): proto.gate.GetUserInfoReq;
+            public static create(properties?: proto.auth.IGetUserInfoReq): proto.auth.GetUserInfoReq;
 
             /**
-             * Encodes the specified GetUserInfoReq message. Does not implicitly {@link proto.gate.GetUserInfoReq.verify|verify} messages.
+             * Encodes the specified GetUserInfoReq message. Does not implicitly {@link proto.auth.GetUserInfoReq.verify|verify} messages.
              * @param message GetUserInfoReq message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: proto.gate.IGetUserInfoReq, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: proto.auth.IGetUserInfoReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified GetUserInfoReq message, length delimited. Does not implicitly {@link proto.gate.GetUserInfoReq.verify|verify} messages.
+             * Encodes the specified GetUserInfoReq message, length delimited. Does not implicitly {@link proto.auth.GetUserInfoReq.verify|verify} messages.
              * @param message GetUserInfoReq message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: proto.gate.IGetUserInfoReq, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: proto.auth.IGetUserInfoReq, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
              * Decodes a GetUserInfoReq message from the specified reader or buffer.
@@ -355,7 +355,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.gate.GetUserInfoReq;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.auth.GetUserInfoReq;
 
             /**
              * Decodes a GetUserInfoReq message from the specified reader or buffer, length delimited.
@@ -364,7 +364,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.gate.GetUserInfoReq;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.auth.GetUserInfoReq;
 
             /**
              * Verifies a GetUserInfoReq message.
@@ -378,7 +378,7 @@ export namespace proto {
              * @param object Plain object
              * @returns GetUserInfoReq
              */
-            public static fromObject(object: { [k: string]: any }): proto.gate.GetUserInfoReq;
+            public static fromObject(object: { [k: string]: any }): proto.auth.GetUserInfoReq;
 
             /**
              * Creates a plain object from a GetUserInfoReq message. Also converts values to other types if specified.
@@ -386,7 +386,7 @@ export namespace proto {
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: proto.gate.GetUserInfoReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: proto.auth.GetUserInfoReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
              * Converts this GetUserInfoReq to JSON.
@@ -415,7 +415,7 @@ export namespace proto {
              * Constructs a new GetUserInfoRes.
              * @param [properties] Properties to set
              */
-            constructor(properties?: proto.gate.IGetUserInfoRes);
+            constructor(properties?: proto.auth.IGetUserInfoRes);
 
             /** GetUserInfoRes code. */
             public code: string;
@@ -431,23 +431,23 @@ export namespace proto {
              * @param [properties] Properties to set
              * @returns GetUserInfoRes instance
              */
-            public static create(properties?: proto.gate.IGetUserInfoRes): proto.gate.GetUserInfoRes;
+            public static create(properties?: proto.auth.IGetUserInfoRes): proto.auth.GetUserInfoRes;
 
             /**
-             * Encodes the specified GetUserInfoRes message. Does not implicitly {@link proto.gate.GetUserInfoRes.verify|verify} messages.
+             * Encodes the specified GetUserInfoRes message. Does not implicitly {@link proto.auth.GetUserInfoRes.verify|verify} messages.
              * @param message GetUserInfoRes message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encode(message: proto.gate.IGetUserInfoRes, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: proto.auth.IGetUserInfoRes, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified GetUserInfoRes message, length delimited. Does not implicitly {@link proto.gate.GetUserInfoRes.verify|verify} messages.
+             * Encodes the specified GetUserInfoRes message, length delimited. Does not implicitly {@link proto.auth.GetUserInfoRes.verify|verify} messages.
              * @param message GetUserInfoRes message or plain object to encode
              * @param [writer] Writer to encode to
              * @returns Writer
              */
-            public static encodeDelimited(message: proto.gate.IGetUserInfoRes, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: proto.auth.IGetUserInfoRes, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
              * Decodes a GetUserInfoRes message from the specified reader or buffer.
@@ -457,7 +457,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.gate.GetUserInfoRes;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.auth.GetUserInfoRes;
 
             /**
              * Decodes a GetUserInfoRes message from the specified reader or buffer, length delimited.
@@ -466,7 +466,7 @@ export namespace proto {
              * @throws {Error} If the payload is not a reader or valid buffer
              * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.gate.GetUserInfoRes;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.auth.GetUserInfoRes;
 
             /**
              * Verifies a GetUserInfoRes message.
@@ -480,7 +480,7 @@ export namespace proto {
              * @param object Plain object
              * @returns GetUserInfoRes
              */
-            public static fromObject(object: { [k: string]: any }): proto.gate.GetUserInfoRes;
+            public static fromObject(object: { [k: string]: any }): proto.auth.GetUserInfoRes;
 
             /**
              * Creates a plain object from a GetUserInfoRes message. Also converts values to other types if specified.
@@ -488,7 +488,7 @@ export namespace proto {
              * @param [options] Conversion options
              * @returns Plain object
              */
-            public static toObject(message: proto.gate.GetUserInfoRes, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public static toObject(message: proto.auth.GetUserInfoRes, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
              * Converts this GetUserInfoRes to JSON.

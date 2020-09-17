@@ -6,7 +6,7 @@ import (
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
-	proto_gate "github.com/wolfplus2048/mcbeam-example/protos/gate"
+	proto_gate "github.com/wolfplus2048/mcbeam-example/protos/auth"
 	"github.com/wolfplus2048/mcbeam-plus"
 	"github.com/wolfplus2048/mcbeam-plus/scheduler"
 	"github.com/wolfplus2048/mcbeam-plus/session"

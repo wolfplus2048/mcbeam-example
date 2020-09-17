@@ -1,5 +1,5 @@
 syntax="proto3";
-package proto.gate;
+package proto.auth;
 
 message Error {
   string id = 1;
