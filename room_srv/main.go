@@ -30,7 +30,7 @@ func main() {
 	service.Register(&logic.MJHandler{})
 
 	s := service.Options().Service.Server()
-	s.Subscribe(s.NewSubscriber("session.onclose", &room.Sub{}))
+	s.Subscribe(s.NewSubscriber("session.close", &room.Sub{}))
 	if err := service.Run(); err != nil {
 		logger.Fatal(err)
 	}

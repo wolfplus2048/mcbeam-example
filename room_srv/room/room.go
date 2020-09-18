@@ -63,6 +63,9 @@ func (r *Room) LeaveRoom(player *Player) error {
 func (r *Room) GetUsers() []*proto_room.User {
 	users := make([]*proto_room.User, 0)
 	for _, u := range r.players {
+		if u == nil {
+			continue
+		}
 		users = append(users, &proto_room.User{
 			Uid:      u.uid,
 			Username: u.name,

@@ -2,7 +2,6 @@
 "use strict";
 
 // var $protobuf = require("protobufjs/minimal");
-
 var $protobuf = protobuf
 // Common aliases
 var $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
@@ -2156,6 +2155,193 @@ $root.proto = (function() {
             return CreateRoomRes;
         })();
 
+        mgr.CloseRoomNot = (function() {
+
+            /**
+             * Properties of a CloseRoomNot.
+             * @memberof proto.mgr
+             * @interface ICloseRoomNot
+             * @property {string|null} [rid] CloseRoomNot rid
+             */
+
+            /**
+             * Constructs a new CloseRoomNot.
+             * @memberof proto.mgr
+             * @classdesc Represents a CloseRoomNot.
+             * @implements ICloseRoomNot
+             * @constructor
+             * @param {proto.mgr.ICloseRoomNot=} [properties] Properties to set
+             */
+            function CloseRoomNot(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * CloseRoomNot rid.
+             * @member {string} rid
+             * @memberof proto.mgr.CloseRoomNot
+             * @instance
+             */
+            CloseRoomNot.prototype.rid = "";
+
+            /**
+             * Creates a new CloseRoomNot instance using the specified properties.
+             * @function create
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {proto.mgr.ICloseRoomNot=} [properties] Properties to set
+             * @returns {proto.mgr.CloseRoomNot} CloseRoomNot instance
+             */
+            CloseRoomNot.create = function create(properties) {
+                return new CloseRoomNot(properties);
+            };
+
+            /**
+             * Encodes the specified CloseRoomNot message. Does not implicitly {@link proto.mgr.CloseRoomNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {proto.mgr.ICloseRoomNot} message CloseRoomNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloseRoomNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.rid != null && Object.hasOwnProperty.call(message, "rid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.rid);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CloseRoomNot message, length delimited. Does not implicitly {@link proto.mgr.CloseRoomNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {proto.mgr.ICloseRoomNot} message CloseRoomNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloseRoomNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.mgr.CloseRoomNot} CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloseRoomNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.mgr.CloseRoomNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.rid = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.mgr.CloseRoomNot} CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloseRoomNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CloseRoomNot message.
+             * @function verify
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CloseRoomNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.rid != null && message.hasOwnProperty("rid"))
+                    if (!$util.isString(message.rid))
+                        return "rid: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a CloseRoomNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.mgr.CloseRoomNot} CloseRoomNot
+             */
+            CloseRoomNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.mgr.CloseRoomNot)
+                    return object;
+                var message = new $root.proto.mgr.CloseRoomNot();
+                if (object.rid != null)
+                    message.rid = String(object.rid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CloseRoomNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.mgr.CloseRoomNot
+             * @static
+             * @param {proto.mgr.CloseRoomNot} message CloseRoomNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CloseRoomNot.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.rid = "";
+                if (message.rid != null && message.hasOwnProperty("rid"))
+                    object.rid = message.rid;
+                return object;
+            };
+
+            /**
+             * Converts this CloseRoomNot to JSON.
+             * @function toJSON
+             * @memberof proto.mgr.CloseRoomNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CloseRoomNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return CloseRoomNot;
+        })();
+
         return mgr;
     })();
 
@@ -4250,6 +4436,193 @@ $root.proto = (function() {
             };
 
             return CreateRoomRes;
+        })();
+
+        room.CloseRoomNot = (function() {
+
+            /**
+             * Properties of a CloseRoomNot.
+             * @memberof proto.room
+             * @interface ICloseRoomNot
+             * @property {string|null} [rid] CloseRoomNot rid
+             */
+
+            /**
+             * Constructs a new CloseRoomNot.
+             * @memberof proto.room
+             * @classdesc Represents a CloseRoomNot.
+             * @implements ICloseRoomNot
+             * @constructor
+             * @param {proto.room.ICloseRoomNot=} [properties] Properties to set
+             */
+            function CloseRoomNot(properties) {
+                if (properties)
+                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                        if (properties[keys[i]] != null)
+                            this[keys[i]] = properties[keys[i]];
+            }
+
+            /**
+             * CloseRoomNot rid.
+             * @member {string} rid
+             * @memberof proto.room.CloseRoomNot
+             * @instance
+             */
+            CloseRoomNot.prototype.rid = "";
+
+            /**
+             * Creates a new CloseRoomNot instance using the specified properties.
+             * @function create
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {proto.room.ICloseRoomNot=} [properties] Properties to set
+             * @returns {proto.room.CloseRoomNot} CloseRoomNot instance
+             */
+            CloseRoomNot.create = function create(properties) {
+                return new CloseRoomNot(properties);
+            };
+
+            /**
+             * Encodes the specified CloseRoomNot message. Does not implicitly {@link proto.room.CloseRoomNot.verify|verify} messages.
+             * @function encode
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {proto.room.ICloseRoomNot} message CloseRoomNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloseRoomNot.encode = function encode(message, writer) {
+                if (!writer)
+                    writer = $Writer.create();
+                if (message.rid != null && Object.hasOwnProperty.call(message, "rid"))
+                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.rid);
+                return writer;
+            };
+
+            /**
+             * Encodes the specified CloseRoomNot message, length delimited. Does not implicitly {@link proto.room.CloseRoomNot.verify|verify} messages.
+             * @function encodeDelimited
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {proto.room.ICloseRoomNot} message CloseRoomNot message or plain object to encode
+             * @param {$protobuf.Writer} [writer] Writer to encode to
+             * @returns {$protobuf.Writer} Writer
+             */
+            CloseRoomNot.encodeDelimited = function encodeDelimited(message, writer) {
+                return this.encode(message, writer).ldelim();
+            };
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer.
+             * @function decode
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @param {number} [length] Message length if known beforehand
+             * @returns {proto.room.CloseRoomNot} CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloseRoomNot.decode = function decode(reader, length) {
+                if (!(reader instanceof $Reader))
+                    reader = $Reader.create(reader);
+                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.room.CloseRoomNot();
+                while (reader.pos < end) {
+                    var tag = reader.uint32();
+                    switch (tag >>> 3) {
+                    case 1:
+                        message.rid = reader.string();
+                        break;
+                    default:
+                        reader.skipType(tag & 7);
+                        break;
+                    }
+                }
+                return message;
+            };
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer, length delimited.
+             * @function decodeDelimited
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+             * @returns {proto.room.CloseRoomNot} CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            CloseRoomNot.decodeDelimited = function decodeDelimited(reader) {
+                if (!(reader instanceof $Reader))
+                    reader = new $Reader(reader);
+                return this.decode(reader, reader.uint32());
+            };
+
+            /**
+             * Verifies a CloseRoomNot message.
+             * @function verify
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {Object.<string,*>} message Plain object to verify
+             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+             */
+            CloseRoomNot.verify = function verify(message) {
+                if (typeof message !== "object" || message === null)
+                    return "object expected";
+                if (message.rid != null && message.hasOwnProperty("rid"))
+                    if (!$util.isString(message.rid))
+                        return "rid: string expected";
+                return null;
+            };
+
+            /**
+             * Creates a CloseRoomNot message from a plain object. Also converts values to their respective internal types.
+             * @function fromObject
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {Object.<string,*>} object Plain object
+             * @returns {proto.room.CloseRoomNot} CloseRoomNot
+             */
+            CloseRoomNot.fromObject = function fromObject(object) {
+                if (object instanceof $root.proto.room.CloseRoomNot)
+                    return object;
+                var message = new $root.proto.room.CloseRoomNot();
+                if (object.rid != null)
+                    message.rid = String(object.rid);
+                return message;
+            };
+
+            /**
+             * Creates a plain object from a CloseRoomNot message. Also converts values to other types if specified.
+             * @function toObject
+             * @memberof proto.room.CloseRoomNot
+             * @static
+             * @param {proto.room.CloseRoomNot} message CloseRoomNot
+             * @param {$protobuf.IConversionOptions} [options] Conversion options
+             * @returns {Object.<string,*>} Plain object
+             */
+            CloseRoomNot.toObject = function toObject(message, options) {
+                if (!options)
+                    options = {};
+                var object = {};
+                if (options.defaults)
+                    object.rid = "";
+                if (message.rid != null && message.hasOwnProperty("rid"))
+                    object.rid = message.rid;
+                return object;
+            };
+
+            /**
+             * Converts this CloseRoomNot to JSON.
+             * @function toJSON
+             * @memberof proto.room.CloseRoomNot
+             * @instance
+             * @returns {Object.<string,*>} JSON object
+             */
+            CloseRoomNot.prototype.toJSON = function toJSON() {
+                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+            };
+
+            return CloseRoomNot;
         })();
 
         return room;

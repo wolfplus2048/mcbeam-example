@@ -8,9 +8,6 @@ import (
 	"github.com/micro/go-micro/v2/store"
 	proto_gate "github.com/wolfplus2048/mcbeam-example/protos/auth"
 	"github.com/wolfplus2048/mcbeam-plus"
-	"github.com/wolfplus2048/mcbeam-plus/scheduler"
-	"github.com/wolfplus2048/mcbeam-plus/session"
-	"time"
 )
 
 type Handler struct {
@@ -21,15 +18,9 @@ func (h *Handler) Init() {
 }
 
 func (h *Handler) AfterInit() {
-	session.OnSessionClose(func(s *session.Session) {
-		c := h.Service.Client()
-		m := c.NewMessage("session.onclose", &proto_gate.LoginReq{Username: s.UID()})
-		c.Publish(context.Background(), m)
-	})
-
-	scheduler.NewTimer(2*time.Second, func() {
-		logger.Debugf("ticker %d", time.Now().Second())
-	}, scheduler.Counter(4))
+	//scheduler.NewTimer(2*time.Second, func() {
+	//	logger.Debugf("ticker %d", time.Now().Second())
+	//}, scheduler.Counter(4))
 	//time.AfterFunc(5 * time.Second, func() {
 	//	scheduler.RemoveTimer(id)
 	//})

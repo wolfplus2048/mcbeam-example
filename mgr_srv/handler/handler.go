@@ -12,14 +12,23 @@ import (
 	"sync"
 )
 
+var (
+	rooms  sync.Map
+)
 type room struct {
 	id       string
 	name     string
 	serverId string
 }
+type Sub struct {
+}
+
+func (s *Sub) onRoomClose(ctx context.Context, not *proto_room.CloseRoomNot) {
+	logger.Debugf("room %s closed", not.Rid)
+	rooms.Delete(not.Rid)
+}
 type Handler struct {
 	Client client.Client
-	rooms  sync.Map
 }
 
 func (h Handler) Init() {
@@ -39,7 +48,7 @@ func (h *Handler) GetRoomList(ctx context.Context, req *proto_mgr.GetRoomListReq
 	rsp := &proto_mgr.GetRoomListRes{
 		Rooms: make([]*proto_mgr.Room, 0),
 	}
-	h.rooms.Range(func(_, v interface{}) bool {
+	rooms.Range(func(_, v interface{}) bool {
 		r := v.(*room)
 		rsp.Rooms = append(rsp.Rooms, &proto_mgr.Room{
 			Id:     r.id,
@@ -57,7 +66,7 @@ func (h *Handler) CreateRoom(ctx context.Context, req *proto_mgr.CreateRoomReq) 
 	s := mcbeam.GetSessionFromCtx(ctx)
 	arg := &proto_room.CreateRoomReq{Name: req.Name}
 	rsp := &proto_room.CreateRoomRes{}
-	err := mcbeam.RPC(context.Background(), h.Client, "room.handler.createroom", arg, rsp)
+	err := mcbeam.RPC(context.Background(), h.Client, "room.handler.createroomrpc", arg, rsp)
 	if err != nil {
 		s.Push("createroom", &proto_mgr.CreateRoomRes{
 			Code: err.Error(),
@@ -72,7 +81,7 @@ func (h *Handler) CreateRoom(ctx context.Context, req *proto_mgr.CreateRoomReq) 
 		},
 		ServerId: rsp.ServerId,
 	})
-	h.rooms.Store(rsp.Room.Id, &room{
+	rooms.Store(rsp.Room.Id, &room{
 		id:       rsp.Room.Id,
 		name:     rsp.Room.Name,
 		serverId: rsp.ServerId,

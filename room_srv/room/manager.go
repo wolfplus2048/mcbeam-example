@@ -51,7 +51,7 @@ func (m *manager) GetRoom(rid string) (*Room, bool) {
 	return r, ok
 }
 func (m *manager) AddPlayer(p *Player) error {
-	p, ok := m.players[p.uid]
+	_, ok := m.players[p.uid]
 	if ok {
 		return errors.New("player already exists")
 	}

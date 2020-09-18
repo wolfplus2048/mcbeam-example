@@ -24,9 +24,9 @@ export default class NewClass extends cc.Component {
 
     private _roomid: string
     start() {
-        this.node.on(cc.Node.EventType.TOUCH_START, this._touchStart)
-        this.node.on(cc.Node.EventType.TOUCH_END, this._touchEnd)
-        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this._touchEnd)
+        this.node.on(cc.Node.EventType.TOUCH_START, this._touchStart, this)
+        this.node.on(cc.Node.EventType.TOUCH_END, this._touchEnd, this)
+        this.node.on(cc.Node.EventType.TOUCH_CANCEL, this._touchEnd, this)
 
     }
     init(id: string, name:string, number:string, state:string) {
@@ -38,6 +38,7 @@ export default class NewClass extends cc.Component {
     _touchStart(){
     }
     _touchEnd(){
+        console.log(`join room: ${this._roomid}`)
         NetManager.instance().joinRoom(this._roomid)
     }
 }

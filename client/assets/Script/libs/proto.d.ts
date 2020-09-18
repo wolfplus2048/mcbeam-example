@@ -968,6 +968,96 @@ export namespace proto {
              */
             public toJSON(): { [k: string]: any };
         }
+
+        /** Properties of a CloseRoomNot. */
+        interface ICloseRoomNot {
+
+            /** CloseRoomNot rid */
+            rid?: (string|null);
+        }
+
+        /** Represents a CloseRoomNot. */
+        class CloseRoomNot implements ICloseRoomNot {
+
+            /**
+             * Constructs a new CloseRoomNot.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.mgr.ICloseRoomNot);
+
+            /** CloseRoomNot rid. */
+            public rid: string;
+
+            /**
+             * Creates a new CloseRoomNot instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CloseRoomNot instance
+             */
+            public static create(properties?: proto.mgr.ICloseRoomNot): proto.mgr.CloseRoomNot;
+
+            /**
+             * Encodes the specified CloseRoomNot message. Does not implicitly {@link proto.mgr.CloseRoomNot.verify|verify} messages.
+             * @param message CloseRoomNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.mgr.ICloseRoomNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CloseRoomNot message, length delimited. Does not implicitly {@link proto.mgr.CloseRoomNot.verify|verify} messages.
+             * @param message CloseRoomNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.mgr.ICloseRoomNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.mgr.CloseRoomNot;
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.mgr.CloseRoomNot;
+
+            /**
+             * Verifies a CloseRoomNot message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CloseRoomNot message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CloseRoomNot
+             */
+            public static fromObject(object: { [k: string]: any }): proto.mgr.CloseRoomNot;
+
+            /**
+             * Creates a plain object from a CloseRoomNot message. Also converts values to other types if specified.
+             * @param message CloseRoomNot
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.mgr.CloseRoomNot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CloseRoomNot to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
     }
 
     /** Namespace room. */
@@ -1916,6 +2006,96 @@ export namespace proto {
 
             /**
              * Converts this CreateRoomRes to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a CloseRoomNot. */
+        interface ICloseRoomNot {
+
+            /** CloseRoomNot rid */
+            rid?: (string|null);
+        }
+
+        /** Represents a CloseRoomNot. */
+        class CloseRoomNot implements ICloseRoomNot {
+
+            /**
+             * Constructs a new CloseRoomNot.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: proto.room.ICloseRoomNot);
+
+            /** CloseRoomNot rid. */
+            public rid: string;
+
+            /**
+             * Creates a new CloseRoomNot instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CloseRoomNot instance
+             */
+            public static create(properties?: proto.room.ICloseRoomNot): proto.room.CloseRoomNot;
+
+            /**
+             * Encodes the specified CloseRoomNot message. Does not implicitly {@link proto.room.CloseRoomNot.verify|verify} messages.
+             * @param message CloseRoomNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: proto.room.ICloseRoomNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CloseRoomNot message, length delimited. Does not implicitly {@link proto.room.CloseRoomNot.verify|verify} messages.
+             * @param message CloseRoomNot message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: proto.room.ICloseRoomNot, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): proto.room.CloseRoomNot;
+
+            /**
+             * Decodes a CloseRoomNot message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CloseRoomNot
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): proto.room.CloseRoomNot;
+
+            /**
+             * Verifies a CloseRoomNot message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CloseRoomNot message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CloseRoomNot
+             */
+            public static fromObject(object: { [k: string]: any }): proto.room.CloseRoomNot;
+
+            /**
+             * Creates a plain object from a CloseRoomNot message. Also converts values to other types if specified.
+             * @param message CloseRoomNot
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: proto.room.CloseRoomNot, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CloseRoomNot to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };

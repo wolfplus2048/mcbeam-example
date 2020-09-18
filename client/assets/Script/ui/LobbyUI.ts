@@ -24,17 +24,15 @@ export default class LobbyUI extends cc.Component {
     @property(cc.Label)
     roomName: cc.Label = null
 
-    start() {
-        if(GameData.instance().roomList) {
-            GameData.instance().roomList.forEach((value, key) => {
-                let item = cc.instantiate(this.itemPrefab)
-                item.getComponent("Item").init(value.name, "1/4", "playing")
-                this.roomList.content.addChild(item)
-            })
-        } else {
-            NetManager.instance().getRoomList()
-        }
+    @property(cc.Label)
+    title: cc.Label = null
 
+    private _title:string
+    onLoad() {
+        this._title = this.title.string
+    }
+    start() {
+        this.refreshList()
     }
     onEnable() {
         CustomEventListener.on(Constants.EventName.UPDATE_ROOM_LIST, this.updateRoomList, this)
@@ -42,11 +40,34 @@ export default class LobbyUI extends cc.Component {
     }
     onDisable() {
         CustomEventListener.off(Constants.EventName.UPDATE_ROOM_LIST, this.updateRoomList, this)
+        CustomEventListener.off(Constants.EventName.JOIN_ROOM_RESPONSE, this.onJoinRoom, this)
     }
-    private updateRoomList(data: proto.mgr.Room) {
-        let item = cc.instantiate(this.itemPrefab)
-        item.getComponent("Item").init(data.name, "1/4", "playing")
-        this.roomList.content.addChild(item)
+
+    private updateRoomList(...args: any[]) {
+        let op = args[0]
+        if(op === "set") {
+            args[1].forEach((e:proto.mgr.Room) => {
+                let item = cc.instantiate(this.itemPrefab)
+                item.getComponent("Item").init(e.id, e.name, "1/4", "playing")
+                this.roomList.content.addChild(item)
+            });
+        } else if(op === "add") {
+            if(args[1].code.length > 0){
+                UIManager.showDialog("dialogTip", null, args[1].code)
+                return
+            }
+            let room = args[1].room
+            let item = cc.instantiate(this.itemPrefab)
+            item.getComponent("Item").init(room.id, room.name, "1/4", "playing")
+            this.roomList.content.addChild(item)
+        }
+        let len = this.roomList.content.children.length
+        this.title.string = `${this._title}(${len})`
+
+    }
+    public refreshList() {
+        this.roomList.content.children.length = 0
+        NetManager.instance().getRoomList()
     }
     private onJoinRoom(code: string) {
         if(code.length <= 0) {
@@ -54,6 +75,10 @@ export default class LobbyUI extends cc.Component {
         } else {
             UIManager.showDialog("dialogTip", null, code)
         }
+    }
+    public createRoom() {
+        NetManager.instance().createRoom(this.roomName.string)
+        this.roomName.string = ""
     }
 
 }

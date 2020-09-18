@@ -11,7 +11,7 @@ import Constants from "./Constants";
 import GameData from "./GameData";
 import PlayerData from "./PlayerData";
 
-const {ccclass, property} = cc._decorator;
+const {ccclass, property} = cc._decorator;2111
 
 @ccclass
 export default class NetManager {
@@ -41,9 +41,9 @@ export default class NetManager {
         starx.on("GetRoomListRes", (data)=>{
             let res = proto.mgr.GetRoomListRes.decode(data)
             console.log(res)
-            GameData.instance().roomList = res.rooms
+            CustomEventListener.dispatchEvent(Constants.EventName.UPDATE_ROOM_LIST, "set", res.rooms)
         })
-        starx.on("JoinRoomRes", (data)=>{
+        starx.on("JoinRes", (data)=>{
             let res = proto.room.JoinRes.decode(data)
             console.log(res)
             if(res.code.length <= 0) {
@@ -51,23 +51,35 @@ export default class NetManager {
             }
             CustomEventListener.dispatchEvent(Constants.EventName.JOIN_ROOM_RESPONSE, res.code)
         })
+        starx.on("CreateRoomRes", (data)=>{
+            let res = proto.mgr.CreateRoomRes.decode(data)
+            console.log(res)
+            CustomEventListener.dispatchEvent(Constants.EventName.UPDATE_ROOM_LIST, "add", res)
+        })
+        starx.on("CloseRoomNot", (data)=>{
+            let not = proto.mgr.CloseRoomNot.decode(data)
+            console.log(not)
+            CustomEventListener.dispatchEvent(Constants.EventName.UPDATE_ROOM_LIST, "del", not)
+        })
     }
     public login(username: string) {
         let req = proto.auth.LoginReq.create({username: username})
         let buff = proto.auth.LoginReq.encode(req).finish()
-        starx.notify("auth.auth.login", buff)
+        starx.notify("auth.handler.login", buff)
     }
     public getRoomList() {
-        if(GameData.instance().roomList) {
-            return
-        }
         let req = proto.mgr.GetRoomListReq.create({})
         let buff = proto.mgr.GetRoomListReq.encode(req).finish()
         starx.notify("mgr.handler.getroomlist", buff)
     }
-    public joinRoom(...args: any[]) {
-        let req = proto.room.JoinReq.create({id:args[0]})
+    public joinRoom(id: string) {
+        let req = proto.room.JoinReq.create({id:id})
         let buf = proto.room.JoinReq.encode(req).finish()
-        starx.notify("room.handler.JoinRoom", buf)
+        starx.notify("room.handler.joinroom", buf)
+    }
+    public createRoom(name: string) {
+        let req = proto.mgr.CreateRoomReq.create({name: name})
+        let buff = proto.mgr.CreateRoomReq.encode(req).finish()
+        starx.notify("mgr.handler.createroom", buff)
     }
 }

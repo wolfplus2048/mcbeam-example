@@ -38,3 +38,6 @@ message CreateRoomRes {
   Room room = 2;
   string serverId = 3;
 }
+message CloseRoomNot {
+  string rid = 1;
+}

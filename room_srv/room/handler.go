@@ -5,27 +5,32 @@ import (
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
-	proto_gate "github.com/wolfplus2048/mcbeam-example/protos/auth"
-	proto_room "github.com/wolfplus2048/mcbeam-example/protos/room"
+	"github.com/wolfplus2048/mcbeam-example/protos/room"
 	"github.com/wolfplus2048/mcbeam-plus"
+	proto_mcbeam "github.com/wolfplus2048/mcbeam-plus/protos"
 )
 
-type Sub struct{}
+type Sub struct{
+	service micro.Service
+}
 
-func (s *Sub) Process(ctx context.Context, arg *proto_gate.LoginReq) error {
-	logger.Debugf("uid %s closed", arg.Username)
+func (s *Sub) Process(ctx context.Context, arg *proto_mcbeam.SessionClose) error {
+	logger.Debugf("uid %s closed", arg.Uid)
 
 	Manager.Run(func() {
-		p, ok := Manager.FindPlayer(arg.Username)
+		p, ok := Manager.FindPlayer(arg.Uid)
 		if !ok {
 			return
 		}
 		r := p.GetRoom()
 		r.LeaveRoom(p)
+		Manager.RemovePlayer(p.GetUid())
 		if r.GetUserNum() == 0 {
 			Manager.RemoveRoom(r.Id)
+			c := s.service.Client()
+			m := c.NewMessage("room.close", &proto_room.CloseRoomNot{Rid: r.Id})
+			c.Publish(ctx, m)
 		}
-		Manager.RemovePlayer(p.GetUid())
 	})
 	return nil
 }
