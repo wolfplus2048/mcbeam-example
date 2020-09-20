@@ -1,6 +1,9 @@
 syntax="proto3";
 package proto.auth;
 
+service Auth {
+  rpc Login(LoginReq) returns (LoginRes) {}
+}
 message Error {
   string id = 1;
   int32 code = 2;

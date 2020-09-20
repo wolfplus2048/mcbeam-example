@@ -6,7 +6,7 @@ import (
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
-	proto_gate "github.com/wolfplus2048/mcbeam-example/protos/auth"
+	"github.com/wolfplus2048/mcbeam-example/protos/auth"
 	"github.com/wolfplus2048/mcbeam-plus"
 )
 
@@ -33,10 +33,10 @@ func (h *Handler) Shutdown() {
 	logger.Debugf("Shutdown")
 }
 
-func (h *Handler) Login(ctx context.Context, req *proto_gate.LoginReq) {
+func (h *Handler) Login(ctx context.Context, req *proto_auth.LoginReq) {
 	logger.Infof("user login: %s", req.Username)
 	s := mcbeam.GetSessionFromCtx(ctx)
-	res := proto_gate.LoginRes{
+	res := proto_auth.LoginRes{
 		Uid:      uuid.New().String(),
 		Username: req.Username,
 	}

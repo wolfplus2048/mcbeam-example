@@ -21,29 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ed300a01-86b2-4abc-899a-1488fdc3bf86" name="Default Changelist" comment="add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/auth_srv/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/auth_srv/handler/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/auth_srv/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Prefabs/Item.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Prefabs/Item.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Scene/lobby.fire" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Scene/lobby.fire" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/data/NetManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/data/NetManager.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/proto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/proto.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/libs/proto.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/libs/proto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/Item.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LobbyUI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/assets/Script/ui/LoginUI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_srv/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/auth_srv/handler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/auth_srv/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mgr_srv/handler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/mgr_srv/handler/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mgr_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/mgr_srv/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/auth/auth.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/protos/auth/auth.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/auth/auth.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/auth/auth.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protos/mgr/mgr.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/protos/mgr/mgr.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protos/mgr/mgr.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/mgr/mgr.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protos/mj/mj.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/protos/mj/mj.pb.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/protos/room/room.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/protos/room/room.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protos/room/room.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protos/room/room.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/room/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/room/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/room/manager.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/room/manager.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/room_srv/room/room.go" beforeDir="false" afterPath="$PROJECT_DIR$/room_srv/room/room.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +44,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/Cellar/go@1.14/1.14.7/libexec" />
+  <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -160,11 +147,11 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
-    <state x="722" y="481" key="#GOROOT" timestamp="1600070007580">
-      <screen x="0" y="23" width="1840" height="1057" />
+    <state x="753" y="451" key="#GOROOT" timestamp="1600427711478">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="722" y="481" key="#GOROOT/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600070007580" />
-    <state x="753" y="451" key="#GOROOT/0.0.1920.1040@0.0.1920.1040" timestamp="1599911840688" />
+    <state x="753" y="451" key="#GOROOT/0.0.1920.1040@0.0.1920.1040" timestamp="1600427711478" />
     <state x="753" y="354" key="#Go_Modules" timestamp="1598347368465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -196,10 +183,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="829" y="381" key="EnvironmentVariablesDialog/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598347367067" />
-    <state x="741" y="275" key="FileChooserDialogImpl" timestamp="1598347305822">
+    <state x="741" y="275" key="FileChooserDialogImpl" timestamp="1600518391673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="741" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-3840.0.1920.1040@0.0.1920.1040" timestamp="1598347305822" />
+    <state x="741" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600518391673" />
     <state width="1798" height="333" key="GridCell.Tab.0.bottom" timestamp="1600416797146">
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
@@ -293,16 +281,5 @@
       <screen x="0" y="23" width="1840" height="1057" />
     </state>
     <state x="585" y="258" width="670" height="676" key="search.everywhere.popup/-1920.23.1920.1057/0.23.1840.1057@0.23.1840.1057" timestamp="1600321438445" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/../mcbeam-plus/gateway/tcp_handler.go</url>
-          <line>151</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
