@@ -1,7 +1,6 @@
 package logic
 
 import (
-	"context"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/card"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/common"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/setting"
@@ -11,26 +10,10 @@ import (
 	"github.com/looplab/fsm"
 	proto_mj "github.com/wolfplus2048/mcbeam-example/protos/mj"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
-	"github.com/wolfplus2048/mcbeam-example/room_srv/room"
-	"github.com/wolfplus2048/mcbeam-plus"
 	"github.com/wolfplus2048/mcbeam-plus/scheduler"
 	"sort"
 	"time"
 )
-
-func GetGamePlayerFromCtx(ctx context.Context) *MJPlayer {
-	s := mcbeam.GetSessionFromCtx(ctx)
-	p, ok := room.Manager.FindPlayer(s.UID())
-	if !ok {
-		return nil
-	}
-	pg := p.GetGamePlayer()
-	if pg == nil {
-		return nil
-	}
-	pmj, _ := pg.(*MJPlayer)
-	return pmj
-}
 
 type MJPlayer struct {
 	player       base.BasePlayer
@@ -43,18 +26,13 @@ type MJPlayer struct {
 	isReady      bool
 }
 
-func newMJPlayer() *MJPlayer {
-	p := &MJPlayer{
-		player:       nil,
-		handCards:    nil,
-		showCards:    nil,
-		discardCards: nil,
-		fsm:          nil,
-	}
+func NewMJPlayer(ply base.BasePlayer) *MJPlayer {
+	p := &MJPlayer{}
 	p.fsm = fsm.NewFSM(
 		"closed",
 		fsm.Events{},
 		fsm.Callbacks{})
+	p.player = ply
 	return p
 }
 

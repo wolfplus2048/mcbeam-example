@@ -11,15 +11,16 @@ type Player struct {
 	session    *session.Session
 	room       *Room
 	chairId    int
-	gamePlayer *base.GamePlayer
+	gamePlayer base.GamePlayer
 }
 
 func NewPlayer(s *session.Session, uid, name string) *Player {
-	return &Player{
+	ply := &Player{
 		uid:     uid,
 		name:    name,
 		session: s,
 	}
+	return ply
 }
 func (p *Player) GetUid() string {
 	return p.uid

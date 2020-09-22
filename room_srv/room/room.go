@@ -17,7 +17,7 @@ type Room struct {
 	fsm      *fsm.FSM
 }
 
-func newRoom(name string) *Room {
+func NewRoom(name string) *Room {
 	id := uuid.New().String()
 	r := &Room{Id: id,
 		Name:    name,
@@ -73,9 +73,7 @@ func (r *Room) GetUsers() []*proto_room.User {
 	}
 	return users
 }
-func (r *Room) StartGame() {
 
-}
 func (r *Room) GetUserNum() int {
 	return len(r.players)
 }

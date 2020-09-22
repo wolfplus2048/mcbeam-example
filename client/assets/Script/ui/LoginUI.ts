@@ -21,6 +21,9 @@ export default class LoginUI extends cc.Component {
     @property(cc.ProgressBar)
     loadingBar: cc.ProgressBar = null
 
+    onLoad() {
+        this.username.string = "wolfplus"
+    }
 
     start() {
         console.log("start LoginUI")
@@ -36,21 +39,25 @@ export default class LoginUI extends cc.Component {
         NetManager.instance().init()
     }
     login() {
+        if(this.username.string.length <= 0 ) {
+            UIManager.showDialog("dialogTip", null, "请输入用户名")
+            return
+        }
+
         NetManager.instance().login(this.username.string)
     }
     onLogin(...args:string[]) {
-        console.log("onLogin: " + args)
+        console.log("onLogin: ", args)
         if(args[0].length <= 0) {
-            cc.director.loadScene("lobby")
-            // this.loadingBar.node.active = true
-            // let backup = cc.loader.onProgress
-            // cc.loader.onProgress = (count:number, amount: number) => {
-            //     this.loadingBar.progress = count / amount
-            // }
-            // cc.director.preloadScene("lobby", () => {
-            //     cc.loader.onProgress = backup
-            //     cc.director.loadScene("lobby")
-            // })
+            this.loadingBar.node.active = true
+            let backup = cc.loader.onProgress
+            cc.loader.onProgress = (count:number, amount: number) => {
+                this.loadingBar.progress = count / amount
+            }
+            cc.director.preloadScene("lobby", () => {
+                cc.loader.onProgress = backup
+                cc.director.loadScene("lobby")
+            })
         } else {
             UIManager.showDialog("dialogTip", null, args[0])
         }

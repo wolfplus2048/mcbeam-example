@@ -77,6 +77,10 @@ export default class LobbyUI extends cc.Component {
         }
     }
     public createRoom() {
+        if(this.roomName.string.length <= 0 ) {
+            UIManager.showDialog("dialogTip", null, "请输入房间名")
+            return
+        }
         NetManager.instance().createRoom(this.roomName.string)
         this.roomName.string = ""
     }

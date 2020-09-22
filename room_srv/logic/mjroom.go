@@ -4,8 +4,8 @@ import (
 	"gitee.com/microbeam/mcbeam-mind-mahjong/common"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/setting"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/wall"
-	"gitee.com/microbeam/mcbeam-mind-mahjong/win"
 	"github.com/looplab/fsm"
+	"github.com/micro/go-micro/v2/logger"
 	proto_mj "github.com/wolfplus2048/mcbeam-example/protos/mj"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
 	"github.com/wolfplus2048/mcbeam-plus/scheduler"
@@ -15,8 +15,6 @@ import (
 
 type MJRoom struct {
 	room       base.BaseRoom
-	wallCard   *wall.Wall
-	winLogic   *win.Win
 	fsm        *fsm.FSM
 	dealer     *MJPlayer
 	currPlayer *MJPlayer
@@ -32,13 +30,9 @@ type Operator struct {
 	AckOp       common.OpCode
 }
 
-func NewRoom() *MJRoom {
+func NewMJRoom(room base.BaseRoom) *MJRoom {
 	mj := &MJRoom{
-		room:      nil,
-		wallCard:  nil,
-		winLogic:  nil,
-		fsm:       nil,
-		operators: nil,
+		room: room,
 	}
 	mj.fsm = fsm.NewFSM(
 		common.ST_NONE,
@@ -64,6 +58,7 @@ func NewRoom() *MJRoom {
 	return mj
 }
 func (m *MJRoom) tryBegin() {
+	logger.Debugf("tryBegin()")
 	allready := true
 	for _, v := range m.room.GetGamePlayers() {
 		if v == nil {
@@ -80,8 +75,8 @@ func (m *MJRoom) tryBegin() {
 	m.fsm.Event(common.EV_BEGIN)
 }
 func (m *MJRoom) reset() {
-	m.wallCard.Reset()
-	m.wallCard.Shuffle()
+	wall.Reset()
+	wall.Shuffle()
 }
 func (m *MJRoom) broadcast(route string, payload interface{}) {
 	for _, v := range m.room.GetGamePlayers() {
@@ -93,6 +88,7 @@ func (m *MJRoom) broadcast(route string, payload interface{}) {
 	}
 }
 func (m *MJRoom) onBegin() {
+	logger.Debugf("onBegin()")
 	m.reset()
 	for _, v := range m.room.GetGamePlayers() {
 		p := v.(*MJPlayer)
@@ -123,9 +119,9 @@ func (m *MJRoom) onFaPai() {
 	for _, v := range m.room.GetGamePlayers() {
 		p := v.(*MJPlayer)
 		if v == m.dealer {
-			p.setHandTitls(m.wallCard.ForwardDrawMulti(setting.HandlCardNum() + 1))
+			p.setHandTitls(wall.ForwardDrawMulti(setting.HandlCardNum() + 1))
 		} else {
-			p.setHandTitls(m.wallCard.ForwardDrawMulti(setting.HandlCardNum()))
+			p.setHandTitls(wall.ForwardDrawMulti(setting.HandlCardNum()))
 		}
 	}
 	scheduler.NewTimer(10*time.Second, func() {

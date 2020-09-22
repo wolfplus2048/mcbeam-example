@@ -6,27 +6,29 @@ import (
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
 	"github.com/wolfplus2048/mcbeam-example/protos/room"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/manager"
 	"github.com/wolfplus2048/mcbeam-plus"
 	proto_mcbeam "github.com/wolfplus2048/mcbeam-plus/protos"
 )
 
-type Sub struct{
+type Sub struct {
 	service micro.Service
 }
 
 func (s *Sub) Process(ctx context.Context, arg *proto_mcbeam.SessionClose) error {
 	logger.Debugf("uid %s closed", arg.Uid)
 
-	Manager.Run(func() {
-		p, ok := Manager.FindPlayer(arg.Uid)
+	base.Run(func() {
+		p, ok := manager.Manager.FindPlayer(arg.Uid)
 		if !ok {
 			return
 		}
 		r := p.GetRoom()
 		r.LeaveRoom(p)
-		Manager.RemovePlayer(p.GetUid())
+		manager.Manager.RemovePlayer(p.GetUid())
 		if r.GetUserNum() == 0 {
-			Manager.RemoveRoom(r.Id)
+			manager.Manager.RemoveRoom(r.Id)
 			c := s.service.Client()
 			m := c.NewMessage("room.close", &proto_room.CloseRoomNot{Rid: r.Id})
 			c.Publish(ctx, m)
@@ -55,9 +57,9 @@ func (h *Handler) CreateRoomRPC(ctx context.Context, req *proto_room.CreateRoomR
 	ret := make(chan error)
 	var res *proto_room.CreateRoomRes
 
-	Manager.Run(func() {
+	base.Run(func() {
 		logger.Debugf("crateRoom %s", req.Name)
-		r, err := Manager.CreateRoom(req.Name)
+		r, err := manager.Manager.CreateRoom(req.Name)
 		if err != nil {
 			ret <- err
 			return
@@ -85,8 +87,8 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 		return
 	}
 
-	Manager.Run(func() {
-		p, ok := Manager.FindPlayer(s.UID())
+	base.Run(func() {
+		p, ok := manager.Manager.FindPlayer(s.UID())
 		if ok {
 			s.Push("JoinRes", &proto_room.JoinRes{
 				Code: "player already exists",
@@ -94,7 +96,7 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 			return
 		}
 		p = NewPlayer(s, s.UID(), string(res[0].Value))
-		r, ok := Manager.GetRoom(req.Id)
+		r, ok := manager.Manager.GetRoom(req.Id)
 		if !ok {
 			s.Push("JoinRes", &proto_room.JoinRes{
 				Code: "room not exists",
@@ -108,7 +110,7 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 			})
 			return
 		}
-		Manager.AddPlayer(p)
+		manager.Manager.AddPlayer(p)
 
 		s.Push("JoinRes", &proto_room.JoinRes{
 			Room: &proto_room.Room{

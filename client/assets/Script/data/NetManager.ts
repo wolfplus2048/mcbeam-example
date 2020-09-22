@@ -82,4 +82,10 @@ export default class NetManager {
         let buff = proto.mgr.CreateRoomReq.encode(req).finish()
         starx.notify("mgr.handler.createroom", buff)
     }
+    public ready() {
+        
+        let req = proto.mj.ReadyReq.create({})
+        let buff = proto.mj.ReadyReq.encode(req).finish()
+        starx.notify("room.mjhandler.ready", buff)
+    }
 }
