@@ -8,6 +8,7 @@ import (
 	"github.com/micro/go-plugins/store/redis/v2"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/logic"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/manager"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/room"
 	"github.com/wolfplus2048/mcbeam-plus"
 )
@@ -21,6 +22,7 @@ func main() {
 			micro.NewService(
 				micro.Store(redis.NewStore()),
 				micro.Broker(nats.NewBroker()),
+				micro.WrapHandler(manager.WrapSession()),
 			),
 		),
 	)

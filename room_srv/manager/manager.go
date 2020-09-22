@@ -3,6 +3,7 @@ package manager
 import (
 	"context"
 	"errors"
+	"github.com/micro/go-micro/v2/server"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/logic"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/room"
 	"github.com/wolfplus2048/mcbeam-plus"
@@ -13,6 +14,18 @@ type manager struct {
 	players map[string]*room.Player
 }
 
+func WrapSession() server.HandlerWrapper {
+	return func(h server.HandlerFunc) server.HandlerFunc {
+		return func(ctx context.Context, req server.Request, rsp interface{}) error {
+			s := mcbeam.GetSessionFromCtx(ctx)
+			ply, ok := Manager.FindPlayer(s.UID())
+			if ok {
+				ctx = context.WithValue(ctx, "player", ply)
+			}
+			return h(ctx, req, rsp)
+		}
+	}
+}
 func newManager() *manager {
 	m := &manager{
 		rooms:   make(map[string]*room.Room),
