@@ -1,7 +1,8 @@
-package room
+package mgr
 
 import (
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/logic"
 	"github.com/wolfplus2048/mcbeam-plus/session"
 )
 
@@ -14,12 +15,15 @@ type Player struct {
 	gamePlayer base.GamePlayer
 }
 
-func NewPlayer(s *session.Session, uid, name string) *Player {
+func NewPlayer(newPlayer base.NewGamePlayer, s *session.Session, uid, name string) *Player {
 	ply := &Player{
-		uid:     uid,
-		name:    name,
-		session: s,
+		gamePlayer: newPlayer(),
+		uid:        uid,
+		name:       name,
+		session:    s,
 	}
+	ply.gamePlayer = logic.NewMJPlayer()
+	ply.gamePlayer.SetBasePlayer(ply)
 	return ply
 }
 func (p *Player) GetUid() string {

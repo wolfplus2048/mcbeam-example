@@ -26,16 +26,17 @@ type MJPlayer struct {
 	isReady      bool
 }
 
-func NewMJPlayer(ply base.BasePlayer) *MJPlayer {
+func NewMJPlayer() base.GamePlayer {
 	p := &MJPlayer{}
 	p.fsm = fsm.NewFSM(
 		"closed",
 		fsm.Events{},
 		fsm.Callbacks{})
-	p.player = ply
 	return p
 }
-
+func (p *MJPlayer) SetBasePlayer(ply base.BasePlayer) {
+	p.player = ply
+}
 func (p *MJPlayer) getChairId() int {
 	return p.player.GetChairId()
 }
@@ -142,7 +143,7 @@ func (p *MJPlayer) canOperate(target int, c int) []common.OpCode {
 	}
 	return ops
 }
-func (m *MJPlayer) canSelfOperate() []common.OpCode {
+func (p *MJPlayer) canSelfOperate() []common.OpCode {
 	return []common.OpCode{}
 }
 func (p *MJPlayer) doMoPai() {

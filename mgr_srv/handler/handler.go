@@ -13,8 +13,9 @@ import (
 )
 
 var (
-	rooms  sync.Map
+	rooms sync.Map
 )
+
 type room struct {
 	id       string
 	name     string
@@ -24,9 +25,10 @@ type Sub struct {
 }
 
 func (s *Sub) onRoomClose(ctx context.Context, not *proto_room.CloseRoomNot) {
-	logger.Debugf("room %s closed", not.Rid)
+	logger.Debugf("mgr %s closed", not.Rid)
 	rooms.Delete(not.Rid)
 }
+
 type Handler struct {
 	Client client.Client
 }
@@ -66,7 +68,7 @@ func (h *Handler) CreateRoom(ctx context.Context, req *proto_mgr.CreateRoomReq) 
 	s := mcbeam.GetSessionFromCtx(ctx)
 	arg := &proto_room.CreateRoomReq{Name: req.Name}
 	rsp := &proto_room.CreateRoomRes{}
-	err := mcbeam.RPC(context.Background(), h.Client, "room.handler.createroomrpc", arg, rsp)
+	err := mcbeam.RPC(context.Background(), h.Client, "mgr.handler.createroomrpc", arg, rsp)
 	if err != nil {
 		s.Push("createroom", &proto_mgr.CreateRoomRes{
 			Code: err.Error(),

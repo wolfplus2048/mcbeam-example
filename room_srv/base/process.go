@@ -50,7 +50,7 @@ ExitLoop:
 		}
 	}
 	ch <- nil
-	logger.Debugf("exit room manager loop")
+	logger.Debugf("exit mgr manager loop")
 }
 
 func (m *Process) Run(fn func()) {

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.25.0
 // 	protoc        v3.11.3
-// source: protos/room/room.proto
+// source: protos/mgr/mgr.proto
 
 package proto_room
 
@@ -196,7 +196,7 @@ type JoinRes struct {
 	unknownFields protoimpl.UnknownFields
 
 	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
-	Room *Room  `protobuf:"bytes,2,opt,name=room,proto3" json:"room,omitempty"`
+	Room *Room  `protobuf:"bytes,2,opt,name=mgr,proto3" json:"mgr,omitempty"`
 }
 
 func (x *JoinRes) Reset() {
@@ -502,7 +502,7 @@ type CreateRoomRes struct {
 	unknownFields protoimpl.UnknownFields
 
 	Code     string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
-	Room     *Room  `protobuf:"bytes,2,opt,name=room,proto3" json:"room,omitempty"`
+	Room     *Room  `protobuf:"bytes,2,opt,name=mgr,proto3" json:"mgr,omitempty"`
 	ServerId string `protobuf:"bytes,3,opt,name=serverId,proto3" json:"serverId,omitempty"`
 }
 
@@ -665,22 +665,22 @@ func file_protos_room_room_proto_rawDescGZIP() []byte {
 
 var file_protos_room_room_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_protos_room_room_proto_goTypes = []interface{}{
-	(*User)(nil),          // 0: proto.room.User
-	(*Room)(nil),          // 1: proto.room.Room
-	(*JoinReq)(nil),       // 2: proto.room.JoinReq
-	(*JoinRes)(nil),       // 3: proto.room.JoinRes
-	(*LeaveNot)(nil),      // 4: proto.room.LeaveNot
-	(*ChatReq)(nil),       // 5: proto.room.ChatReq
-	(*ChatNot)(nil),       // 6: proto.room.ChatNot
-	(*UserAction)(nil),    // 7: proto.room.UserAction
-	(*CreateRoomReq)(nil), // 8: proto.room.CreateRoomReq
-	(*CreateRoomRes)(nil), // 9: proto.room.CreateRoomRes
-	(*CloseRoomNot)(nil),  // 10: proto.room.CloseRoomNot
+	(*User)(nil),          // 0: proto.mgr.User
+	(*Room)(nil),          // 1: proto.mgr.Room
+	(*JoinReq)(nil),       // 2: proto.mgr.JoinReq
+	(*JoinRes)(nil),       // 3: proto.mgr.JoinRes
+	(*LeaveNot)(nil),      // 4: proto.mgr.LeaveNot
+	(*ChatReq)(nil),       // 5: proto.mgr.ChatReq
+	(*ChatNot)(nil),       // 6: proto.mgr.ChatNot
+	(*UserAction)(nil),    // 7: proto.mgr.UserAction
+	(*CreateRoomReq)(nil), // 8: proto.mgr.CreateRoomReq
+	(*CreateRoomRes)(nil), // 9: proto.mgr.CreateRoomRes
+	(*CloseRoomNot)(nil),  // 10: proto.mgr.CloseRoomNot
 }
 var file_protos_room_room_proto_depIdxs = []int32{
-	0, // 0: proto.room.Room.users:type_name -> proto.room.User
-	1, // 1: proto.room.JoinRes.room:type_name -> proto.room.Room
-	1, // 2: proto.room.CreateRoomRes.room:type_name -> proto.room.Room
+	0, // 0: proto.mgr.Room.users:type_name -> proto.mgr.User
+	1, // 1: proto.mgr.JoinRes.mgr:type_name -> proto.mgr.Room
+	1, // 2: proto.mgr.CreateRoomRes.mgr:type_name -> proto.mgr.Room
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name

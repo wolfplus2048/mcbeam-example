@@ -8,21 +8,20 @@ import (
 	"github.com/micro/go-plugins/store/redis/v2"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/logic"
-	"github.com/wolfplus2048/mcbeam-example/room_srv/manager"
-	"github.com/wolfplus2048/mcbeam-example/room_srv/room"
+	"github.com/wolfplus2048/mcbeam-example/room_srv/mgr"
 	"github.com/wolfplus2048/mcbeam-plus"
 )
 
 func main() {
 	logger.Init(logger.WithLevel(logger.DebugLevel))
 	service := mcbeam.NewService(
-		mcbeam.Name("room"),
+		mcbeam.Name("mgr"),
 		mcbeam.Registry(etcd.NewRegistry()),
 		mcbeam.MicroService(
 			micro.NewService(
 				micro.Store(redis.NewStore()),
 				micro.Broker(nats.NewBroker()),
-				micro.WrapHandler(manager.WrapSession()),
+				micro.WrapHandler(mgr.WrapSession()),
 			),
 		),
 	)
@@ -30,11 +29,11 @@ func main() {
 		logger.Fatal(err)
 	}
 	base.Start()
-	service.Register(&room.Handler{Service: service.Options().Service})
+	service.Register(mgr.NewHandler(logic.NewMJPlayer, logic.NewMJRoom, service.Options().Service))
 	service.Register(&logic.MJHandler{})
 
 	s := service.Options().Service.Server()
-	s.Subscribe(s.NewSubscriber("session.close", &room.Sub{}))
+	s.Subscribe(s.NewSubscriber("session.close", &mgr.Sub{}))
 	if err := service.Run(); err != nil {
 		logger.Fatal(err)
 	}

@@ -8,8 +8,16 @@ import (
 	"gitee.com/microbeam/mcbeam-mind-mahjong/win"
 	proto_mj "github.com/wolfplus2048/mcbeam-example/protos/mj"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
-	"github.com/wolfplus2048/mcbeam-example/room_srv/manager"
 )
+
+func getMJPlayerFromCtx(ctx context.Context) *MJPlayer {
+	p := base.GetPlayerFromSession(ctx)
+	if p == nil {
+		return nil
+	}
+	ply := p.GetGamePlayer().(*MJPlayer)
+	return ply
+}
 
 type MJHandler struct {
 }
@@ -36,7 +44,7 @@ func (h *MJHandler) Shutdown() {
 
 func (h *MJHandler) Ready(ctx context.Context, req *proto_mj.ReadyReq) {
 	base.Run(func() {
-		ply := manager.GetGamePlayerFromCtx(ctx)
+		ply := getMJPlayerFromCtx(ctx)
 		if ply == nil || ply.room == nil {
 			return
 		}
@@ -48,7 +56,7 @@ func (h *MJHandler) Ready(ctx context.Context, req *proto_mj.ReadyReq) {
 
 func (h *MJHandler) Operate(ctx context.Context, res *proto_mj.OperateRes) {
 	base.Run(func() {
-		p := manager.GetGamePlayerFromCtx(ctx)
+		p := getMJPlayerFromCtx(ctx)
 		if res.OpCode == (int32)(common.OP_CHOW) {
 			p.doChuPai(int(res.Cards[0]))
 		}

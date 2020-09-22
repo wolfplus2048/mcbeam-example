@@ -75,7 +75,7 @@ export default class NetManager {
     public joinRoom(id: string) {
         let req = proto.room.JoinReq.create({id:id})
         let buf = proto.room.JoinReq.encode(req).finish()
-        starx.notify("room.handler.joinroom", buf)
+        starx.notify("mgr.handler.joinroom", buf)
     }
     public createRoom(name: string) {
         let req = proto.mgr.CreateRoomReq.create({name: name})
@@ -86,6 +86,6 @@ export default class NetManager {
         
         let req = proto.mj.ReadyReq.create({})
         let buff = proto.mj.ReadyReq.encode(req).finish()
-        starx.notify("room.mjhandler.ready", buff)
+        starx.notify("mgr.mjhandler.ready", buff)
     }
 }

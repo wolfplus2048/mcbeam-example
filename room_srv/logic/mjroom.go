@@ -30,10 +30,8 @@ type Operator struct {
 	AckOp       common.OpCode
 }
 
-func NewMJRoom(room base.BaseRoom) *MJRoom {
-	mj := &MJRoom{
-		room: room,
-	}
+func NewMJRoom() base.GameRoom {
+	mj := &MJRoom{}
 	mj.fsm = fsm.NewFSM(
 		common.ST_NONE,
 		fsm.Events{
@@ -57,6 +55,9 @@ func NewMJRoom(room base.BaseRoom) *MJRoom {
 	)
 	return mj
 }
+func (m *MJRoom) SetBaseRoom(r base.BaseRoom) {
+	m.room = r
+}
 func (m *MJRoom) tryBegin() {
 	logger.Debugf("tryBegin()")
 	allready := true
@@ -75,7 +76,7 @@ func (m *MJRoom) tryBegin() {
 	m.fsm.Event(common.EV_BEGIN)
 }
 func (m *MJRoom) reset() {
-	wall.Reset()
+	//	wall.Reset()
 	wall.Shuffle()
 }
 func (m *MJRoom) broadcast(route string, payload interface{}) {

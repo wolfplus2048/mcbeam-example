@@ -876,7 +876,7 @@ export namespace proto {
             /** CreateRoomRes serverId */
             serverId?: (string|null);
 
-            /** CreateRoomRes room */
+            /** CreateRoomRes mgr */
             room?: (proto.mgr.IRoom|null);
         }
 
@@ -895,7 +895,7 @@ export namespace proto {
             /** CreateRoomRes serverId. */
             public serverId: string;
 
-            /** CreateRoomRes room. */
+            /** CreateRoomRes mgr. */
             public room?: (proto.mgr.IRoom|null);
 
             /**
@@ -1060,7 +1060,7 @@ export namespace proto {
         }
     }
 
-    /** Namespace room. */
+    /** Namespace mgr. */
     namespace room {
 
         /** Properties of a User. */
@@ -1357,7 +1357,7 @@ export namespace proto {
             /** JoinRes code */
             code?: (string|null);
 
-            /** JoinRes room */
+            /** JoinRes mgr */
             room?: (proto.room.IRoom|null);
         }
 
@@ -1373,7 +1373,7 @@ export namespace proto {
             /** JoinRes code. */
             public code: string;
 
-            /** JoinRes room. */
+            /** JoinRes mgr. */
             public room?: (proto.room.IRoom|null);
 
             /**
@@ -1915,7 +1915,7 @@ export namespace proto {
             /** CreateRoomRes code */
             code?: (string|null);
 
-            /** CreateRoomRes room */
+            /** CreateRoomRes mgr */
             room?: (proto.room.IRoom|null);
 
             /** CreateRoomRes serverId */
@@ -1934,7 +1934,7 @@ export namespace proto {
             /** CreateRoomRes code. */
             public code: string;
 
-            /** CreateRoomRes room. */
+            /** CreateRoomRes mgr. */
             public room?: (proto.room.IRoom|null);
 
             /** CreateRoomRes serverId. */

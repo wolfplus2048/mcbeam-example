@@ -1,4 +1,4 @@
-package room
+package mgr
 
 import (
 	"errors"
@@ -17,7 +17,7 @@ type Room struct {
 	fsm      *fsm.FSM
 }
 
-func NewRoom(name string) *Room {
+func NewRoom(newRoom base.NewGameRoom, name string) *Room {
 	id := uuid.New().String()
 	r := &Room{Id: id,
 		Name:    name,
@@ -32,8 +32,12 @@ func NewRoom(name string) *Room {
 			"enter_started": func(e *fsm.Event) {},
 		},
 	)
+	r.gameRoom = newRoom()
+	r.gameRoom.SetBaseRoom(r)
+
 	return r
 }
+
 func (m *Room) Broadcast(route string, payload interface{}) {
 	for _, p := range m.players {
 		if p != nil {
@@ -49,7 +53,7 @@ func (r *Room) JoinRoom(player *Player) error {
 			return nil
 		}
 	}
-	return errors.New("room full")
+	return errors.New("mgr full")
 }
 func (r *Room) LeaveRoom(player *Player) error {
 	for i := 0; i < len(r.players); i++ {

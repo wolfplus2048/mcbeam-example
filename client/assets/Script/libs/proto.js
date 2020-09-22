@@ -1926,7 +1926,7 @@ $root.proto = (function() {
              * @interface ICreateRoomRes
              * @property {string|null} [code] CreateRoomRes code
              * @property {string|null} [serverId] CreateRoomRes serverId
-             * @property {proto.mgr.IRoom|null} [room] CreateRoomRes room
+             * @property {proto.mgr.IRoom|null} [mgr] CreateRoomRes mgr
              */
 
             /**
@@ -1961,8 +1961,8 @@ $root.proto = (function() {
             CreateRoomRes.prototype.serverId = "";
 
             /**
-             * CreateRoomRes room.
-             * @member {proto.mgr.IRoom|null|undefined} room
+             * CreateRoomRes mgr.
+             * @member {proto.mgr.IRoom|null|undefined} mgr
              * @memberof proto.mgr.CreateRoomRes
              * @instance
              */
@@ -2085,7 +2085,7 @@ $root.proto = (function() {
                 if (message.room != null && message.hasOwnProperty("room")) {
                     var error = $root.proto.mgr.Room.verify(message.room);
                     if (error)
-                        return "room." + error;
+                        return "mgr." + error;
                 }
                 return null;
             };
@@ -2108,7 +2108,7 @@ $root.proto = (function() {
                     message.serverId = String(object.serverId);
                 if (object.room != null) {
                     if (typeof object.room !== "object")
-                        throw TypeError(".proto.mgr.CreateRoomRes.room: object expected");
+                        throw TypeError(".proto.mgr.CreateRoomRes.mgr: object expected");
                     message.room = $root.proto.mgr.Room.fromObject(object.room);
                 }
                 return message;
@@ -2348,7 +2348,7 @@ $root.proto = (function() {
     proto.room = (function() {
 
         /**
-         * Namespace room.
+         * Namespace mgr.
          * @memberof proto
          * @namespace
          */
@@ -2358,7 +2358,7 @@ $root.proto = (function() {
 
             /**
              * Properties of a User.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface IUser
              * @property {string|null} [uid] User uid
              * @property {string|null} [username] User username
@@ -2366,7 +2366,7 @@ $root.proto = (function() {
 
             /**
              * Constructs a new User.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a User.
              * @implements IUser
              * @constructor
@@ -2382,7 +2382,7 @@ $root.proto = (function() {
             /**
              * User uid.
              * @member {string} uid
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @instance
              */
             User.prototype.uid = "";
@@ -2390,7 +2390,7 @@ $root.proto = (function() {
             /**
              * User username.
              * @member {string} username
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @instance
              */
             User.prototype.username = "";
@@ -2398,7 +2398,7 @@ $root.proto = (function() {
             /**
              * Creates a new User instance using the specified properties.
              * @function create
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {proto.room.IUser=} [properties] Properties to set
              * @returns {proto.room.User} User instance
@@ -2410,7 +2410,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified User message. Does not implicitly {@link proto.room.User.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {proto.room.IUser} message User message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -2429,7 +2429,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified User message, length delimited. Does not implicitly {@link proto.room.User.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {proto.room.IUser} message User message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -2442,7 +2442,7 @@ $root.proto = (function() {
             /**
              * Decodes a User message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -2474,7 +2474,7 @@ $root.proto = (function() {
             /**
              * Decodes a User message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.User} User
@@ -2490,7 +2490,7 @@ $root.proto = (function() {
             /**
              * Verifies a User message.
              * @function verify
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -2510,7 +2510,7 @@ $root.proto = (function() {
             /**
              * Creates a User message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.User} User
@@ -2529,7 +2529,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a User message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @static
              * @param {proto.room.User} message User
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -2553,7 +2553,7 @@ $root.proto = (function() {
             /**
              * Converts this User to JSON.
              * @function toJSON
-             * @memberof proto.room.User
+             * @memberof proto.mgr.User
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -2568,7 +2568,7 @@ $root.proto = (function() {
 
             /**
              * Properties of a Room.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface IRoom
              * @property {string|null} [id] Room id
              * @property {string|null} [name] Room name
@@ -2577,7 +2577,7 @@ $root.proto = (function() {
 
             /**
              * Constructs a new Room.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a Room.
              * @implements IRoom
              * @constructor
@@ -2594,7 +2594,7 @@ $root.proto = (function() {
             /**
              * Room id.
              * @member {string} id
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @instance
              */
             Room.prototype.id = "";
@@ -2602,7 +2602,7 @@ $root.proto = (function() {
             /**
              * Room name.
              * @member {string} name
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @instance
              */
             Room.prototype.name = "";
@@ -2610,7 +2610,7 @@ $root.proto = (function() {
             /**
              * Room users.
              * @member {Array.<proto.room.IUser>} users
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @instance
              */
             Room.prototype.users = $util.emptyArray;
@@ -2618,7 +2618,7 @@ $root.proto = (function() {
             /**
              * Creates a new Room instance using the specified properties.
              * @function create
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {proto.room.IRoom=} [properties] Properties to set
              * @returns {proto.room.Room} Room instance
@@ -2630,7 +2630,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified Room message. Does not implicitly {@link proto.room.Room.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {proto.room.IRoom} message Room message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -2652,7 +2652,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified Room message, length delimited. Does not implicitly {@link proto.room.Room.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {proto.room.IRoom} message Room message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -2665,7 +2665,7 @@ $root.proto = (function() {
             /**
              * Decodes a Room message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -2702,7 +2702,7 @@ $root.proto = (function() {
             /**
              * Decodes a Room message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.Room} Room
@@ -2718,7 +2718,7 @@ $root.proto = (function() {
             /**
              * Verifies a Room message.
              * @function verify
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -2747,7 +2747,7 @@ $root.proto = (function() {
             /**
              * Creates a Room message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.Room} Room
@@ -2762,11 +2762,11 @@ $root.proto = (function() {
                     message.name = String(object.name);
                 if (object.users) {
                     if (!Array.isArray(object.users))
-                        throw TypeError(".proto.room.Room.users: array expected");
+                        throw TypeError(".proto.mgr.Room.users: array expected");
                     message.users = [];
                     for (var i = 0; i < object.users.length; ++i) {
                         if (typeof object.users[i] !== "object")
-                            throw TypeError(".proto.room.Room.users: object expected");
+                            throw TypeError(".proto.mgr.Room.users: object expected");
                         message.users[i] = $root.proto.room.User.fromObject(object.users[i]);
                     }
                 }
@@ -2776,7 +2776,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a Room message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @static
              * @param {proto.room.Room} message Room
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -2807,7 +2807,7 @@ $root.proto = (function() {
             /**
              * Converts this Room to JSON.
              * @function toJSON
-             * @memberof proto.room.Room
+             * @memberof proto.mgr.Room
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -2822,14 +2822,14 @@ $root.proto = (function() {
 
             /**
              * Properties of a JoinReq.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface IJoinReq
              * @property {string|null} [id] JoinReq id
              */
 
             /**
              * Constructs a new JoinReq.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a JoinReq.
              * @implements IJoinReq
              * @constructor
@@ -2845,7 +2845,7 @@ $root.proto = (function() {
             /**
              * JoinReq id.
              * @member {string} id
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @instance
              */
             JoinReq.prototype.id = "";
@@ -2853,7 +2853,7 @@ $root.proto = (function() {
             /**
              * Creates a new JoinReq instance using the specified properties.
              * @function create
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {proto.room.IJoinReq=} [properties] Properties to set
              * @returns {proto.room.JoinReq} JoinReq instance
@@ -2865,7 +2865,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified JoinReq message. Does not implicitly {@link proto.room.JoinReq.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {proto.room.IJoinReq} message JoinReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -2882,7 +2882,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified JoinReq message, length delimited. Does not implicitly {@link proto.room.JoinReq.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {proto.room.IJoinReq} message JoinReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -2895,7 +2895,7 @@ $root.proto = (function() {
             /**
              * Decodes a JoinReq message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -2924,7 +2924,7 @@ $root.proto = (function() {
             /**
              * Decodes a JoinReq message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.JoinReq} JoinReq
@@ -2940,7 +2940,7 @@ $root.proto = (function() {
             /**
              * Verifies a JoinReq message.
              * @function verify
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -2957,7 +2957,7 @@ $root.proto = (function() {
             /**
              * Creates a JoinReq message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.JoinReq} JoinReq
@@ -2974,7 +2974,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a JoinReq message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @static
              * @param {proto.room.JoinReq} message JoinReq
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -2994,7 +2994,7 @@ $root.proto = (function() {
             /**
              * Converts this JoinReq to JSON.
              * @function toJSON
-             * @memberof proto.room.JoinReq
+             * @memberof proto.mgr.JoinReq
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -3009,15 +3009,15 @@ $root.proto = (function() {
 
             /**
              * Properties of a JoinRes.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface IJoinRes
              * @property {string|null} [code] JoinRes code
-             * @property {proto.room.IRoom|null} [room] JoinRes room
+             * @property {proto.room.IRoom|null} [mgr] JoinRes mgr
              */
 
             /**
              * Constructs a new JoinRes.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a JoinRes.
              * @implements IJoinRes
              * @constructor
@@ -3033,15 +3033,15 @@ $root.proto = (function() {
             /**
              * JoinRes code.
              * @member {string} code
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @instance
              */
             JoinRes.prototype.code = "";
 
             /**
-             * JoinRes room.
-             * @member {proto.room.IRoom|null|undefined} room
-             * @memberof proto.room.JoinRes
+             * JoinRes mgr.
+             * @member {proto.room.IRoom|null|undefined} mgr
+             * @memberof proto.mgr.JoinRes
              * @instance
              */
             JoinRes.prototype.room = null;
@@ -3049,7 +3049,7 @@ $root.proto = (function() {
             /**
              * Creates a new JoinRes instance using the specified properties.
              * @function create
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {proto.room.IJoinRes=} [properties] Properties to set
              * @returns {proto.room.JoinRes} JoinRes instance
@@ -3061,7 +3061,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified JoinRes message. Does not implicitly {@link proto.room.JoinRes.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {proto.room.IJoinRes} message JoinRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3080,7 +3080,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified JoinRes message, length delimited. Does not implicitly {@link proto.room.JoinRes.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {proto.room.IJoinRes} message JoinRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3093,7 +3093,7 @@ $root.proto = (function() {
             /**
              * Decodes a JoinRes message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -3125,7 +3125,7 @@ $root.proto = (function() {
             /**
              * Decodes a JoinRes message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.JoinRes} JoinRes
@@ -3141,7 +3141,7 @@ $root.proto = (function() {
             /**
              * Verifies a JoinRes message.
              * @function verify
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3155,7 +3155,7 @@ $root.proto = (function() {
                 if (message.room != null && message.hasOwnProperty("room")) {
                     var error = $root.proto.room.Room.verify(message.room);
                     if (error)
-                        return "room." + error;
+                        return "mgr." + error;
                 }
                 return null;
             };
@@ -3163,7 +3163,7 @@ $root.proto = (function() {
             /**
              * Creates a JoinRes message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.JoinRes} JoinRes
@@ -3176,7 +3176,7 @@ $root.proto = (function() {
                     message.code = String(object.code);
                 if (object.room != null) {
                     if (typeof object.room !== "object")
-                        throw TypeError(".proto.room.JoinRes.room: object expected");
+                        throw TypeError(".proto.mgr.JoinRes.mgr: object expected");
                     message.room = $root.proto.room.Room.fromObject(object.room);
                 }
                 return message;
@@ -3185,7 +3185,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a JoinRes message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @static
              * @param {proto.room.JoinRes} message JoinRes
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -3209,7 +3209,7 @@ $root.proto = (function() {
             /**
              * Converts this JoinRes to JSON.
              * @function toJSON
-             * @memberof proto.room.JoinRes
+             * @memberof proto.mgr.JoinRes
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -3224,14 +3224,14 @@ $root.proto = (function() {
 
             /**
              * Properties of a LeaveNot.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface ILeaveNot
              * @property {string|null} [uid] LeaveNot uid
              */
 
             /**
              * Constructs a new LeaveNot.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a LeaveNot.
              * @implements ILeaveNot
              * @constructor
@@ -3247,7 +3247,7 @@ $root.proto = (function() {
             /**
              * LeaveNot uid.
              * @member {string} uid
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @instance
              */
             LeaveNot.prototype.uid = "";
@@ -3255,7 +3255,7 @@ $root.proto = (function() {
             /**
              * Creates a new LeaveNot instance using the specified properties.
              * @function create
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {proto.room.ILeaveNot=} [properties] Properties to set
              * @returns {proto.room.LeaveNot} LeaveNot instance
@@ -3267,7 +3267,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified LeaveNot message. Does not implicitly {@link proto.room.LeaveNot.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {proto.room.ILeaveNot} message LeaveNot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3284,7 +3284,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified LeaveNot message, length delimited. Does not implicitly {@link proto.room.LeaveNot.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {proto.room.ILeaveNot} message LeaveNot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3297,7 +3297,7 @@ $root.proto = (function() {
             /**
              * Decodes a LeaveNot message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -3326,7 +3326,7 @@ $root.proto = (function() {
             /**
              * Decodes a LeaveNot message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.LeaveNot} LeaveNot
@@ -3342,7 +3342,7 @@ $root.proto = (function() {
             /**
              * Verifies a LeaveNot message.
              * @function verify
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3359,7 +3359,7 @@ $root.proto = (function() {
             /**
              * Creates a LeaveNot message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.LeaveNot} LeaveNot
@@ -3376,7 +3376,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a LeaveNot message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @static
              * @param {proto.room.LeaveNot} message LeaveNot
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -3396,7 +3396,7 @@ $root.proto = (function() {
             /**
              * Converts this LeaveNot to JSON.
              * @function toJSON
-             * @memberof proto.room.LeaveNot
+             * @memberof proto.mgr.LeaveNot
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -3411,14 +3411,14 @@ $root.proto = (function() {
 
             /**
              * Properties of a ChatReq.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface IChatReq
              * @property {string|null} [content] ChatReq content
              */
 
             /**
              * Constructs a new ChatReq.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a ChatReq.
              * @implements IChatReq
              * @constructor
@@ -3434,7 +3434,7 @@ $root.proto = (function() {
             /**
              * ChatReq content.
              * @member {string} content
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @instance
              */
             ChatReq.prototype.content = "";
@@ -3442,7 +3442,7 @@ $root.proto = (function() {
             /**
              * Creates a new ChatReq instance using the specified properties.
              * @function create
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {proto.room.IChatReq=} [properties] Properties to set
              * @returns {proto.room.ChatReq} ChatReq instance
@@ -3454,7 +3454,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified ChatReq message. Does not implicitly {@link proto.room.ChatReq.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {proto.room.IChatReq} message ChatReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3471,7 +3471,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified ChatReq message, length delimited. Does not implicitly {@link proto.room.ChatReq.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {proto.room.IChatReq} message ChatReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3484,7 +3484,7 @@ $root.proto = (function() {
             /**
              * Decodes a ChatReq message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -3513,7 +3513,7 @@ $root.proto = (function() {
             /**
              * Decodes a ChatReq message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.ChatReq} ChatReq
@@ -3529,7 +3529,7 @@ $root.proto = (function() {
             /**
              * Verifies a ChatReq message.
              * @function verify
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3546,7 +3546,7 @@ $root.proto = (function() {
             /**
              * Creates a ChatReq message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.ChatReq} ChatReq
@@ -3563,7 +3563,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a ChatReq message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @static
              * @param {proto.room.ChatReq} message ChatReq
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -3583,7 +3583,7 @@ $root.proto = (function() {
             /**
              * Converts this ChatReq to JSON.
              * @function toJSON
-             * @memberof proto.room.ChatReq
+             * @memberof proto.mgr.ChatReq
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -3598,7 +3598,7 @@ $root.proto = (function() {
 
             /**
              * Properties of a ChatNot.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface IChatNot
              * @property {string|null} [uid] ChatNot uid
              * @property {string|null} [content] ChatNot content
@@ -3606,7 +3606,7 @@ $root.proto = (function() {
 
             /**
              * Constructs a new ChatNot.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a ChatNot.
              * @implements IChatNot
              * @constructor
@@ -3622,7 +3622,7 @@ $root.proto = (function() {
             /**
              * ChatNot uid.
              * @member {string} uid
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @instance
              */
             ChatNot.prototype.uid = "";
@@ -3630,7 +3630,7 @@ $root.proto = (function() {
             /**
              * ChatNot content.
              * @member {string} content
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @instance
              */
             ChatNot.prototype.content = "";
@@ -3638,7 +3638,7 @@ $root.proto = (function() {
             /**
              * Creates a new ChatNot instance using the specified properties.
              * @function create
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {proto.room.IChatNot=} [properties] Properties to set
              * @returns {proto.room.ChatNot} ChatNot instance
@@ -3650,7 +3650,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified ChatNot message. Does not implicitly {@link proto.room.ChatNot.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {proto.room.IChatNot} message ChatNot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3669,7 +3669,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified ChatNot message, length delimited. Does not implicitly {@link proto.room.ChatNot.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {proto.room.IChatNot} message ChatNot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3682,7 +3682,7 @@ $root.proto = (function() {
             /**
              * Decodes a ChatNot message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -3714,7 +3714,7 @@ $root.proto = (function() {
             /**
              * Decodes a ChatNot message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.ChatNot} ChatNot
@@ -3730,7 +3730,7 @@ $root.proto = (function() {
             /**
              * Verifies a ChatNot message.
              * @function verify
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3750,7 +3750,7 @@ $root.proto = (function() {
             /**
              * Creates a ChatNot message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.ChatNot} ChatNot
@@ -3769,7 +3769,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a ChatNot message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @static
              * @param {proto.room.ChatNot} message ChatNot
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -3793,7 +3793,7 @@ $root.proto = (function() {
             /**
              * Converts this ChatNot to JSON.
              * @function toJSON
-             * @memberof proto.room.ChatNot
+             * @memberof proto.mgr.ChatNot
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -3808,7 +3808,7 @@ $root.proto = (function() {
 
             /**
              * Properties of a UserAction.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface IUserAction
              * @property {number|null} [action] UserAction action
              * @property {string|null} [uid] UserAction uid
@@ -3816,7 +3816,7 @@ $root.proto = (function() {
 
             /**
              * Constructs a new UserAction.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a UserAction.
              * @implements IUserAction
              * @constructor
@@ -3832,7 +3832,7 @@ $root.proto = (function() {
             /**
              * UserAction action.
              * @member {number} action
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @instance
              */
             UserAction.prototype.action = 0;
@@ -3840,7 +3840,7 @@ $root.proto = (function() {
             /**
              * UserAction uid.
              * @member {string} uid
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @instance
              */
             UserAction.prototype.uid = "";
@@ -3848,7 +3848,7 @@ $root.proto = (function() {
             /**
              * Creates a new UserAction instance using the specified properties.
              * @function create
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {proto.room.IUserAction=} [properties] Properties to set
              * @returns {proto.room.UserAction} UserAction instance
@@ -3860,7 +3860,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified UserAction message. Does not implicitly {@link proto.room.UserAction.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {proto.room.IUserAction} message UserAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3879,7 +3879,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified UserAction message, length delimited. Does not implicitly {@link proto.room.UserAction.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {proto.room.IUserAction} message UserAction message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -3892,7 +3892,7 @@ $root.proto = (function() {
             /**
              * Decodes a UserAction message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -3924,7 +3924,7 @@ $root.proto = (function() {
             /**
              * Decodes a UserAction message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.UserAction} UserAction
@@ -3940,7 +3940,7 @@ $root.proto = (function() {
             /**
              * Verifies a UserAction message.
              * @function verify
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -3960,7 +3960,7 @@ $root.proto = (function() {
             /**
              * Creates a UserAction message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.UserAction} UserAction
@@ -3979,7 +3979,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a UserAction message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @static
              * @param {proto.room.UserAction} message UserAction
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -4003,7 +4003,7 @@ $root.proto = (function() {
             /**
              * Converts this UserAction to JSON.
              * @function toJSON
-             * @memberof proto.room.UserAction
+             * @memberof proto.mgr.UserAction
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -4018,14 +4018,14 @@ $root.proto = (function() {
 
             /**
              * Properties of a CreateRoomReq.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface ICreateRoomReq
              * @property {string|null} [name] CreateRoomReq name
              */
 
             /**
              * Constructs a new CreateRoomReq.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a CreateRoomReq.
              * @implements ICreateRoomReq
              * @constructor
@@ -4041,7 +4041,7 @@ $root.proto = (function() {
             /**
              * CreateRoomReq name.
              * @member {string} name
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @instance
              */
             CreateRoomReq.prototype.name = "";
@@ -4049,7 +4049,7 @@ $root.proto = (function() {
             /**
              * Creates a new CreateRoomReq instance using the specified properties.
              * @function create
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {proto.room.ICreateRoomReq=} [properties] Properties to set
              * @returns {proto.room.CreateRoomReq} CreateRoomReq instance
@@ -4061,7 +4061,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified CreateRoomReq message. Does not implicitly {@link proto.room.CreateRoomReq.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {proto.room.ICreateRoomReq} message CreateRoomReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -4078,7 +4078,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified CreateRoomReq message, length delimited. Does not implicitly {@link proto.room.CreateRoomReq.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {proto.room.ICreateRoomReq} message CreateRoomReq message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -4091,7 +4091,7 @@ $root.proto = (function() {
             /**
              * Decodes a CreateRoomReq message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -4120,7 +4120,7 @@ $root.proto = (function() {
             /**
              * Decodes a CreateRoomReq message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.CreateRoomReq} CreateRoomReq
@@ -4136,7 +4136,7 @@ $root.proto = (function() {
             /**
              * Verifies a CreateRoomReq message.
              * @function verify
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4153,7 +4153,7 @@ $root.proto = (function() {
             /**
              * Creates a CreateRoomReq message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.CreateRoomReq} CreateRoomReq
@@ -4170,7 +4170,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a CreateRoomReq message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @static
              * @param {proto.room.CreateRoomReq} message CreateRoomReq
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -4190,7 +4190,7 @@ $root.proto = (function() {
             /**
              * Converts this CreateRoomReq to JSON.
              * @function toJSON
-             * @memberof proto.room.CreateRoomReq
+             * @memberof proto.mgr.CreateRoomReq
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -4205,16 +4205,16 @@ $root.proto = (function() {
 
             /**
              * Properties of a CreateRoomRes.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface ICreateRoomRes
              * @property {string|null} [code] CreateRoomRes code
-             * @property {proto.room.IRoom|null} [room] CreateRoomRes room
+             * @property {proto.room.IRoom|null} [mgr] CreateRoomRes mgr
              * @property {string|null} [serverId] CreateRoomRes serverId
              */
 
             /**
              * Constructs a new CreateRoomRes.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a CreateRoomRes.
              * @implements ICreateRoomRes
              * @constructor
@@ -4230,15 +4230,15 @@ $root.proto = (function() {
             /**
              * CreateRoomRes code.
              * @member {string} code
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @instance
              */
             CreateRoomRes.prototype.code = "";
 
             /**
-             * CreateRoomRes room.
-             * @member {proto.room.IRoom|null|undefined} room
-             * @memberof proto.room.CreateRoomRes
+             * CreateRoomRes mgr.
+             * @member {proto.room.IRoom|null|undefined} mgr
+             * @memberof proto.mgr.CreateRoomRes
              * @instance
              */
             CreateRoomRes.prototype.room = null;
@@ -4246,7 +4246,7 @@ $root.proto = (function() {
             /**
              * CreateRoomRes serverId.
              * @member {string} serverId
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @instance
              */
             CreateRoomRes.prototype.serverId = "";
@@ -4254,7 +4254,7 @@ $root.proto = (function() {
             /**
              * Creates a new CreateRoomRes instance using the specified properties.
              * @function create
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {proto.room.ICreateRoomRes=} [properties] Properties to set
              * @returns {proto.room.CreateRoomRes} CreateRoomRes instance
@@ -4266,7 +4266,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified CreateRoomRes message. Does not implicitly {@link proto.room.CreateRoomRes.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {proto.room.ICreateRoomRes} message CreateRoomRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -4287,7 +4287,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified CreateRoomRes message, length delimited. Does not implicitly {@link proto.room.CreateRoomRes.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {proto.room.ICreateRoomRes} message CreateRoomRes message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -4300,7 +4300,7 @@ $root.proto = (function() {
             /**
              * Decodes a CreateRoomRes message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -4335,7 +4335,7 @@ $root.proto = (function() {
             /**
              * Decodes a CreateRoomRes message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.CreateRoomRes} CreateRoomRes
@@ -4351,7 +4351,7 @@ $root.proto = (function() {
             /**
              * Verifies a CreateRoomRes message.
              * @function verify
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4365,7 +4365,7 @@ $root.proto = (function() {
                 if (message.room != null && message.hasOwnProperty("room")) {
                     var error = $root.proto.room.Room.verify(message.room);
                     if (error)
-                        return "room." + error;
+                        return "mgr." + error;
                 }
                 if (message.serverId != null && message.hasOwnProperty("serverId"))
                     if (!$util.isString(message.serverId))
@@ -4376,7 +4376,7 @@ $root.proto = (function() {
             /**
              * Creates a CreateRoomRes message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.CreateRoomRes} CreateRoomRes
@@ -4389,7 +4389,7 @@ $root.proto = (function() {
                     message.code = String(object.code);
                 if (object.room != null) {
                     if (typeof object.room !== "object")
-                        throw TypeError(".proto.room.CreateRoomRes.room: object expected");
+                        throw TypeError(".proto.mgr.CreateRoomRes.mgr: object expected");
                     message.room = $root.proto.room.Room.fromObject(object.room);
                 }
                 if (object.serverId != null)
@@ -4400,7 +4400,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a CreateRoomRes message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @static
              * @param {proto.room.CreateRoomRes} message CreateRoomRes
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -4427,7 +4427,7 @@ $root.proto = (function() {
             /**
              * Converts this CreateRoomRes to JSON.
              * @function toJSON
-             * @memberof proto.room.CreateRoomRes
+             * @memberof proto.mgr.CreateRoomRes
              * @instance
              * @returns {Object.<string,*>} JSON object
              */
@@ -4442,14 +4442,14 @@ $root.proto = (function() {
 
             /**
              * Properties of a CloseRoomNot.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @interface ICloseRoomNot
              * @property {string|null} [rid] CloseRoomNot rid
              */
 
             /**
              * Constructs a new CloseRoomNot.
-             * @memberof proto.room
+             * @memberof proto.mgr
              * @classdesc Represents a CloseRoomNot.
              * @implements ICloseRoomNot
              * @constructor
@@ -4465,7 +4465,7 @@ $root.proto = (function() {
             /**
              * CloseRoomNot rid.
              * @member {string} rid
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @instance
              */
             CloseRoomNot.prototype.rid = "";
@@ -4473,7 +4473,7 @@ $root.proto = (function() {
             /**
              * Creates a new CloseRoomNot instance using the specified properties.
              * @function create
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {proto.room.ICloseRoomNot=} [properties] Properties to set
              * @returns {proto.room.CloseRoomNot} CloseRoomNot instance
@@ -4485,7 +4485,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified CloseRoomNot message. Does not implicitly {@link proto.room.CloseRoomNot.verify|verify} messages.
              * @function encode
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {proto.room.ICloseRoomNot} message CloseRoomNot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -4502,7 +4502,7 @@ $root.proto = (function() {
             /**
              * Encodes the specified CloseRoomNot message, length delimited. Does not implicitly {@link proto.room.CloseRoomNot.verify|verify} messages.
              * @function encodeDelimited
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {proto.room.ICloseRoomNot} message CloseRoomNot message or plain object to encode
              * @param {$protobuf.Writer} [writer] Writer to encode to
@@ -4515,7 +4515,7 @@ $root.proto = (function() {
             /**
              * Decodes a CloseRoomNot message from the specified reader or buffer.
              * @function decode
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @param {number} [length] Message length if known beforehand
@@ -4544,7 +4544,7 @@ $root.proto = (function() {
             /**
              * Decodes a CloseRoomNot message from the specified reader or buffer, length delimited.
              * @function decodeDelimited
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
              * @returns {proto.room.CloseRoomNot} CloseRoomNot
@@ -4560,7 +4560,7 @@ $root.proto = (function() {
             /**
              * Verifies a CloseRoomNot message.
              * @function verify
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {Object.<string,*>} message Plain object to verify
              * @returns {string|null} `null` if valid, otherwise the reason why it is not
@@ -4577,7 +4577,7 @@ $root.proto = (function() {
             /**
              * Creates a CloseRoomNot message from a plain object. Also converts values to their respective internal types.
              * @function fromObject
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {Object.<string,*>} object Plain object
              * @returns {proto.room.CloseRoomNot} CloseRoomNot
@@ -4594,7 +4594,7 @@ $root.proto = (function() {
             /**
              * Creates a plain object from a CloseRoomNot message. Also converts values to other types if specified.
              * @function toObject
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @static
              * @param {proto.room.CloseRoomNot} message CloseRoomNot
              * @param {$protobuf.IConversionOptions} [options] Conversion options
@@ -4614,7 +4614,7 @@ $root.proto = (function() {
             /**
              * Converts this CloseRoomNot to JSON.
              * @function toJSON
-             * @memberof proto.room.CloseRoomNot
+             * @memberof proto.mgr.CloseRoomNot
              * @instance
              * @returns {Object.<string,*>} JSON object
              */

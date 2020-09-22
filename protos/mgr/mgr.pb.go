@@ -227,7 +227,7 @@ type CreateRoomRes struct {
 
 	Code     string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 	ServerId string `protobuf:"bytes,3,opt,name=serverId,proto3" json:"serverId,omitempty"`
-	Room     *Room  `protobuf:"bytes,2,opt,name=room,proto3" json:"room,omitempty"`
+	Room     *Room  `protobuf:"bytes,2,opt,name=mgr,proto3" json:"mgr,omitempty"`
 }
 
 func (x *CreateRoomRes) Reset() {
@@ -381,7 +381,7 @@ var file_protos_mgr_mgr_proto_goTypes = []interface{}{
 }
 var file_protos_mgr_mgr_proto_depIdxs = []int32{
 	0, // 0: proto.mgr.GetRoomListRes.rooms:type_name -> proto.mgr.Room
-	0, // 1: proto.mgr.CreateRoomRes.room:type_name -> proto.mgr.Room
+	0, // 1: proto.mgr.CreateRoomRes.mgr:type_name -> proto.mgr.Room
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
