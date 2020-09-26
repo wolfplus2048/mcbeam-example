@@ -97,14 +97,16 @@ func (m *MJRoom) onBegin() {
 
 	}
 	m.broadcast("BeginGameNot", &proto_mj.BeginGameNot{})
-	m.fsm.Event(common.EV_SET_DEALER)
+	scheduler.NewTimer(1*time.Second, func() {
+		m.fsm.Event(common.EV_SET_DEALER)
+	})
 }
 func (m *MJRoom) onSetDealer() {
 	not := &proto_mj.SetDealerNot{}
 	not.Dices = append(not.Dices, (int32)(rand.Int()%6))
 	not.Dices = append(not.Dices, (int32)(rand.Int()%6))
-	index := (not.Dices[0] + not.Dices[1]) % (int32)(setting.PlayerNum())
-	m.dealer = m.room.GetGamePlayers()[index].(*MJPlayer)
+	//index := (not.Dices[0] + not.Dices[1]) % (int32)(setting.PlayerNum())
+	m.dealer = m.room.GetGamePlayers()[0].(*MJPlayer)
 	m.currPlayer = m.dealer
 
 	not.Uid = m.currPlayer.GetUid()
@@ -217,10 +219,16 @@ Out:
 	}
 	//都放弃了,下家摸牌
 	m.currPlayer = m.room.GetNextPlayer(m.currPlayer).(*MJPlayer)
-	m.fsm.Event(common.EV_MOPAI)
+	scheduler.NewTimer(1*time.Second, func() {
+		m.fsm.Event(common.EV_MOPAI)
+	})
 }
 func (m *MJRoom) onMoPai() {
-
 	m.currPlayer.doMoPai()
-	m.fsm.Event(common.EV_CHUPAI)
+	m.Event(common.EV_CHUPAI, 1)
+}
+func (m *MJRoom) Event(event string, interval time.Duration, args ...interface{}) {
+	scheduler.NewTimer(interval, func() {
+		m.fsm.Event(event, args)
+	})
 }

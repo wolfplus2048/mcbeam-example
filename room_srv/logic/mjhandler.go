@@ -28,9 +28,10 @@ func (h *MJHandler) Init() {
 		setting.WithChow(),
 		setting.WithPong(),
 		setting.WithKong())
-	wall.Init(wall.WithCards([]int{wall.BAM, wall.CRAK, wall.DOT}))
+	wall.Init(wall.WithCards(wall.BAM, wall.CRAK, wall.DOT))
 	win.Init(win.WithQiDui(),
 		win.AddRule(QingYiSe()))
+
 }
 
 func (h *MJHandler) AfterInit() {

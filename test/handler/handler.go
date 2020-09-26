@@ -14,7 +14,8 @@ type Handler struct {
 	Service micro.Service
 }
 
-func (h *Handler) Init() error {
+func (h *Handler) Greeting(ctx context.Context, req *proto_auth.LoginReq) error {
+	logger.Debugf("Greeting %s", req.Username)
 	return nil
 }
 func (h *Handler) Login(ctx context.Context, req *proto_auth.LoginReq, rsp *interface{}) error {

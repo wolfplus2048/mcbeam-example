@@ -4,7 +4,6 @@ import (
 	"errors"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/setting"
 	"github.com/google/uuid"
-	"github.com/looplab/fsm"
 	proto_room "github.com/wolfplus2048/mcbeam-example/protos/room"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
 )
@@ -14,7 +13,6 @@ type Room struct {
 	Name     string
 	players  []*Player
 	gameRoom base.GameRoom
-	fsm      *fsm.FSM
 }
 
 func NewRoom(newRoom base.NewGameRoom, name string) *Room {
@@ -23,15 +21,6 @@ func NewRoom(newRoom base.NewGameRoom, name string) *Room {
 		Name:    name,
 		players: make([]*Player, setting.PlayerNum()),
 	}
-	r.fsm = fsm.NewFSM(
-		"closed",
-		fsm.Events{
-			{Name: "start", Src: []string{"closing"}, Dst: "starting"},
-		},
-		fsm.Callbacks{
-			"enter_started": func(e *fsm.Event) {},
-		},
-	)
 	r.gameRoom = newRoom()
 	r.gameRoom.SetBaseRoom(r)
 
@@ -53,7 +42,7 @@ func (r *Room) JoinRoom(player *Player) error {
 			return nil
 		}
 	}
-	return errors.New("mgr full")
+	return errors.New("room full")
 }
 func (r *Room) LeaveRoom(player *Player) error {
 	for i := 0; i < len(r.players); i++ {
@@ -86,6 +75,7 @@ func (r *Room) GetGamePlayers() []base.GamePlayer {
 	for _, p := range r.players {
 		if p == nil {
 			continue
+			//plys = append(plys, nil)
 		}
 		plys = append(plys, p.GetGamePlayer())
 	}

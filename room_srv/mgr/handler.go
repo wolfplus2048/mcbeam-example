@@ -83,7 +83,7 @@ func (h *Handler) CreateRoomRPC(ctx context.Context, req *proto_room.CreateRoomR
 		}
 		ret <- nil
 	})
-	err := <- ret
+	err := <-ret
 	return res, err
 }
 func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
@@ -109,7 +109,7 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 		r, ok := Manager.GetRoom(req.Id)
 		if !ok {
 			s.Push("JoinRes", &proto_room.JoinRes{
-				Code: "mgr not exists",
+				Code: "room not exists",
 			})
 			return
 		}

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/broker/nats"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry/etcd"

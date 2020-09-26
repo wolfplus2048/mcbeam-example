@@ -7,8 +7,7 @@ import (
 	"gitee.com/microbeam/mcbeam-mind-mahjong/util"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/wall"
 	"gitee.com/microbeam/mcbeam-mind-mahjong/win"
-	"github.com/looplab/fsm"
-	proto_mj "github.com/wolfplus2048/mcbeam-example/protos/mj"
+	"github.com/wolfplus2048/mcbeam-example/protos/mj"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
 	"github.com/wolfplus2048/mcbeam-plus/scheduler"
 	"sort"
@@ -20,7 +19,6 @@ type MJPlayer struct {
 	handCards    []int
 	showCards    []*card.ShowCard
 	discardCards []int
-	fsm          *fsm.FSM
 	room         *MJRoom
 	timerId      int64
 	isReady      bool
@@ -28,10 +26,6 @@ type MJPlayer struct {
 
 func NewMJPlayer() base.GamePlayer {
 	p := &MJPlayer{}
-	p.fsm = fsm.NewFSM(
-		"closed",
-		fsm.Events{},
-		fsm.Callbacks{})
 	return p
 }
 func (p *MJPlayer) SetBasePlayer(ply base.BasePlayer) {
@@ -91,9 +85,8 @@ func (p *MJPlayer) doChuPai(card int) {
 		OpCode:  common.OP_CHOW,
 		Cards:   []int32{(int32)(card)},
 	})
-	scheduler.NewTimer(2*time.Second, func() {
-		p.room.fsm.Event(common.EV_OPERATE, p.getChairId(), card)
-
+	scheduler.NewTimer(1*time.Second, func() {
+		p.room.fsm.Event(common.EV_OPERATE, p, card)
 	})
 }
 func (p *MJPlayer) reqOperate(ops []common.OpCode) {
@@ -119,7 +112,7 @@ func (p *MJPlayer) doPong(c int) {
 	p.handCards = util.SliceDel(p.handCards, c, c)
 	p.showCards = append(p.showCards, card.NewShowCard(common.OP_PONG, 0, []int{c, c, c}, false))
 	p.room.currPlayer = p
-	p.fsm.Event(common.EV_CHUPAI)
+	p.room.fsm.Event(common.EV_CHUPAI)
 }
 func (p *MJPlayer) canOperate(target int, c int) []common.OpCode {
 	var ops []common.OpCode
