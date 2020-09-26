@@ -15,7 +15,7 @@ import (
 func main() {
 	logger.Init(logger.WithLevel(logger.DebugLevel))
 	service := mcbeam.NewService(
-		mcbeam.Name("mgr"),
+		mcbeam.Name("room"),
 		mcbeam.Registry(etcd.NewRegistry()),
 		mcbeam.MicroService(
 			micro.NewService(

@@ -33,10 +33,10 @@ func (h *Handler) Shutdown() {
 	logger.Debugf("Shutdown")
 }
 
-func (h *Handler) Login(ctx context.Context, req *proto_auth.LoginReq) {
+func (h *Handler) Login(ctx context.Context, req *proto_auth.LoginReq) (*proto_auth.LoginRes, error){
 	logger.Infof("user login: %s", req.Username)
 	s := mcbeam.GetSessionFromCtx(ctx)
-	res := proto_auth.LoginRes{
+	res := &proto_auth.LoginRes{
 		Uid:      uuid.New().String(),
 		Username: req.Username,
 	}
@@ -49,6 +49,5 @@ func (h *Handler) Login(ctx context.Context, req *proto_auth.LoginReq) {
 		logger.Infof("store session err:%s", err.Error())
 	}
 	s.Bind(ctx, res.Uid)
-	s.Push("LoginRes", &res)
-
+	return res, nil
 }

@@ -12,7 +12,6 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class GameData  {
     static _instance: GameData = null
-    public roomList: proto.mgr.Room[] = null
     public currRoom: proto.mgr.Room = null
     public static instance() {
         if(this._instance == null) {

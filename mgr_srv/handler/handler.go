@@ -68,7 +68,7 @@ func (h *Handler) CreateRoom(ctx context.Context, req *proto_mgr.CreateRoomReq) 
 	s := mcbeam.GetSessionFromCtx(ctx)
 	arg := &proto_room.CreateRoomReq{Name: req.Name}
 	rsp := &proto_room.CreateRoomRes{}
-	err := mcbeam.RPC(context.Background(), h.Client, "mgr.handler.createroomrpc", arg, rsp)
+	err := mcbeam.RPC(context.Background(), h.Client, "room.handler.createroomrpc", arg, rsp)
 	if err != nil {
 		s.Push("createroom", &proto_mgr.CreateRoomRes{
 			Code: err.Error(),

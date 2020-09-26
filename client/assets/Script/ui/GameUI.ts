@@ -12,8 +12,10 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class NewClass extends cc.Component {
+    @property(cc.Button)
+    btnReady: cc.Button
     ready() {
-        
+        this.btnReady.node.active = false
         NetManager.instance().ready()
     }
 }
