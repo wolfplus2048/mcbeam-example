@@ -83,15 +83,12 @@ func (r *Room) GetGamePlayers() []base.GamePlayer {
 }
 func (r *Room) GetNextPlayer(p base.GamePlayer) base.GamePlayer {
 	k := 0
-	find := false
 	for i := 0; i < len(r.players); i++ {
 		if r.players[k].gamePlayer == p {
-			find = true
 			break
 		}
-		k = (k + 1) % len(r.players)
 	}
-	if find {
+	for i := 0; i < len(r.players); i++ {
 		k = (k + 1) % len(r.players)
 		p := r.players[k]
 		if p != nil {

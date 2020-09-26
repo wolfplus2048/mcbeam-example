@@ -9,10 +9,12 @@ import (
 	"github.com/wolfplus2048/mcbeam-example/room_srv/logic"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/mgr"
 	"github.com/wolfplus2048/mcbeam-plus"
+	"github.com/wolfplus2048/mcbeam-plus/scheduler"
 )
 
 func main() {
 	logger.Init(logger.WithLevel(logger.DebugLevel))
+	scheduler.Init(scheduler.WithLogicChan((base.GetLogicChan())))
 	service := mcbeam.NewService(
 		mcbeam.Name("room"),
 		mcbeam.Registry(etcd.NewRegistry()),
@@ -23,6 +25,7 @@ func main() {
 	if err := service.Init(); err != nil {
 		logger.Fatal(err)
 	}
+
 	base.Start()
 	service.Register(mgr.NewHandler(logic.NewMJPlayer, logic.NewMJRoom, service.Options().Service))
 	service.Register(&logic.MJHandler{})

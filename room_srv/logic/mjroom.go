@@ -160,7 +160,7 @@ func (m *MJRoom) onOperate(event *fsm.Event) {
 	}
 	if len(m.operators) <= 0 {
 		m.currPlayer = m.room.GetNextPlayer((base.GamePlayer)(m.currPlayer)).(*MJPlayer)
-		m.fsm.Event(common.EV_MOPAI)
+		m.Event(common.EV_MOPAI, 1*time.Second)
 	}
 }
 func (m *MJRoom) onSelfOperate() {
