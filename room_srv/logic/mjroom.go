@@ -46,11 +46,11 @@ func NewMJRoom() base.GameRoom {
 		fsm.Callbacks{
 			"enter_" + common.ST_BEGIN:        func(e *fsm.Event) { mj.onBegin() },
 			"enter_" + common.ST_SET_DEALER:   func(e *fsm.Event) { mj.onSetDealer() },
-			"enter_" + common.EV_FAPAI:        func(e *fsm.Event) { mj.onFaPai() },
-			"enter_" + common.EV_MOPAI:        func(e *fsm.Event) { mj.onMoPai() },
-			"enter_" + common.EV_CHUPAI:       func(e *fsm.Event) { mj.onChuPai() },
-			"enter_" + common.EV_OPERATE:      func(e *fsm.Event) { mj.onOperate(e) },
-			"enter_" + common.EV_SELF_OPERATE: func(e *fsm.Event) { mj.onSelfOperate() },
+			"enter_" + common.ST_FAPAI:        func(e *fsm.Event) { mj.onFaPai() },
+			"enter_" + common.ST_MOPAI:        func(e *fsm.Event) { mj.onMoPai() },
+			"enter_" + common.ST_CHUPAI:       func(e *fsm.Event) { mj.onChuPai() },
+			"enter_" + common.ST_OPERATE:      func(e *fsm.Event) { mj.onOperate(e) },
+			"enter_" + common.ST_SELF_OPERATE: func(e *fsm.Event) { mj.onSelfOperate() },
 		},
 	)
 	return mj
@@ -112,7 +112,7 @@ func (m *MJRoom) onSetDealer() {
 		Dices: nil,
 		Uid:   m.currPlayer.GetUid(),
 	})
-	scheduler.NewTimer(10*time.Second, func() {
+	scheduler.NewTimer(2*time.Second, func() {
 		m.fsm.Event(common.EV_FAPAI)
 	})
 }
@@ -125,7 +125,7 @@ func (m *MJRoom) onFaPai() {
 			p.setHandTitls(wall.ForwardDrawMulti(setting.HandlCardNum()))
 		}
 	}
-	scheduler.NewTimer(10*time.Second, func() {
+	scheduler.NewTimer(2*time.Second, func() {
 		m.fsm.Event(common.EV_CHUPAI)
 	})
 }

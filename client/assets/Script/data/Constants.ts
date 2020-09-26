@@ -11,7 +11,7 @@ enum EventName {
     LOGIN_RESPONSE = "login_response",
     UPDATE_ROOM_LIST = "update_room_list",
 
-    JOIN_ROOM_RESPONSE = "join_room_response"
+    JOIN_ROOM_RESPONSE = "join_room_response",
 }
 @ccclass
 export default class Constants extends cc.Component {

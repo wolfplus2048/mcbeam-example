@@ -3,9 +3,9 @@ package mgr
 import (
 	"context"
 	"errors"
+	"github.com/micro/go-micro/v2/metadata"
 	"github.com/micro/go-micro/v2/server"
 	"github.com/wolfplus2048/mcbeam-example/room_srv/base"
-	"github.com/wolfplus2048/mcbeam-plus"
 )
 
 type manager struct {
@@ -16,11 +16,16 @@ type manager struct {
 func WrapSession() server.HandlerWrapper {
 	return func(h server.HandlerFunc) server.HandlerFunc {
 		return func(ctx context.Context, req server.Request, rsp interface{}) error {
-			s := mcbeam.GetSessionFromCtx(ctx)
-			ply, ok := Manager.FindPlayer(s.UID())
+			//s := mcbeam.GetSessionFromCtx(ctx)
+			//uid := ctx.Value("mcb-session-uid").(string)
+			uid, ok := metadata.Get(ctx, "mcb-session-uid")
 			if ok {
-				ctx = context.WithValue(ctx, base.PlayerKey{}, ply)
+				ply, ok := Manager.FindPlayer(uid)
+				if ok {
+					ctx = context.WithValue(ctx, base.PlayerKey{}, ply)
+				}
 			}
+
 			return h(ctx, req, rsp)
 		}
 	}

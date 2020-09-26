@@ -34,6 +34,7 @@ func (p *Player) Push(route string, payload interface{}) {
 }
 func (p *Player) SetRoom(r *Room, id int) {
 	p.room = r
+	p.gamePlayer.SetGameRoom(r.GetGameRoom())
 	p.chairId = id
 }
 func (p *Player) GetRoom() *Room {

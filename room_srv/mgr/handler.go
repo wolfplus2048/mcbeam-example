@@ -83,7 +83,8 @@ func (h *Handler) CreateRoomRPC(ctx context.Context, req *proto_room.CreateRoomR
 		}
 		ret <- nil
 	})
-	return res, <-ret
+	err := <- ret
+	return res, err
 }
 func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 	s := mcbeam.GetSessionFromCtx(ctx)

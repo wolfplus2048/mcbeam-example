@@ -15,7 +15,7 @@ require (
 
 replace (
 	google.golang.org/grpc => google.golang.org/grpc v1.26.0
-	github.com/wolfplus2048/mcbeam-plus => d:/Developer/Go/mcbeam/mcbeam-plus
-	gitee.com/microbeam/mcbeam-mind-mahjong =>  d:/Developer/Go/mcbeam/mcbeam-mind-mahjong
+	github.com/wolfplus2048/mcbeam-plus => /Users/wolfplus/Developer/Go/mcbeam/mcbeam-plus
+	gitee.com/microbeam/mcbeam-mind-mahjong => /Users/wolfplus/Developer/Go/mcbeam/mcbeam-mind-mahjong
 
 )

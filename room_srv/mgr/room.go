@@ -84,6 +84,9 @@ func (r *Room) GetUserNum() int {
 func (r *Room) GetGamePlayers() []base.GamePlayer {
 	plys := make([]base.GamePlayer, 0)
 	for _, p := range r.players {
+		if p == nil {
+			continue
+		}
 		plys = append(plys, p.GetGamePlayer())
 	}
 	return plys
@@ -107,4 +110,7 @@ func (r *Room) GetNextPlayer(p base.GamePlayer) base.GamePlayer {
 	}
 	return nil
 
+}
+func (r *Room) GetGameRoom() base.GameRoom {
+	return r.gameRoom
 }

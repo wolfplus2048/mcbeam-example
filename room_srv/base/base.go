@@ -9,6 +9,7 @@ type PlayerKey struct{}
 type BaseRoom interface {
 	GetGamePlayers() []GamePlayer
 	GetNextPlayer(p GamePlayer) GamePlayer
+	GetGameRoom() GameRoom
 }
 type BasePlayer interface {
 	GetChairId() int
@@ -21,6 +22,7 @@ type GameRoom interface {
 }
 type GamePlayer interface {
 	SetBasePlayer(ply BasePlayer)
+	SetGameRoom(r GameRoom)
 }
 
 func GetPlayerFromSession(ctx context.Context) BasePlayer {

@@ -1,4 +1,5 @@
 import CustomEventListener from "../common/CustomEventListener";
+import UIManager from "../common/UIManager";
 // Learn TypeScript:
 //  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
 // Learn Attribute:
@@ -29,14 +30,7 @@ export default class NetManager {
         starx.on("SysError", (ret)=>{
             let err = proto.auth.Error.decode(ret)
             console.log(err)
-        })
-        starx.on("LoginRes", (ret)=>{
-            let res = proto.auth.LoginRes.decode(ret)
-            console.log(res)
-            if(res.code.length <= 0) {
-                PlayerData.instance().init(res.uid, res.username)
-            }
-            CustomEventListener.dispatchEvent(Constants.EventName.LOGIN_RESPONSE, res.code)
+            UIManager.showDialog("dialogTip", null, err.code)
         })
         starx.on("GetRoomListRes", (data)=>{
             let res = proto.mgr.GetRoomListRes.decode(data)
@@ -65,7 +59,14 @@ export default class NetManager {
     public login(username: string) {
         let req = proto.auth.LoginReq.create({username: username})
         let buff = proto.auth.LoginReq.encode(req).finish()
-        starx.notify("auth.handler.login", buff)
+        starx.request("auth.handler.login", buff, (ret)=>{
+            let res = proto.auth.LoginRes.decode(ret)
+            console.log(res)
+            if(res.code.length <= 0) {
+                PlayerData.instance().init(res.uid, res.username)
+            }
+            CustomEventListener.dispatchEvent(Constants.EventName.LOGIN_RESPONSE, res.code)
+        })
     }
     public getRoomList() {
         let req = proto.mgr.GetRoomListReq.create({})
@@ -75,7 +76,7 @@ export default class NetManager {
     public joinRoom(id: string) {
         let req = proto.room.JoinReq.create({id:id})
         let buf = proto.room.JoinReq.encode(req).finish()
-        starx.notify("mgr.handler.joinroom", buf)
+        starx.notify("room.handler.joinroom", buf)
     }
     public createRoom(name: string) {
         let req = proto.mgr.CreateRoomReq.create({name: name})
@@ -83,9 +84,8 @@ export default class NetManager {
         starx.notify("mgr.handler.createroom", buff)
     }
     public ready() {
-        
         let req = proto.mj.ReadyReq.create({})
         let buff = proto.mj.ReadyReq.encode(req).finish()
-        starx.notify("mgr.mjhandler.ready", buff)
+        starx.notify("room.mjhandler.ready", buff)
     }
 }

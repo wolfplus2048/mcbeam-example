@@ -37,6 +37,10 @@ func NewMJPlayer() base.GamePlayer {
 func (p *MJPlayer) SetBasePlayer(ply base.BasePlayer) {
 	p.player = ply
 }
+func (p *MJPlayer) SetGameRoom(r base.GameRoom) {
+	p.room = r.(*MJRoom)
+}
+
 func (p *MJPlayer) getChairId() int {
 	return p.player.GetChairId()
 }
@@ -64,7 +68,7 @@ func (p *MJPlayer) reset() {
 }
 func (p *MJPlayer) reqChuPai() {
 	//send
-	p.push("ChuPaiReq", proto_mj.OperateReq{OpCodes: []int32{common.OP_CHOW}})
+	p.push("OperateReq", proto_mj.OperateReq{OpCodes: []int32{common.OP_CHOW}})
 
 	p.timerId = scheduler.NewTimer(10*time.Second, func() {
 		p.doChuPai(p.handCards[len(p.handCards)-1])
