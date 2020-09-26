@@ -17,13 +17,9 @@ func main() {
 	service := mcbeam.NewService(
 		mcbeam.Name("mgr"),
 		mcbeam.Registry(etcd.NewRegistry()),
-		mcbeam.MicroService(
-			micro.NewService(
-				micro.Store(redis.NewStore()),
-				micro.Broker(nats.NewBroker()),
-				micro.WrapHandler(mgr.WrapSession()),
-			),
-		),
+		mcbeam.Store(redis.NewStore()),
+		mcbeam.Broker(nats.NewBroker()),
+		mcbeam.WrapHandler(mgr.WrapSession()),
 	)
 	if err := service.Init(); err != nil {
 		logger.Fatal(err)
