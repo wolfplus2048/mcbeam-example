@@ -17,8 +17,6 @@ func main() {
 		logger.Fatal(err)
 	}
 	service.Register(&handler.Handler{Client: service.Options().Service.Client()})
-	s := service.Options().Service.Server()
-	s.Subscribe(s.NewSubscriber("mgr.close", &handler.Sub{}))
 	if err := service.Run(); err != nil {
 		logger.Fatal(err)
 	}

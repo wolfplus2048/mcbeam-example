@@ -55,18 +55,27 @@ export default class NetManager {
             console.log(not)
             CustomEventListener.dispatchEvent(Constants.EventName.UPDATE_ROOM_LIST, "del", not)
         })
-    }
-    public login(username: string) {
-        let req = proto.auth.LoginReq.create({username: username})
-        let buff = proto.auth.LoginReq.encode(req).finish()
-        starx.request("auth.handler.login", buff, (ret)=>{
-            let res = proto.auth.LoginRes.decode(ret)
+        starx.on("LoginRes", (ret) => {
+             let res = proto.auth.LoginRes.decode(ret)
             console.log(res)
             if(res.code.length <= 0) {
                 PlayerData.instance().init(res.uid, res.username)
             }
             CustomEventListener.dispatchEvent(Constants.EventName.LOGIN_RESPONSE, res.code)
         })
+    }
+    public login(username: string) {
+        let req = proto.auth.LoginReq.create({username: username})
+        let buff = proto.auth.LoginReq.encode(req).finish()
+        // starx.request("auth.Handler.Login", buff, (ret)=>{
+        //     let res = proto.auth.LoginRes.decode(ret)
+        //     console.log(res)
+        //     if(res.code.length <= 0) {
+        //         PlayerData.instance().init(res.uid, res.username)
+        //     }
+        //     CustomEventListener.dispatchEvent(Constants.EventName.LOGIN_RESPONSE, res.code)
+        // })
+        starx.notify("auth.Handler.Greeting", buff)
     }
     public getRoomList() {
         let req = proto.mgr.GetRoomListReq.create({})
