@@ -13,6 +13,8 @@ contrib.go.opencensus.io/exporter/ocagent v0.4.12/go.mod h1:450APlNTSR6FrvC3CTRq
 dmitri.shuralyov.com/gpu/mtl v0.0.0-20190408044501-666a987793e9/go.mod h1:H6x//7gZCb22OMCxBHrMx7a5I7Hp++hsVxbQ4BYO7hU=
 gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200908091553-ef30f6fa77b9 h1:C/8iDEjyPWYqAncWJG578uPe4aH9dKUme9ju+HvMjWU=
 gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200908091553-ef30f6fa77b9/go.mod h1:l+UoAh9tugsfkJB7/R4z2hVkufQ9KXNm3sz0EbwIznA=
+gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200917122642-288fbda3f32e h1:0Ofdh86EjSi/yfIi2G7NDEzaIr8PjHBUc5SMRk9CIs8=
+gitee.com/microbeam/mcbeam-mind-mahjong v0.0.0-20200917122642-288fbda3f32e/go.mod h1:l+UoAh9tugsfkJB7/R4z2hVkufQ9KXNm3sz0EbwIznA=
 github.com/Azure/azure-sdk-for-go v32.4.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78/go.mod h1:LmzpDX56iTiv29bbRTIsUNlaFfuhWRQBWjQdVyAevI8=
 github.com/Azure/go-autorest/autorest v0.1.0/go.mod h1:AKyIcETwSUFxIcs/Wnq/C+kwCtlEYGUVd7FPNb2slmg=
@@ -465,6 +467,8 @@ github.com/urfave/cli v1.22.2/go.mod h1:Gos4lmkARVdJ6EkW0WaNv/tZAAMe9V7XWyB60NtX
 github.com/vultr/govultr v0.1.4/go.mod h1:9H008Uxr/C4vFNGLqKx232C206GL0PBHzOP0809bGNA=
 github.com/wolfplus2048/mcbeam-plus v0.0.0-20200828083010-23417ffde605 h1:xwX4Ko0T+ac/LRTyxOT4ofQUhbE5vGIVCCSXMlgHx7I=
 github.com/wolfplus2048/mcbeam-plus v0.0.0-20200828083010-23417ffde605/go.mod h1:z6UwOz9UZV1EFYmmxmDk5u9di21uX5Qop73TX2Boi0Q=
+github.com/wolfplus2048/mcbeam-plus v0.1.0 h1:7ax23Tq6/eqEuZaftLMZ1pONNyXSCIxrWAyB2vu2gdM=
+github.com/wolfplus2048/mcbeam-plus v0.1.0/go.mod h1:iwhIbp4HmIshUedgOZgfh7vURR+kCSs0fpTC4sVfMfU=
 github.com/xanzy/ssh-agent v0.2.1 h1:TCbipTQL2JiiCprBWx9frJ2eJlCYT00NmctrHxVAr70=
 github.com/xanzy/ssh-agent v0.2.1/go.mod h1:mLlQY/MoOhWBj+gOGMQkOeiEvkx+8pJSI+0Bx9h2kr4=
 github.com/xeipuuv/gojsonpointer v0.0.0-20180127040702-4e3ac2762d5f/go.mod h1:N2zxlSyiKSe5eX1tZViRH5QA0qijqEDrYZiPEAiq3wU=

@@ -13,7 +13,6 @@ import (
 )
 
 func main() {
-	logger.Init(logger.WithLevel(logger.DebugLevel))
 	scheduler.Init(scheduler.WithLogicChan((base.GetLogicChan())))
 	service := mcbeam.NewService(
 		mcbeam.Name("room"),

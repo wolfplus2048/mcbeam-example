@@ -25,7 +25,6 @@ func WrapSession() server.HandlerWrapper {
 					ctx = context.WithValue(ctx, base.PlayerKey{}, ply)
 				}
 			}
-
 			return h(ctx, req, rsp)
 		}
 	}

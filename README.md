@@ -12,9 +12,12 @@ run nats, etcd, gate
 docker-compose up -d
 mcbeam --registry=etcd gate
 ```
-run server
+generate proto
 ```
 make proto
+```
+run server
+```
 go run auth_srv/main.go --registry=etcd
 go run mgr_srv/main.go --registry=etcd
 go run room_srv/main.go --registry=etcd
