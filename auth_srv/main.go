@@ -14,7 +14,6 @@ func init() {
 	cmd.DefaultStores["redis"] = redis.NewStore
 }
 func main() {
-	logger.Init(logger.WithLevel(logger.DebugLevel))
 	service := mcbeam.NewService(
 		mcbeam.Name("auth"),
 		mcbeam.Registry(etcd.NewRegistry()),

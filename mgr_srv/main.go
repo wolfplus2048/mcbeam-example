@@ -8,7 +8,6 @@ import (
 )
 
 func main() {
-	logger.Init(logger.WithLevel(logger.DebugLevel))
 	service := mcbeam.NewService(
 		mcbeam.Name("mgr"),
 		mcbeam.Registry(etcd.NewRegistry()),
@@ -16,7 +15,7 @@ func main() {
 	if err := service.Init(); err != nil {
 		logger.Fatal(err)
 	}
-	service.Register(&handler.Handler{Client: service.Options().Service.Client()})
+	service.Register(&handler.Handler{Client: service.Client()})
 	if err := service.Run(); err != nil {
 		logger.Fatal(err)
 	}
