@@ -1,0 +1,11 @@
+app:
+  name: auth_srv
+  version: v0.1.1
+  item:
+    -
+      id: 0
+      name: company1
+      price: 100
+    -
+      id: 0
+      name: company2

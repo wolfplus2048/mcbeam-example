@@ -2,9 +2,9 @@ package main
 
 import (
 	"github.com/micro/go-micro/v2/broker/nats"
+	"github.com/micro/go-micro/v2/config"
 	"github.com/micro/go-micro/v2/config/cmd"
-	"github.com/micro/go-micro/v2/config/encoder/toml"
-	"github.com/micro/go-micro/v2/config/source"
+	"github.com/micro/go-micro/v2/config/source/env"
 	"github.com/micro/go-micro/v2/config/source/file"
 	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry/etcd"
@@ -15,6 +15,10 @@ import (
 
 func init() {
 	cmd.DefaultStores["redis"] = redis.NewStore
+	config.Load(
+		file.NewSource(file.WithPath("config.yaml")),
+		env.NewSource(),
+	)
 }
 func main() {
 	service := mcbeam.NewService(
@@ -27,11 +31,11 @@ func main() {
 	if err := service.Init(); err != nil {
 		logger.Fatal(err)
 	}
-	c := service.Options().Service.Options().Config
-	err := c.Load(file.NewSource(
-		file.WithPath("auth_srv/config.toml"),
-		source.WithEncoder(toml.NewEncoder())))
-	logger.Debugf("app.name:%s, %v", c.Get("app"), err)
+
+	logger.Debugf("app.name: %s", config.Get("app", "name").String(""))
+	logger.Debugf("app.version: %s", config.Get("app", "version").String(""))
+	logger.Debugf("app.url: %s", config.Get("app", "url").String(""))
+
 	service.Register(&handler.Handler{Service: service.Options().Service})
 	if err := service.Run(); err != nil {
 		logger.Fatal(err)
