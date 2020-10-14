@@ -67,34 +67,34 @@ export default class NetManager {
     public login(username: string) {
         let req = proto.auth.LoginReq.create({username: username})
         let buff = proto.auth.LoginReq.encode(req).finish()
-        // starx.request("auth.Handler.Login", buff, (ret)=>{
-        //     let res = proto.auth.LoginRes.decode(ret)
-        //     console.log(res)
-        //     if(res.code.length <= 0) {
-        //         PlayerData.instance().init(res.uid, res.username)
-        //     }
-        //     CustomEventListener.dispatchEvent(Constants.EventName.LOGIN_RESPONSE, res.code)
-        // })
-        starx.notify("auth.Handler.Greeting", buff)
+        starx.request("auth.Handler.Login", buff, (ret)=>{
+            let res = proto.auth.LoginRes.decode(ret)
+            console.log(res)
+            if(res.code.length <= 0) {
+                PlayerData.instance().init(res.uid, res.username)
+            }
+            CustomEventListener.dispatchEvent(Constants.EventName.LOGIN_RESPONSE, res.code)
+        })
+        //starx.notify("auth.Handler.Login", buff)
     }
     public getRoomList() {
         let req = proto.mgr.GetRoomListReq.create({})
         let buff = proto.mgr.GetRoomListReq.encode(req).finish()
-        starx.notify("mgr.handler.getroomlist", buff)
+        starx.notify("mgr.Handler.GetRoomList", buff)
     }
     public joinRoom(id: string) {
         let req = proto.room.JoinReq.create({id:id})
         let buf = proto.room.JoinReq.encode(req).finish()
-        starx.notify("room.handler.joinroom", buf)
+        starx.notify("room.Handler.JoinRoom", buf)
     }
     public createRoom(name: string) {
         let req = proto.mgr.CreateRoomReq.create({name: name})
         let buff = proto.mgr.CreateRoomReq.encode(req).finish()
-        starx.notify("mgr.handler.createroom", buff)
+        starx.notify("mgr.Handler.CreateRoom", buff)
     }
     public ready() {
         let req = proto.mj.ReadyReq.create({})
         let buff = proto.mj.ReadyReq.encode(req).finish()
-        starx.notify("room.mjhandler.ready", buff)
+        starx.notify("room.MJHandler.Ready", buff)
     }
 }

@@ -9,7 +9,8 @@ import (
 
 func main() {
 	logger.Init(logger.WithLevel(logger.DebugLevel))
-	service := micro.NewService(micro.Server(grpc.NewServer()))
+	service := micro.NewService(micro.Server(grpc.NewServer())
+	micro.WrapHandler())
 	service.Init()
 	service.Server().Handle(service.Server().NewHandler(&handler.Handler{Service: service}))
 	service.Run()

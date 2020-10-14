@@ -46,7 +46,7 @@ func (h *MJHandler) BeforeShutdown() {
 func (h *MJHandler) Shutdown() {
 }
 
-func (h *MJHandler) Ready(ctx context.Context, req *proto_mj.ReadyReq) {
+func (h *MJHandler) Ready(ctx context.Context, req *proto_mj.ReadyReq) error {
 	base.Run(func() {
 		ply := getMJPlayerFromCtx(ctx)
 		if ply == nil || ply.room == nil {
@@ -55,15 +55,15 @@ func (h *MJHandler) Ready(ctx context.Context, req *proto_mj.ReadyReq) {
 		ply.doReady()
 		ply.room.tryBegin()
 	})
-
+	return nil
 }
 
-func (h *MJHandler) Operate(ctx context.Context, res *proto_mj.OperateRes) {
+func (h *MJHandler) Operate(ctx context.Context, res *proto_mj.OperateRes) error {
 	base.Run(func() {
 		p := getMJPlayerFromCtx(ctx)
 		if res.OpCode == (int32)(common.OP_CHOW) {
 			p.doChuPai(int(res.Cards[0]))
 		}
 	})
-
+	return nil
 }

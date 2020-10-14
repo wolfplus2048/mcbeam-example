@@ -61,9 +61,8 @@ func (h *Handler) BeforeShutdown() {
 func (h *Handler) Shutdown() {
 }
 
-func (h *Handler) CreateRoomRPC(ctx context.Context, req *proto_room.CreateRoomReq) (*proto_room.CreateRoomRes, error) {
+func (h *Handler) CreateRoomRPC(ctx context.Context, req *proto_room.CreateRoomReq, rsp *proto_room.CreateRoomRes) error {
 	ret := make(chan error)
-	var res *proto_room.CreateRoomRes
 
 	base.Run(func() {
 		logger.Debugf("crateRoom %s", req.Name)
@@ -73,20 +72,18 @@ func (h *Handler) CreateRoomRPC(ctx context.Context, req *proto_room.CreateRoomR
 			ret <- err
 			return
 		}
-		res = &proto_room.CreateRoomRes{
-			Room: &proto_room.Room{
-				Id:    r.Id,
-				Name:  r.Name,
-				Users: r.GetUsers(),
-			},
-			ServerId: h.service.Options().Server.Options().Name + "-" + h.service.Options().Server.Options().Id,
+		rsp.Room = &proto_room.Room{
+			Id:    r.Id,
+			Name:  r.Name,
+			Users: r.GetUsers(),
 		}
+		rsp.ServerId = h.service.Options().Server.Options().Name + "-" + h.service.Options().Server.Options().Id
 		ret <- nil
 	})
 	err := <-ret
-	return res, err
+	return err
 }
-func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
+func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) error {
 	s := mcbeam.GetSessionFromCtx(ctx)
 	st := h.service.Options().Store
 	res, err := st.Read(s.UID(), store.ReadFrom("cache", "user"))
@@ -94,7 +91,7 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 		s.Push("JoinRes", &proto_room.JoinRes{
 			Code: "invalidate user",
 		})
-		return
+		return nil
 	}
 
 	base.Run(func() {
@@ -130,4 +127,5 @@ func (h *Handler) JoinRoom(ctx context.Context, req *proto_room.JoinReq) {
 			},
 		})
 	})
+	return nil
 }

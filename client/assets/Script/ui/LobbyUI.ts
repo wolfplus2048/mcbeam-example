@@ -21,8 +21,8 @@ export default class LobbyUI extends cc.Component {
     @property(cc.ScrollView)
     roomList: cc.ScrollView = null;
 
-    @property(cc.Label)
-    roomName: cc.Label = null
+    @property(cc.EditBox)
+    roomName: cc.EditBox = null
 
     @property(cc.Label)
     title: cc.Label = null

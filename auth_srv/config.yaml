@@ -9,3 +9,39 @@ app:
     -
       id: 0
       name: company2
+
+
+----
+guid:
+  nickname:
+  faceUri:
+  female:
+  createAt:
+  lastLogin:
+  auth:
+    -
+      type:
+      account:
+      ticket:
+      create:
+      lastLogin:
+      app:
+    -
+      type:
+      account:
+      ticket:
+
+
+---
+guid:
+address:[]
+
+
+
+zxddz-lobby-api
+  zxddz-lobby-login-srv
+  zxddz-lobby-f1-srv
+  szddz-lobby-f2-srv
+
+zxddz-server-manager-srv ---redis
+zxddz-server-game-srv

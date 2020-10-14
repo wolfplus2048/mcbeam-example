@@ -45,7 +45,7 @@ func (h *Handler) Greeting(ctx context.Context, req *proto_auth.LoginReq) error 
 func (h *Handler) Login(ctx context.Context, req *proto_auth.LoginReq, rsp *proto_auth.LoginRes) error {
 	logger.Infof("user login: %s", req.Username)
 	rsp.Uid = uuid.New().String()
-	rsp.Username = "login " + req.Username
+	rsp.Username = req.Username
 	err := h.Service.Options().Store.Write(&store.Record{
 		Key:   rsp.Uid,
 		Value: []byte(req.Username),
@@ -53,6 +53,10 @@ func (h *Handler) Login(ctx context.Context, req *proto_auth.LoginReq, rsp *prot
 	if err != nil {
 		rsp.Code = err.Error()
 		logger.Infof("store session err:%s", err.Error())
+	}
+	s := mcbeam.GetSessionFromCtx(ctx)
+	if s != nil {
+		s.Bind(ctx, rsp.Uid)
 	}
 	return nil
 }

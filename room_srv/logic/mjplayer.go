@@ -135,7 +135,7 @@ func (p *MJPlayer) canOperate(target int, c int) []common.OpCode {
 	if setting.EnableChow() {
 
 	}
-	if win.CanWin(p.handCards, []int{}) {
+	if ids := win.CanWin(p.handCards, []int{}); len(ids) > 0 {
 		ops = append(ops, common.OP_WIN)
 	}
 	return ops

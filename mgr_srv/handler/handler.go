@@ -45,7 +45,7 @@ func (h Handler) BeforeShutdown() {
 func (h Handler) Shutdown() {
 }
 
-func (h *Handler) GetRoomList(ctx context.Context, req *proto_mgr.GetRoomListReq) {
+func (h *Handler) GetRoomList(ctx context.Context, req *proto_mgr.GetRoomListReq) error {
 	s := mcbeam.GetSessionFromCtx(ctx)
 	rsp := &proto_mgr.GetRoomListRes{
 		Rooms: make([]*proto_mgr.Room, 0),
@@ -60,20 +60,20 @@ func (h *Handler) GetRoomList(ctx context.Context, req *proto_mgr.GetRoomListReq
 		return true
 	})
 	s.Push("GetRoomListRes", rsp)
-
+	return nil
 }
-func (h *Handler) CreateRoom(ctx context.Context, req *proto_mgr.CreateRoomReq) {
+func (h *Handler) CreateRoom(ctx context.Context, req *proto_mgr.CreateRoomReq) error {
 	md, _ := metadata.FromContext(ctx)
 	logger.Infof("Mgr CreateRoom:%s, remote ip:%s, local ip:%s", req.Name, md["Remote"], md["Local"])
 	s := mcbeam.GetSessionFromCtx(ctx)
 	arg := &proto_room.CreateRoomReq{Name: req.Name}
 	rsp := &proto_room.CreateRoomRes{}
-	err := mcbeam.RPC(context.Background(), h.Client, "room.handler.createroomrpc", arg, rsp)
+	err := mcbeam.RPC(context.Background(), h.Client, "room.Handler.CreateRoomRPC", arg, rsp)
 	if err != nil {
 		s.Push("createroom", &proto_mgr.CreateRoomRes{
 			Code: err.Error(),
 		})
-		return
+		return nil
 	}
 	s.Push("CreateRoomRes", &proto_mgr.CreateRoomRes{
 		Room: &proto_mgr.Room{
@@ -88,4 +88,5 @@ func (h *Handler) CreateRoom(ctx context.Context, req *proto_mgr.CreateRoomReq) 
 		name:     rsp.Room.Name,
 		serverId: rsp.ServerId,
 	})
+	return nil
 }

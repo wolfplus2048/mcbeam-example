@@ -16,8 +16,8 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class LoginUI extends cc.Component {
-    @property(cc.Label)
-    username : cc.Label = null
+    @property(cc.EditBox)
+    username : cc.EditBox = null
     @property(cc.ProgressBar)
     loadingBar: cc.ProgressBar = null
 
