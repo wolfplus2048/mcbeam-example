@@ -10,7 +10,7 @@ require (
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/micro/go-plugins/store/redis/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2 v2.9.1
-	github.com/wolfplus2048/mcbeam-plus v0.1.3
+	github.com/wolfplus2048/mcbeam-plus v0.1.5
 	google.golang.org/protobuf v1.25.0
 )
 
