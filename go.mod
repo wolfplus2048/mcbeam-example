@@ -9,11 +9,13 @@ require (
 	github.com/looplab/fsm v0.2.0
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/micro/go-plugins/store/redis/v2 v2.9.1
-	github.com/wolfplus2048/mcbeam-plus latest
+	github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2 v2.9.1
+	github.com/wolfplus2048/mcbeam-plus v0.1.3
 	google.golang.org/protobuf v1.25.0
 )
 
+
 replace (
-//	github.com/wolfplus2048/mcbeam-plus => /Users/wolfplus/Developer/Go/mcbeam/mcbeam-plus
-	google.golang.org/grpc => google.golang.org/grpc v1.26.0
+google.golang.org/grpc => google.golang.org/grpc v1.26.0
+github.com/wolfplus2048/mcbeam-plus => /Users/wolfplus/Developer/Go/mcbeam/mcbeam-plus
 )
