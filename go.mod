@@ -17,5 +17,5 @@ require (
 
 replace (
 google.golang.org/grpc => google.golang.org/grpc v1.26.0
-github.com/wolfplus2048/mcbeam-plus => /Users/wolfplus/Developer/Go/mcbeam/mcbeam-plus
+//github.com/wolfplus2048/mcbeam-plus => /Users/wolfplus/Developer/Go/mcbeam/mcbeam-plus
 )
