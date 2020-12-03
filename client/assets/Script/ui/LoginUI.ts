@@ -10,6 +10,7 @@ import Constants from "../data/Constants";
 
 import NetManager from "../data/NetManager";
 import PlayerData from "../data/PlayerData";
+import { helloworld } from "../libs/helloworld";
 import { proto } from "../libs/proto";
 
 const {ccclass, property} = cc._decorator;
@@ -21,6 +22,7 @@ export default class LoginUI extends cc.Component {
     @property(cc.ProgressBar)
     loadingBar: cc.ProgressBar = null
 
+    serverID: string
     onLoad() {
         this.username.string = "wolfplus"
     }
@@ -43,8 +45,34 @@ export default class LoginUI extends cc.Component {
             UIManager.showDialog("dialogTip", null, "请输入用户名")
             return
         }
-
         NetManager.instance().login(this.username.string)
+    }
+    public CallTest(username:string) {
+        let req = helloworld.Request.create({name:username})
+        let buff = helloworld.Request.encode(req).finish()
+        starx.request("helloworld.Helloworld.Call", buff, (ret)=>{
+            let rsp = helloworld.Response.decode(ret)
+            console.log(rsp)
+        })
+    }
+    public JoinTest(username:string) {
+        
+        let req = helloworld.Empty.create()
+        let buff = helloworld.Empty.encode(req).finish()
+
+        starx.request("helloworld.Helloworld.Join", buff, (ret)=>{
+            let rsp = helloworld.Response.decode(ret)
+            console.log(rsp)
+            this.serverID = rsp.msg
+
+        })
+    }
+
+    public NotifyTest(){
+        let req = helloworld.Request.create({name:this.serverID})
+        let buff = helloworld.Request.encode(req).finish()
+
+        starx.notify(this.serverID + ".helloworld.Helloworld.Notify", buff)
     }
     onLogin(...args:string[]) {
         console.log("onLogin: ", args)

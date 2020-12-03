@@ -1,5 +1,6 @@
 import CustomEventListener from "../common/CustomEventListener";
 import UIManager from "../common/UIManager";
+import { helloworld } from "../libs/helloworld";
 // Learn TypeScript:
 //  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
 // Learn Attribute:
@@ -24,13 +25,18 @@ export default class NetManager {
         return this._instance
     }
     public init() {
-        starx.init({host:"127.0.0.1", port:"3250", path:"/ws"}, (data)=>{
+
+        starx.init({host:"mars.mcbeam.cc", port:"80", path:"/websocket"}, (data)=>{
             console.log("connected to server")
         })
+        starx.on("Notify", (ret)=>{
+            let rsp = helloworld.Response.decode(ret)
+            console.log("Notify", rsp)
+        })
         starx.on("SysError", (ret)=>{
-            let err = proto.auth.Error.decode(ret)
-            console.log(err)
-            UIManager.showDialog("dialogTip", null, err.code)
+            let err = helloworld.Error.decode(ret)
+            console.log("SysError:", err)
+            UIManager.showDialog("dialogTip", null, err.code+err.detail)
         })
         starx.on("GetRoomListRes", (data)=>{
             let res = proto.mgr.GetRoomListRes.decode(data)
@@ -62,6 +68,14 @@ export default class NetManager {
                 PlayerData.instance().init(res.uid, res.username)
             }
             CustomEventListener.dispatchEvent(Constants.EventName.LOGIN_RESPONSE, res.code)
+        })
+    }
+    public calltest(username:string) {
+        let req = helloworld.Request.create({name:username})
+        let buff = helloworld.Request.encode(req).finish()
+        starx.request("helloworld.Helloworld.Call", buff, (ret)=>{
+            let rsp = helloworld.Response.decode(ret)
+            console.log(rsp)
         })
     }
     public login(username: string) {
