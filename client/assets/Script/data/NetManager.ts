@@ -26,7 +26,10 @@ export default class NetManager {
     }
     public init() {
 
-        starx.init({host:"mars.mcbeam.cc", port:"80", path:"/websocket"}, (data)=>{
+        // starx.init({host:"mars.mcbeam.cc", port:"80", path:"/websocket"}, (data)=>{
+        //     console.log("connected to server")
+        // })
+        starx.init({host:"127.0.0.1", port:"3250", path:""}, (data)=>{
             console.log("connected to server")
         })
         starx.on("Notify", (ret)=>{
